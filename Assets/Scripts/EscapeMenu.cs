@@ -6,7 +6,6 @@ public class EscapeMenu : MonoBehaviour {
 
 	public Transform canvas;
 
-
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 
