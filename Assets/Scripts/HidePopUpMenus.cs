@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class HidePopUpMenus : MonoBehaviour
 {
   public Transform newGameMenu;
-  // public Transform loadGameMenu; //will assign later
+  public Transform loadGameMenu;
   // public Transform saveGameMenu; //will assign later
   
 	void Start()
 	{
     newGameMenu.gameObject.SetActive(false);
-    // loadGameMenu.gameObject.SetActive(false);
+    loadGameMenu.gameObject.SetActive(false);
     // saveGameMenu.gameObject.SetActive(false);
 	}
 

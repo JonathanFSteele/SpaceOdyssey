@@ -8,11 +8,17 @@ using UnityEngine.SceneManagement;
 public class ShowSubMenusScript : MonoBehaviour
 {
 	public Transform newGameMenu;
+	public Transform loadGameMenu;
 
 
 	public void ShowNewGameMenu()
 	{
 		newGameMenu.gameObject.SetActive(true);
 	}	
+
+	public void ShowLoadGameMenu()
+	{
+		loadGameMenu.gameObject.SetActive(true);
+	}
 
 }
