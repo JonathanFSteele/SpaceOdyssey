@@ -8,41 +8,44 @@ using UnityEngine.SceneManagement;
 //Is a class that will hold the show and hiding of menus (Excluding the Encounter Menu Popups)
 public class ShowAndHideUI : MonoBehaviour
 {
-	public Transform newGameMenu;
-	public Transform loadGameMenu;
-	// public Transform saveGameMenu; //will assign later
-	public Transform viewShipUI;
-	public Transform escapeMenu;  
+	public Transform NewSaveGameUI;
+	public Transform LoadGameUI;
+	public Transform ShipStatsUI;
+	public Transform MenuUI;  
+
+	void Update () {
+
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			if (MenuUI.gameObject.activeInHierarchy == false){ //if menu isnt up.    
+				MenuUI.gameObject.SetActive(true);
+				Time.timeScale = 0;
+			}
+			else {
+				MenuUI.gameObject.SetActive(false);
+				Time.timeScale = 1;
+			}
+		}
+	}
 
 
-	public void ShowNewGameMenuTF(bool value)
+	public void ShowNewAndSaveGameMenuTF(bool value)
 	{
-		newGameMenu.gameObject.SetActive(value);
-	}	
+		NewSaveGameUI.gameObject.SetActive(value);
+	}
 
 	public void ShowLoadGameMenuTF(bool value)
 	{
-		loadGameMenu.gameObject.SetActive(value);
+		LoadGameUI.gameObject.SetActive(value);
 	}
 
-
-
-	public void hitShipButtonToggle()
-	{	
-		if(viewShipUI.gameObject.activeSelf == false)
-			viewShipUI.gameObject.SetActive(true);
-		else
-			viewShipUI.gameObject.SetActive(false);
-	}	
-
-	public void hitMenuButton () 
+	public void ShowMenuTF(bool value)
 	{
-			escapeMenu.gameObject.SetActive(true);
+		MenuUI.gameObject.SetActive(value);
 	}
 
-	public void hitResumeButton () 
+	public void ShowShipStatsTF(bool value)
 	{
-			escapeMenu.gameObject.SetActive(false);
+		ShipStatsUI.gameObject.SetActive(value);
 	}
 
 }
