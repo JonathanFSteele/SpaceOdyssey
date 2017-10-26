@@ -9,6 +9,15 @@ public class Player : MonoBehaviour {
 	public int attack = 6;
 	public int defense = 4;
 
+
+	public int credits;
+	public int sceneID;
+	public int encounterIndex;
+	public Captain playerCaptain;
+	public Ship playerShip;
+	public CrewMember[] playerCrew;
+	public Item[] inventory;
+
 	public void Save()
 	{
 		SaveAndLoadManager.SavePlayer(this);
