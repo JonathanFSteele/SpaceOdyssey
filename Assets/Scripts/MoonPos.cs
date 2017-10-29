@@ -7,19 +7,17 @@ public class MoonPos : MonoBehaviour {
 	public Vector2[] MoonPosition;
 	public int moonStart;
 	int moonCont;
-	float MoonPhaseChange;
-	float BetweenMoonPhase = 5;
+
 
 	// Use this for initialization
 	void Start () {
-		transform.localPosition = MoonPosition [moonStart];
 		moonCont = moonStart;
-		MoonPhaseChange = Time.deltaTime * 1/BetweenMoonPhase;
+		transform.localPosition = MoonPosition [moonStart];
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.localPosition = MoonPosition [moonCont % 8];
+		transform.localPosition = MoonPosition [moonCont];
 	}
 
 	public void MoonMove( int moonPos) {
@@ -27,7 +25,12 @@ public class MoonPos : MonoBehaviour {
 	}
 
 	public void NextMoonPos() {
-		transform.localPosition = MoonPosition [ (++moonCont) % 8];
+		moonCont = ++moonCont % 8;
+		transform.localPosition = MoonPosition [ (moonCont)];
+	}
+
+	public int GetMoonPos() {
+		return moonCont;
 	}
 		
 }
