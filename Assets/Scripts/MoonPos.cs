@@ -19,16 +19,15 @@ public class MoonPos : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.deltaTime >= MoonPhaseChange) {
-			MoonMove (moonCont++ % 8);
-			MoonPhaseChange = BetweenMoonPhase + Time.time;
-		}
+		transform.localPosition = MoonPosition [moonCont % 8];
 	}
 
-	void MoonMove( int moonPos) {
+	public void MoonMove( int moonPos) {
 		transform.localPosition = MoonPosition [moonPos];
 	}
 
-
-
+	public void NextMoonPos() {
+		transform.localPosition = MoonPosition [ (++moonCont) % 8];
+	}
+		
 }
