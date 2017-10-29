@@ -10,8 +10,11 @@ public class ShowAndHideUI : MonoBehaviour
 {
 	public Transform NewSaveGameUI;
 	public Transform LoadGameUI;
-	public Transform ShipStatsUI;
 	public Transform MenuUI;  
+	public Transform MapUI;
+	public Transform ShipUI;
+	public Transform LogUI;
+	public Transform CrewUI;
 
 	void Update () {
 
@@ -43,9 +46,24 @@ public class ShowAndHideUI : MonoBehaviour
 		MenuUI.gameObject.SetActive(value);
 	}
 
-	public void ShowShipStatsTF(bool value)
+	public void ShowMapTF(bool value)
 	{
-		ShipStatsUI.gameObject.SetActive(value);
+		NewSaveGameUI.gameObject.SetActive(value);
+	}
+
+	public void ShowShipTF(bool value)
+	{
+		ShipUI.gameObject.SetActive(value);
+	}
+
+	public void ShowCrewTF(bool value)
+	{
+		LogUI.gameObject.SetActive(value);
+	}
+
+	public void ShowLogTF(bool value)
+	{
+		CrewUI.gameObject.SetActive(value);
 	}
 
 }
