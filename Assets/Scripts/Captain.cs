@@ -9,7 +9,7 @@ using System.IO;
 public class Captain {
 
 	public string captainName;
-	//public Sprite captainPicture; //Get this to work ZACH
+	public string captainPicture;
 	public int medBonus;
 	public int combatBonus;
 	public int charsmaBonus;
