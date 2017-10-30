@@ -12,14 +12,15 @@ public class Player : MonoBehaviour {
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
 
-	public void Save()
+	public void Save(int Id)
 	{
-		SaveAndLoadManager.SavePlayer(this);
+		Debug.Log("Save(" + Id + ")");
+		SaveAndLoadManager.SavePlayer(this, Id);
 	}
 
-	public void Load()
+	public void Load(int Id)
 	{
-		PlayerData loadedStats = SaveAndLoadManager.LoadPlayer();
+		PlayerData loadedStats = SaveAndLoadManager.LoadPlayer(Id);
 		credits = loadedStats.credits;
 		sceneID = loadedStats.sceneID;
 		encounterIndex = loadedStats.encounterIndex;

@@ -8,33 +8,110 @@ using System.IO;
 public static class SaveAndLoadManager {
 
 	//Saving Functionality
-	public static void SavePlayer(Player player){
+	public static void SavePlayer(Player player, int saveSlot){
 		Debug.Log("Saving Player Data");
 		BinaryFormatter bf = new BinaryFormatter();
-		FileStream stream = new FileStream(Application.persistentDataPath + "/player.sav", FileMode.Create);
 
-		PlayerData data = new PlayerData (player);
+		if (saveSlot == 0) {
 
-		bf.Serialize(stream, data);
-		stream.Close();
+			FileStream stream = new FileStream (Application.persistentDataPath + "/player0.sav", FileMode.Create);
 
+			PlayerData data = new PlayerData (player);
+
+			bf.Serialize (stream, data);
+			stream.Close ();
+		} else if(saveSlot == 1) {
+
+			FileStream stream = new FileStream (Application.persistentDataPath + "/player1.sav", FileMode.Create);
+
+			PlayerData data = new PlayerData (player);
+
+			bf.Serialize (stream, data);
+			stream.Close ();
+		} else if(saveSlot == 2) {
+
+			FileStream stream = new FileStream (Application.persistentDataPath + "/player2.sav", FileMode.Create);
+
+			PlayerData data = new PlayerData (player);
+
+			bf.Serialize (stream, data);
+			stream.Close ();
+		} else if(saveSlot == 3) {
+
+			FileStream stream = new FileStream (Application.persistentDataPath + "/player3.sav", FileMode.Create);
+
+			PlayerData data = new PlayerData (player);
+
+			bf.Serialize (stream, data);
+			stream.Close ();
+		}
 	}
 
-	public static PlayerData LoadPlayer() {
-		if (File.Exists (Application.persistentDataPath + "/player.sav")) {
-			Debug.Log("Loading Player Data");
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream stream = new FileStream (Application.persistentDataPath + "/player.sav", FileMode.Open);
+	public static PlayerData LoadPlayer(int loadSlot) {
+		if (loadSlot == 0) {
+			if (File.Exists (Application.persistentDataPath + "/player0.sav")) {
+				Debug.Log ("Loading Player Data");
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream stream = new FileStream (Application.persistentDataPath + "/player0.sav", FileMode.Open);
 
-			PlayerData data = bf.Deserialize (stream) as PlayerData;
+				PlayerData data = bf.Deserialize (stream) as PlayerData;
 
-			stream.Close ();
-			//return data.stats;
-			return data;
+				stream.Close ();
+				//return data.stats;
+				return data;
+			} else {
+				Debug.LogError ("File Does not Exist");
+
+				return new PlayerData ();
+			}
+		} else if(loadSlot == 1) {
+			if (File.Exists (Application.persistentDataPath + "/player1.sav")) {
+				Debug.Log ("Loading Player Data");
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream stream = new FileStream (Application.persistentDataPath + "/player1.sav", FileMode.Open);
+
+				PlayerData data = bf.Deserialize (stream) as PlayerData;
+
+				stream.Close ();
+				//return data.stats;
+				return data;
+			} else {
+				Debug.LogError ("File Does not Exist");
+
+				return new PlayerData ();
+			}
+		} else if(loadSlot == 2) {
+			if (File.Exists (Application.persistentDataPath + "/player2.sav")) {
+				Debug.Log ("Loading Player Data");
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream stream = new FileStream (Application.persistentDataPath + "/player2.sav", FileMode.Open);
+
+				PlayerData data = bf.Deserialize (stream) as PlayerData;
+
+				stream.Close ();
+				//return data.stats;
+				return data;
+			} else {
+				Debug.LogError ("File Does not Exist");
+
+				return new PlayerData ();
+			}
 		} else {
-			Debug.LogError("File Does not Exist");
+			if (File.Exists (Application.persistentDataPath + "/player3.sav")) {
+				Debug.Log ("Loading Player Data");
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream stream = new FileStream (Application.persistentDataPath + "/player3.sav", FileMode.Open);
 
-			return new PlayerData();
+				PlayerData data = bf.Deserialize (stream) as PlayerData;
+
+				stream.Close ();
+				//return data.stats;
+				return data;
+			} else {
+				Debug.LogError ("File Does not Exist");
+
+				return new PlayerData ();
+			}
 		}
 	}
 }
@@ -43,7 +120,6 @@ public static class SaveAndLoadManager {
 [Serializable]
 public class PlayerData {
 
-	//public int[] stats;
 	public int credits;
 	public int sceneID;
 	public int encounterIndex;
@@ -72,13 +148,6 @@ public class PlayerData {
 //		playerShip = player.playerShip;
 //		playerCrew = player.playerCrew;
 //		inventory = player.inventory;
-
-
-//		stats = new int[4];
-//		stats [0] = player.level;
-//		stats [1] = player.health;
-//		stats [2] = player.attack;
-//		stats [3] = player.defense;
 	}
 
 }

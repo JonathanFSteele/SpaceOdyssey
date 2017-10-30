@@ -20,6 +20,8 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		Debug.Log ("Are you allowing a new Game?: " + value);
 		if (value == true) {
 			Debug.Log ("Starting New Game on Game Slot: " + CurrentSelectedSlot);
+			Player player = FindObjectOfType<Player>().GetComponent<Player>();
+			player.Save (CurrentSelectedSlot);
 			//NewGame Functionality
 			SceneManager.LoadScene ("Safezone");
 		} else {
@@ -28,9 +30,11 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		}
 	}
 
-	public void LoadGame()
+	public void LoadGame(int value)
 	{
-		Debug.Log ("Loading Game on Game Slot: " + CurrentSelectedSlot);
+		Debug.Log ("Loading Game on Game Slot: " + value);
+		Player player = FindObjectOfType<Player>().GetComponent<Player>();
+		player.Load (value);
 		//Load Functionality
 		SceneManager.LoadScene ("Safezone");
 	}
