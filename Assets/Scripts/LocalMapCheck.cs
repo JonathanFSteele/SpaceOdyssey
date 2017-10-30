@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class LocalMapCheck : MonoBehaviour {
 
+	public GameObject localMapButton;
 	// Use this for initialization
 	void Start () {
 		

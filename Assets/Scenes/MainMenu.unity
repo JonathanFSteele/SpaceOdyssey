@@ -1149,6 +1149,7 @@ Transform:
   m_Children:
   - {fileID: 1433093819}
   - {fileID: 1250179207}
+  - {fileID: 1452456317}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1734,6 +1735,11 @@ MonoBehaviour:
   credits: 10000
   sceneID: 0
   encounterIndex: 0
+  playerCaptain:
+    captainName: 
+    medBonus: 0
+    combatBonus: 0
+    charsmaBonus: 0
 --- !u!4 &1433093819
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,6 +1753,102 @@ Transform:
   m_Father: {fileID: 1090226507}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1452456316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1452456317}
+  - component: {fileID: 1452456318}
+  - component: {fileID: 1452456321}
+  - component: {fileID: 1452456320}
+  - component: {fileID: 1452456319}
+  m_Layer: 0
+  m_Name: ImageLibraries
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452456317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452456316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1090226507}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452456318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452456316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fab4e7209b8a2459a8d677091e7078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: cptCool
+    group: {fileID: 21300000, guid: bb9ddc9f42a724c7e9d7182bb8057412, type: 3}
+  - groupID: cptCpt
+    group: {fileID: 21300000, guid: 733050ac936da4a5b912f35859575713, type: 3}
+  - groupID: cptDonny
+    group: {fileID: 21300000, guid: 34cbc143bef8543dd8e1fca1b9d6ce2a, type: 3}
+--- !u!114 &1452456319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452456316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1a42ee88aa704dada68e7e14f198f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups: []
+--- !u!114 &1452456320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452456316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08578cd233b952c4fb51ac3723cd5fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: Garfield
+    group: {fileID: 21300000, guid: 3f1052ac0ab8e43c4bba1015ac53b309, type: 3}
+  - groupID: Jeremy
+    group: {fileID: 21300000, guid: de21369ae29a242cca02f89b6f4ffa43, type: 3}
+  - groupID: Jose
+    group: {fileID: 21300000, guid: 88300208e25e54550b65609dde91d6b4, type: 3}
+  - groupID: Steele
+    group: {fileID: 21300000, guid: d4c52f52160da45388e75e141d0e60b8, type: 3}
+  - groupID: Naked
+    group: {fileID: 21300000, guid: 9c4caa9009c304d5d94be49299ce604d, type: 3}
+--- !u!114 &1452456321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452456316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6652083ec584389397417786c186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups: []
 --- !u!1 &1455794532
 GameObject:
   m_ObjectHideFlags: 0
