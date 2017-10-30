@@ -19,5 +19,8 @@ public class GameController : MonoBehaviour {
 	public void UpdateDisplay(){
 		Debug.Log("Player Display Updating...");
 		Debug.Log(player.credits);
+		Debug.Log (player.sceneID);
+		Debug.Log (player.encounterIndex);
+		Debug.Log (player.playerCaptain);
 	}
 }

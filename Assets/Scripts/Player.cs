@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-//	public int level = 1;
-//	public int health = 20;
-//	public int attack = 6;
-//	public int defense = 4;
-
-
 	public int credits;
 	public int sceneID;
 	public int encounterIndex;
-//	public Captain playerCaptain;
+	public Captain playerCaptain;
 //	public Ship playerShip;
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
@@ -27,11 +21,9 @@ public class Player : MonoBehaviour {
 	{
 		PlayerData loadedStats = SaveAndLoadManager.LoadPlayer();
 		credits = loadedStats.credits;
-
-//		level = loadedStats[0];
-//		health = loadedStats[1];
-//		attack = loadedStats[2];
-//		defense = loadedStats[3];
+		sceneID = loadedStats.sceneID;
+		encounterIndex = loadedStats.encounterIndex;
+		playerCaptain = loadedStats.playerCaptain;
 	}
 
 }

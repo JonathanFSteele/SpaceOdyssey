@@ -47,7 +47,7 @@ public class PlayerData {
 	public int credits;
 	public int sceneID;
 	public int encounterIndex;
-//	public Captain playerCaptain;
+	public Captain playerCaptain;
 //	public Ship playerShip;
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
@@ -56,7 +56,7 @@ public class PlayerData {
 		credits = 0;
 		sceneID = 0;
 		encounterIndex = -1;
-//		playerCaptain = null;
+		playerCaptain = null;
 //		playerShip = null;
 //		playerCrew = null;
 //		inventory = null;
@@ -68,7 +68,7 @@ public class PlayerData {
 		credits = player.credits;
 		sceneID = player.sceneID;
 		encounterIndex = player.encounterIndex;
-//		playerCaptain = player.playerCaptain;
+		playerCaptain = player.playerCaptain;
 //		playerShip = player.playerShip;
 //		playerCrew = player.playerCrew;
 //		inventory = player.inventory;
