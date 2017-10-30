@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+	public Player player;
+
+	void Awake() {
+		player = FindObjectOfType<Player>();
+	}
+
+
 	// Use this for initialization
 	void Start () {
-		
+		UpdateDisplay ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void UpdateDisplay(){
+		Debug.Log("Player Display Updating...");
+		Debug.Log(player.credits);
 	}
 }
