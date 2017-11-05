@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
+[Serializable]
 public class Ship : MonoBehaviour {
 
-	public Sprite shipPicture;
+	public string shipPicture;
 	public int maxHealth;
 	public int health;
 	public int shields;

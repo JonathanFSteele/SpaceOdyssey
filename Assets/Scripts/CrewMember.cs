@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
+[Serializable]
 public class CrewMember : MonoBehaviour {
 
-	public Sprite crewPicture;
+	public string crewPicture;
 	public int medBonus;
 	public int combatBonus;
 	public int charsmaBonus;
