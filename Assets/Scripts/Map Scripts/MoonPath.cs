@@ -45,9 +45,9 @@ public class MoonPath : MonoBehaviour {
 		}
 		else if (CurrentPath == 0 || CurrentPath == 4)
 			YellowPath ();
-		else if (CurrentPath > 0 || CurrentPath < 4)
+		else if (CurrentPath > 0 && CurrentPath < 4)
 			RedPath ();
-		else if (CurrentPath > 4 || CurrentPath < 8)
+		else if (CurrentPath > 4 && CurrentPath < 8)
 			GreenPath ();
 	}
 
@@ -61,7 +61,7 @@ public class MoonPath : MonoBehaviour {
 				player.GetComponent<Player> ().TargetLocationID = 1;
 		
 			player.GetComponent<Player> ().PathColor = 2;
-			player.GetComponent<Player> ().DistanceToTarget = 1000f;
+			player.GetComponent<Player> ().DistanceToTarget = MoonDist;
 
 		
 
@@ -81,8 +81,8 @@ public class MoonPath : MonoBehaviour {
 			else if (player.GetComponent<Player> ().CurrentLocationID == 2)
 				player.GetComponent<Player> ().TargetLocationID = 1;
 
-			player.GetComponent<Player> ().PathColor = 2;
-			player.GetComponent<Player> ().DistanceToTarget = 750f;
+			player.GetComponent<Player> ().PathColor = 3;
+			player.GetComponent<Player> ().DistanceToTarget = .8 * MoonDist;
 
 
 		}
@@ -100,8 +100,8 @@ public class MoonPath : MonoBehaviour {
 			else if (player.GetComponent<Player> ().CurrentLocationID == 2)
 				player.GetComponent<Player> ().TargetLocationID = 1;
 
-			player.GetComponent<Player> ().PathColor = 2;
-			player.GetComponent<Player> ().DistanceToTarget = 1250f;
+			player.GetComponent<Player> ().PathColor = 1;
+			player.GetComponent<Player> ().DistanceToTarget = 1.2 * MoonDist;
 
 
 
