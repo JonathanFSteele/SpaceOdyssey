@@ -82,7 +82,7 @@ public class MoonPath : MonoBehaviour {
 				player.GetComponent<Player> ().TargetLocationID = 1;
 
 			player.GetComponent<Player> ().PathColor = 3;
-			player.GetComponent<Player> ().DistanceToTarget = .8 * MoonDist;
+			player.GetComponent<Player> ().DistanceToTarget = .8f * MoonDist;
 
 
 		}
@@ -101,7 +101,7 @@ public class MoonPath : MonoBehaviour {
 				player.GetComponent<Player> ().TargetLocationID = 1;
 
 			player.GetComponent<Player> ().PathColor = 1;
-			player.GetComponent<Player> ().DistanceToTarget = 1.2 * MoonDist;
+			player.GetComponent<Player> ().DistanceToTarget = 1.2f * MoonDist;
 
 
 
