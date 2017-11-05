@@ -11,6 +11,12 @@ public class Player : MonoBehaviour {
 //	public Ship playerShip;
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
+	public int CurrentLocationID;  // 1 == earth, 2 == moon
+	public int TargetLocationID;  // 1 == earth, 2 == moon
+	public int PathColor; // 1 == green, 2 == yellow, 3 == Red
+	public float DistanceToTarget;
+	public float DistanceTraveled;
+
 
 	public void Save(int Id)
 	{
