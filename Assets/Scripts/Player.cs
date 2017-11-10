@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public int sceneID;
 	public int encounterIndex;
 	public Captain playerCaptain;
-	public Ship playerShip;
+//	public Ship playerShip; //ship is an object inside of player now
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
 	public int CurrentLocationID;  // 1 == earth, 2 == moon

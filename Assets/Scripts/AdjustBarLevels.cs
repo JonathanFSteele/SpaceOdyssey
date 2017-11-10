@@ -6,84 +6,97 @@ using System.Collections;
 
 public class AdjustBarLevels : MonoBehaviour
 {
-  private int shipHPConst;
-  private int fuelConst;
-  private int supplyConst;
-  private int crewConst;
+   public Player player;
 
-  public int shipHP = 1000;
-  public int fuelAmt = 2000;
-  public int supplyAmt = 500;
-  public int crewAmt = 20;
+   public Text hpDisplayText;
+   public Text fuelDisplayText;
+   public Text supplyDisplayText;
+   public Text crewDisplayText;
 
-  public Text hpDisplayText;
-  public Text fuelDisplayText;
-  public Text supplyDisplayText;
-  public Text crewDisplayText;
-
-  public Image shipHPBar;
-  public Image fuelBar;
-  public Image supplyBar;
-  public Image crewBar;
+   public Image shipHPBar;
+   public Image fuelBar;
+   public Image supplyBar;
+   public Image crewBar;
 
 
-  void Start() {
-    shipHPConst = shipHP;
-    fuelConst = fuelAmt;
-    supplyConst = supplyAmt;
-    crewConst = crewAmt;
+   void Start() {
+      // print("AdjustBarLevels 2.0 UP!!");
 
-    hpDisplayText.text = "Ship HP: " + shipHP.ToString ();
-    fuelDisplayText.text = "Fuel: " + fuelAmt.ToString ();
-    supplyDisplayText.text = "Supplies: " + supplyAmt.ToString ();
-    crewDisplayText.text = "Crew: " + crewAmt.ToString ();
-  }
+      depleteHP(0);
+      depleteFuel(0);
+      depleteSupply(0);
+      depleteCrew(0);
+
+   }
 
 
-  public void depleteHP(int damageCount)
-  {
-  	shipHP -= damageCount;
 
-  	if (shipHPBar != null) {
-  		shipHPBar.fillAmount = (float)shipHP / (float)shipHPConst;
-  		hpDisplayText.text = "Ship HP: " + shipHP.ToString ();
-  	}
-  }
+   public void depleteHP(int damageCount)
+   {
+      Ship ship = player.GetComponentInChildren<Ship> ();		
 
+      ship.health -= damageCount;
 
-  public void depleteFuel(int reduceAmt)
-  {
-    fuelAmt -= reduceAmt;
+      if(ship.health < 0)
+         ship.health = 0;
 
-    if (fuelBar != null) {
-      fuelBar.fillAmount = (float)fuelAmt / (float)fuelConst;
-      fuelDisplayText.text = "Fuel: " + fuelAmt.ToString ();
-    }
-  }
+      if (shipHPBar != null) {
+         shipHPBar.fillAmount = (float)ship.health / ship.maxHealth;
+         hpDisplayText.text = ship.health.ToString ();
+      }
+   }
 
 
-  public void depleteSupply(int reduceAmt)
-  {
-    supplyAmt -= reduceAmt;
+   public void depleteFuel(int reduceAmt)
+   {
+      Ship ship = player.GetComponentInChildren<Ship> ();      
 
-    if (supplyBar != null) {
-  		supplyBar.fillAmount = (float)supplyAmt / (float)supplyConst;
-      supplyDisplayText.text = "Supplies: " + supplyAmt.ToString ();
-    }
-  }
+      ship.fuel -= reduceAmt;
 
+      if(ship.fuel < 0)
+         ship.fuel = 0;
 
-  public void depleteCrew(int reduceAmt)
-  {
-    crewConst -= reduceAmt;
-
-    if (crewBar != null) {
-      crewBar.fillAmount = (float)crewConst / (float)crewConst;
-  		crewDisplayText.text = "Crew: " + crewConst.ToString ();
-    }
-  }    
+      if (fuelBar != null) {
+         fuelBar.fillAmount = (float)ship.fuel / ship.maxFuel;
+         fuelDisplayText.text = ship.fuel.ToString ();
+      }
+   }
 
 
-  
+
+   public void depleteSupply(int reduceAmt)
+   {
+      Ship ship = player.GetComponentInChildren<Ship> ();      
+
+      ship.supplies -= reduceAmt;
+
+      if(ship.supplies < 0)
+         ship.supplies = 0;
+
+      if (supplyBar != null) {
+         supplyBar.fillAmount = (float)ship.supplies / ship.maxSupplies;
+         supplyDisplayText.text = ship.supplies.ToString ();
+      }
+   }
+
+
+
+   public void depleteCrew(int reduceAmt)
+   {
+      Ship ship = player.GetComponentInChildren<Ship> ();      
+
+      ship.crewAmt -= reduceAmt;
+
+      if(ship.crewAmt < 0)
+         ship.crewAmt = 0;
+
+      if (shipHPBar != null) {
+         crewBar.fillAmount = (float)ship.crewAmt / ship.crewCapacity;
+         crewDisplayText.text = ship.crewAmt.ToString ();
+      }
+   }      
+
+
+
 }
 

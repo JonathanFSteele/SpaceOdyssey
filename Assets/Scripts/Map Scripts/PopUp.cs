@@ -25,7 +25,7 @@ public class PopUp : MonoBehaviour {
 
 	public void UpdatePath() {
 		
-		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponent<Player> ().playerShip.speed;
+		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
 		distanceText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Distance:" + player.GetComponent<Player> ().DistanceToTarget.ToString();
 
