@@ -9,56 +9,122 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1248470924232048}
+  m_RootGameObject: {fileID: 1436226805420856}
   m_IsPrefabParent: 1
---- !u!1 &1248470924232048
+--- !u!1 &1436226805420856
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4561567852188646}
-  - component: {fileID: 114380559550293998}
+  - component: {fileID: 4338800121001364}
+  - component: {fileID: 114420220290744008}
   m_Layer: 0
   m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1951303186610242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224548128940585872}
+  - component: {fileID: 114937727301031668}
+  m_Layer: 5
+  m_Name: RocketShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4561567852188646
+--- !u!4 &4338800121001364
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248470924232048}
+  m_GameObject: {fileID: 1436226805420856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.000015258789, z: 9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 224548128940585872}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114380559550293998
+--- !u!114 &114420220290744008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248470924232048}
+  m_GameObject: {fileID: 1436226805420856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  health: 20
-  attack: 6
-  defense: 4
-  credits: 0
-  sceneID: 0
-  encounterIndex: 0
-  playerCaptain: {fileID: 0}
-  playerShip: {fileID: 0}
-  playerCrew: []
-  inventory: []
+  credits: 10000
+  sceneID: 1
+  encounterIndex: -1
+  playerCaptain:
+    captainName: 
+    captainPicture: 
+    medBonus: 0
+    combatBonus: 0
+    charsmaBonus: 0
+  CurrentLocationID: 1
+  TargetLocationID: 2
+  PathColor: 0
+  DistanceToTarget: 0
+  DistanceTraveled: 0
+--- !u!114 &114937727301031668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951303186610242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipPicture: {fileID: 0}
+  maxHealth: 20
+  health: 15
+  shields: 1
+  armor: 1
+  speed: 5
+  gunCount: 1
+  gunDamage: 6
+  maxFuel: 1000
+  fuel: 580
+  crewCapacity: 25
+  crewAmt: 19
+  maxSupplies: 500
+  supplies: 222
+  medBonus: 2
+  combatBonus: 0
+  charsmaBonus: 7
+--- !u!224 &224548128940585872
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951303186610242}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4338800121001364}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 444, y: 270}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

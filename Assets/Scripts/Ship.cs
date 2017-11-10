@@ -4,11 +4,14 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
+
 
 [Serializable]
 public class Ship : MonoBehaviour {
 
-	public string shipPicture;
+	public Sprite shipPicture;
+	public String shipName;
 	public int maxHealth;
 	public int health;
 	public int shields;
@@ -19,6 +22,9 @@ public class Ship : MonoBehaviour {
 	public int maxFuel;
 	public int fuel;
 	public int crewCapacity;
+	public int crewAmt; //present amount of crew members
+	public int maxSupplies;
+	public int supplies;
 	public int medBonus;
 	public int combatBonus;
 	public int charsmaBonus;
