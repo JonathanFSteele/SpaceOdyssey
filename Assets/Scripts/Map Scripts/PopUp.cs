@@ -8,24 +8,28 @@ public class PopUp : MonoBehaviour {
 	public GameObject distanceText;
 	public GameObject timeText;
 	public GameObject image;
-	public GameObject Library;
+	public GameObject library;
 	public GameObject player;
-	public GameObject yesButton;
 
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+	    library = GameObject.FindGameObjectWithTag ("Library");
+		player = GameObject.Find ("Player");
+		library = GameObject.Find ("Library");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 
 	}
 
-
 	public void UpdatePath() {
+
+		player = GameObject.Find ("Player");
+		library = GameObject.Find ("Library");
 		
 		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
@@ -33,9 +37,9 @@ public class PopUp : MonoBehaviour {
 
 
 		if ( player.GetComponent<Player> ().TargetLocationID == 1)
-			image.GetComponent<UnityEngine.UI.Image>().sprite =  Library.GetComponent<PlaceLibrary> ().GetClipFromName ("Earth");
+			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Earth");
 		if ( player.GetComponent<Player> ().TargetLocationID == 2)
-			image.GetComponent<UnityEngine.UI.Image>().sprite =  Library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
+			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
 
 	}
 

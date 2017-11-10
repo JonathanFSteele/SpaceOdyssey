@@ -31,6 +31,8 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    void Start() {
 
+		//player = GameObject.FindGameObjectWithTag ("Player");
+
 		Ship ship = player.GetComponentInChildren<Ship> ();		
 
       if(shipNameDisplayText != null)
