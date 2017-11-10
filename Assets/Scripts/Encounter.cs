@@ -11,28 +11,19 @@ public class Encounter : MonoBehaviour {
 	private double TimeTaken = 0.0;
 	private bool EncounterTF = false;
 	private bool TravelFinishedTF = false;
+	public float distancePerSecond = 5;
 
 	// Use this for initialization
 	void Start () {
-
+		StartCoroutine(Travel());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		Travel();
-	}
-
-	IEnumerator wait(int i)
+		
+	IEnumerator Travel()
 	{
-		yield return new WaitForSecondsRealtime(i);
-	}
-
-	public void Travel()
-	{
-		if (TravelFinishedTF == false) {
+		while (TravelFinishedTF == false) {
+			yield return new WaitForSeconds(2);
 			if (EncounterTF == false) {
 				if (CurrentDistance < MaxDistance) {
-					wait (5);
 					CurrentDistance += ShipSpeed;
 					TimeTaken += 1;
 					//Call Encounter Generator Function -- Return EncounterTF == true or false
@@ -44,9 +35,8 @@ public class Encounter : MonoBehaviour {
 			} else {
 				//Debug.Log ("Encounter Encountered, Waiting for Results ");
 			}
-		} else {
-			//Debug.Log("Travel Finished Jump back to Safezone Page, with new Destination");
-			//Change Scenes with new Destination for Safe Zone...
 		}
+		Debug.Log("Travel Finished Jump back to Safezone Page, with new Destination");
+		//Change Scenes with new Destination for Safe Zone...
 	}
 }
