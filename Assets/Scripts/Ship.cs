@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class Ship : MonoBehaviour {
 
 	public Sprite shipPicture;
+	public String shipName;
 	public int maxHealth;
 	public int health;
 	public int shields;

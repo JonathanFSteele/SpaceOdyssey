@@ -4,14 +4,24 @@ using System.Collections;
 
 
 
-public class AdjustBarLevels : MonoBehaviour
+public class AdjustBarAndStatLevels : MonoBehaviour
 {
    public Player player;
+
+   public Text shipNameDisplayText;
+   public Image shipPicture;
 
    public Text hpDisplayText;
    public Text fuelDisplayText;
    public Text supplyDisplayText;
    public Text crewDisplayText;
+
+   /* just stats tab */
+   public Text speedDisplayText;
+   public Text shieldsDisplayText;
+   public Text gunDamageDisplayText;
+   public Text armorDisplayText;
+   public Text gunCountDisplayText;
 
    public Image shipHPBar;
    public Image fuelBar;
@@ -20,12 +30,41 @@ public class AdjustBarLevels : MonoBehaviour
 
 
    void Start() {
-      // print("AdjustBarLevels 2.0 UP!!");
 
-      depleteHP(0);
-      depleteFuel(0);
-      depleteSupply(0);
-      depleteCrew(0);
+		Ship ship = player.GetComponentInChildren<Ship> ();		
+
+      if(shipNameDisplayText != null)
+         shipNameDisplayText.text = ship.shipName.ToString ();
+
+      /* ship stats tab */
+      if(hpDisplayText != null)
+         hpDisplayText.text = ship.health.ToString ();
+      if(speedDisplayText != null)
+         speedDisplayText.text = ship.speed.ToString ();
+      if(shieldsDisplayText != null)
+         shieldsDisplayText.text = ship.shields.ToString ();
+      if(gunDamageDisplayText != null)
+         gunDamageDisplayText.text = ship.gunDamage.ToString ();
+      if(fuelDisplayText != null)
+         fuelDisplayText.text = ship.fuel.ToString ();
+      if(armorDisplayText != null)
+         armorDisplayText.text = ship.armor.ToString ();
+      if(gunCountDisplayText != null)
+         gunCountDisplayText.text = ship.gunCount.ToString ();
+      if(crewDisplayText != null)
+         crewDisplayText.text = ship.crewAmt.ToString ();
+      if(supplyDisplayText != null)
+         supplyDisplayText.text = ship.supplies.ToString ();
+      
+      /* header stats initialization */
+      if(hpDisplayText != null)      
+         depleteHP(0);
+      if(fuelDisplayText != null)
+         depleteFuel(0);
+      if(supplyDisplayText != null)
+         depleteSupply(0);
+      if(crewDisplayText != null)
+         depleteCrew(0);
 
    }
 
