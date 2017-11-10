@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PopUp : MonoBehaviour {
 
@@ -9,11 +10,12 @@ public class PopUp : MonoBehaviour {
 	public GameObject image;
 	public GameObject Library;
 	public GameObject player;
+	public GameObject yesButton;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -35,5 +37,9 @@ public class PopUp : MonoBehaviour {
 		if ( player.GetComponent<Player> ().TargetLocationID == 2)
 			image.GetComponent<UnityEngine.UI.Image>().sprite =  Library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
 
+	}
+
+	public void TransitToEncounter () {
+		SceneManager.LoadScene ("Encounter");
 	}
 }
