@@ -15,6 +15,10 @@ public class AdjustBarAndStatLevels : MonoBehaviour
    public Text fuelDisplayText;
    public Text supplyDisplayText;
    public Text crewDisplayText;
+   // public Text hpMaxDisplayText;
+   // public Text fuelMaxDisplayText;   
+   // public Text supplyMaxDisplayText;   
+   // public Text crewMaxDisplayText;
 
    /* just stats tab */
    public Text speedDisplayText;
@@ -40,7 +44,11 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       /* ship stats tab */
       if(hpDisplayText != null)
+      {         
          hpDisplayText.text = ship.health.ToString ();
+         depleteHP(0);
+      }
+
       if(speedDisplayText != null)
          speedDisplayText.text = ship.speed.ToString ();
       if(shieldsDisplayText != null)
@@ -48,25 +56,25 @@ public class AdjustBarAndStatLevels : MonoBehaviour
       if(gunDamageDisplayText != null)
          gunDamageDisplayText.text = ship.gunDamage.ToString ();
       if(fuelDisplayText != null)
+      {
          fuelDisplayText.text = ship.fuel.ToString ();
+         depleteFuel(0);         
+      }
       if(armorDisplayText != null)
          armorDisplayText.text = ship.armor.ToString ();
       if(gunCountDisplayText != null)
          gunCountDisplayText.text = ship.gunCount.ToString ();
       if(crewDisplayText != null)
+      {
          crewDisplayText.text = ship.crewAmt.ToString ();
-      if(supplyDisplayText != null)
-         supplyDisplayText.text = ship.supplies.ToString ();
-      
-      /* header stats initialization */
-      if(hpDisplayText != null)      
-         depleteHP(0);
-      if(fuelDisplayText != null)
-         depleteFuel(0);
-      if(supplyDisplayText != null)
-         depleteSupply(0);
-      if(crewDisplayText != null)
          depleteCrew(0);
+      }
+      if(supplyDisplayText != null)
+      {
+         supplyDisplayText.text = ship.supplies.ToString ();
+         depleteSupply(0);
+      }
+      
 
    }
 
@@ -83,7 +91,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if (shipHPBar != null) {
          shipHPBar.fillAmount = (float)ship.health / ship.maxHealth;
-         hpDisplayText.text = ship.health.ToString ();
+         hpDisplayText.text = ship.health.ToString () + '/' + ship.maxHealth.ToString();
       }
    }
 
@@ -99,7 +107,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if (fuelBar != null) {
          fuelBar.fillAmount = (float)ship.fuel / ship.maxFuel;
-         fuelDisplayText.text = ship.fuel.ToString ();
+         fuelDisplayText.text = ship.fuel.ToString () + '/' + ship.maxFuel.ToString();
       }
    }
 
@@ -116,7 +124,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if (supplyBar != null) {
          supplyBar.fillAmount = (float)ship.supplies / ship.maxSupplies;
-         supplyDisplayText.text = ship.supplies.ToString ();
+         supplyDisplayText.text = ship.supplies.ToString () + '/' + ship.maxSupplies.ToString();
       }
    }
 
@@ -133,7 +141,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if (shipHPBar != null) {
          crewBar.fillAmount = (float)ship.crewAmt / ship.crewCapacity;
-         crewDisplayText.text = ship.crewAmt.ToString ();
+         crewDisplayText.text = ship.crewAmt.ToString () + '/' + ship.crewCapacity.ToString();
       }
    }      
 

@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1585433312967528}
+  m_IsPrefabParent: 1
+--- !u!1 &1585433312967528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4631487332314768}
+  - component: {fileID: 114852620514363274}
+  - component: {fileID: 114841520527442538}
+  - component: {fileID: 114107614420847448}
+  m_Layer: 5
+  m_Name: Menu UIScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4631487332314768
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585433312967528}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -93.05767, y: 64.09778, z: -32.3}
+  m_LocalScale: {x: 32.3, y: 32.3, z: 32.3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114107614420847448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585433312967528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312b799a40a554d66a85e5527f88267a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 114420220290744008, guid: cb5e41a7c863644529fc82b64d87053f, type: 2}
+  shipNameDisplayText: {fileID: 0}
+  shipPicture: {fileID: 0}
+  hpDisplayText: {fileID: 0}
+  fuelDisplayText: {fileID: 0}
+  supplyDisplayText: {fileID: 0}
+  crewDisplayText: {fileID: 0}
+  speedDisplayText: {fileID: 0}
+  shieldsDisplayText: {fileID: 0}
+  gunDamageDisplayText: {fileID: 0}
+  armorDisplayText: {fileID: 0}
+  gunCountDisplayText: {fileID: 0}
+  shipHPBar: {fileID: 0}
+  fuelBar: {fileID: 0}
+  supplyBar: {fileID: 0}
+  crewBar: {fileID: 0}
+--- !u!114 &114841520527442538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585433312967528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8eacf98ee1d342d89e9f7129851cbcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OverwritePopup: {fileID: 0}
+  ExitGameMenu: {fileID: 0}
+--- !u!114 &114852620514363274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585433312967528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d1734c94a6d41278c23dfe748749bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewSaveGameUI: {fileID: 0}
+  LoadGameUI: {fileID: 0}
+  MenuUI: {fileID: 0}
+  MapUI: {fileID: 0}
+  ShipUI: {fileID: 0}
+  LogUI: {fileID: 0}
+  CrewUI: {fileID: 0}
