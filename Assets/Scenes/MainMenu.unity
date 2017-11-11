@@ -453,6 +453,46 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1002251467}
+    - target: {fileID: 1919829894345486, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016881510752546, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_Name
+      value: NewGame_Btn (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016881510752546, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203433890134470, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414411547900168, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564344983311748, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763349851456098, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: SaveSlot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290429145417388, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: SaveSlot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119837838723314, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: SaveSlot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494896930850668, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
+      propertyPath: m_TagString
+      value: SaveSlot4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c9ff9803d890407a8ffdd70a5f0d30f, type: 2}
   m_IsPrefabParent: 0
@@ -635,6 +675,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1002251467}
+    - target: {fileID: 1448665405125934, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
+      propertyPath: m_TagString
+      value: LoadSlot1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426454006960726, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
+      propertyPath: m_TagString
+      value: LoadSlot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643870325769592, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
+      propertyPath: m_TagString
+      value: LoadSlot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411583772533304, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
+      propertyPath: m_TagString
+      value: LoadSlot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058119028096310, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaf6746c7eef64d289df6e487b58b52c, type: 2}
   m_IsPrefabParent: 0
@@ -1482,15 +1542,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 10000
+  credits: 0
   sceneID: 0
-  encounterIndex: 0
+  encounterIndex: -1
   playerCaptain:
-    captainName: 
-    captainPicture: 
-    medBonus: 0
-    combatBonus: 0
-    charsmaBonus: 0
+    captainName: Captain Tester
+    captainPicture: Cpt
+    medBonus: 5
+    combatBonus: 5
+    charsmaBonus: 5
   CurrentLocationID: 0
   TargetLocationID: 0
   PathColor: 0
