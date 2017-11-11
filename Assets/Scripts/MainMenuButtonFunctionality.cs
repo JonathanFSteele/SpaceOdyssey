@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtonFunctionality : MonoBehaviour {
 
 	public Transform OverwritePopup;
+	public Transform BackToMainMenuPopUp;
 	private int CurrentSelectedSlot;
 
 	public void overwriteGamePopup(int saveSpaceNumber)
@@ -38,6 +39,21 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		//Load Functionality
 		SceneManager.LoadScene ("Safezone");
 	}
+
+	public void MainMenu()
+	{
+		BackToMainMenuPopUp.gameObject.SetActive(true);
+	}
+
+	public void BackToMainMenu(bool value)
+	{
+		if (value == true) {
+			//Save Game Functionality Goes Here...
+			SceneManager.LoadScene ("MainMenu");
+		} else {
+			BackToMainMenuPopUp.gameObject.SetActive(false);
+		}
+	}
 		
 	// *****************************************************
 	// Exit Game Functionality Below
@@ -55,6 +71,7 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 	{
 		//if Yes
 		if (value == true) {
+			//Save Game Functionality Goes Here...
 			Debug.Log("Quitting Game...");
 			Application.Quit ();
 		} else {
