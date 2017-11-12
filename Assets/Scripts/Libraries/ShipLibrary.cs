@@ -21,6 +21,15 @@ public class ShipLibrary : MonoBehaviour {
 		return null;
 	}
 
+	public Sprite GetRandomClipFromName(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+			Sprite[] sounds = groupDictionary[name];
+			return sounds[Random.Range(0,sounds.Length)];
+		}
+		return null;
+	}
+
+
 	[System.Serializable]
 	public class ImageGroup {
 		public string groupID;
