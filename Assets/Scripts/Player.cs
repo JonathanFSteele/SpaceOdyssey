@@ -21,44 +21,6 @@ public class Player : MonoBehaviour {
 	public float DistanceToTarget;
 	public float DistanceTraveled;
 
-	public void InitializeSaveData()
-	{
-		PlayerData player1 = SaveAndLoadManager.LoadPlayer (0);
-		PlayerData player2 = SaveAndLoadManager.LoadPlayer (1);
-		PlayerData player3 = SaveAndLoadManager.LoadPlayer (2);
-		PlayerData player4 = SaveAndLoadManager.LoadPlayer (3);
-
-		GameObject SaveSlot1 = GameObject.FindWithTag("SaveSlot1");
-		GameObject SaveSlot2 = GameObject.FindWithTag("SaveSlot2");
-		GameObject SaveSlot3 = GameObject.FindWithTag("SaveSlot3");
-		GameObject SaveSlot4 = GameObject.FindWithTag("SaveSlot4");
-
-		SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
-		SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
-		SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
-		SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
-	}
-
-	public void InitializeLoadData()
-	{
-		PlayerData player1 = SaveAndLoadManager.LoadPlayer (0);
-		PlayerData player2 = SaveAndLoadManager.LoadPlayer (1);
-		PlayerData player3 = SaveAndLoadManager.LoadPlayer (2);
-		PlayerData player4 = SaveAndLoadManager.LoadPlayer (3);
-
-		GameObject LoadSlot1 = GameObject.FindWithTag("LoadSlot1");
-		GameObject LoadSlot2 = GameObject.FindWithTag("LoadSlot2");
-		GameObject LoadSlot3 = GameObject.FindWithTag("LoadSlot3");
-		GameObject LoadSlot4 = GameObject.FindWithTag("LoadSlot4");
-
-		LoadSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
-		LoadSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
-		LoadSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
-		LoadSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
-	}
-
-
-
 	public void Save(int Id)
 	{
 		Debug.Log("Save(" + Id + ")");
