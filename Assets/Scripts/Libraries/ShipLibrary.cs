@@ -6,7 +6,7 @@ public class ShipLibrary : MonoBehaviour {
 
 	public ImageGroup[] imageGroups;
 
-	Dictionary<string, Sprite> groupDictionary = new Dictionary<string, Sprite>();
+	Dictionary<string, Sprite[]> groupDictionary = new Dictionary<string, Sprite[]>();
 
 	void Awake() {
 		foreach (ImageGroup imageGroup in imageGroups) {
@@ -16,7 +16,8 @@ public class ShipLibrary : MonoBehaviour {
 
 	public Sprite GetClipFromName(string name) {
 		if (groupDictionary.ContainsKey(name)) {
-			return groupDictionary[name];;
+			Sprite[] sounds = groupDictionary[name];
+			return sounds[0];
 		}
 		return null;
 	}
@@ -33,6 +34,6 @@ public class ShipLibrary : MonoBehaviour {
 	[System.Serializable]
 	public class ImageGroup {
 		public string groupID;
-		public Sprite group;
+		public Sprite[] group;
 	}
 }
