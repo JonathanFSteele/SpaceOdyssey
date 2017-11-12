@@ -260,6 +260,12 @@ Transform:
   m_Father: {fileID: 782965216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135873815 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114420220290744008, guid: cb5e41a7c863644529fc82b64d87053f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1261683457}
+  m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
 --- !u!224 &373951467 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224758289375715318, guid: 4b1cb6acf0ce540eca8d2c329801f094,
@@ -1854,7 +1860,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 135873815}
     - target: {fileID: 114550543808659772, guid: 4b1cb6acf0ce540eca8d2c329801f094,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1879,7 +1885,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 135873815}
     - target: {fileID: 114601624130466592, guid: 4b1cb6acf0ce540eca8d2c329801f094,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName

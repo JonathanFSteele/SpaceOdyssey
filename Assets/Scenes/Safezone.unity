@@ -2208,6 +2208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693942510}
   - component: {fileID: 693942511}
+  - component: {fileID: 693942512}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2240,6 +2241,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!114 &693942512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693942509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf037b4a60af4ca5b241938b6b0e8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentPosition: 1
 --- !u!1 &700488732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5058,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageGroups:
   - groupID: rocket
-    group: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
+    group:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!114 &2072535341
 MonoBehaviour:
   m_ObjectHideFlags: 0
