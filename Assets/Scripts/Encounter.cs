@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 	
-	public enum statRoll {Combat,Medical,Charisma};
-	public int Value;
-	public string enemyShipPicture;
+	public enum encFocus {Combat,Medical,Charisma};
+	public enum enc2ndFocus {Combat,Medical,Charisma};
+	public Sprite enemyPicture;
+	public int Medical;
+	public int Combat;
+	public int Charisma;
+	public string prompt;
 
 
 }
