@@ -6,7 +6,7 @@ using System.Collections;
 
 public class AdjustBarAndStatLevels : MonoBehaviour
 {
-   public Player player;
+	public GameObject player;
 
    public Text shipNameDisplayText;
    public Image shipPicture;
@@ -35,7 +35,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    void Start() {
 
-		//player = GameObject.FindGameObjectWithTag ("Player");
+		player = GameObject.FindGameObjectWithTag ("Player");
 
 		Ship ship = player.GetComponentInChildren<Ship> ();		
 
