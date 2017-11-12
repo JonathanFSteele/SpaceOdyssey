@@ -6,7 +6,7 @@ public class Encounter : MonoBehaviour {
 	
 	public enum statRoll {Combat,Medical,Charisma};
 	public int Value;
-	public string enemyShipPicture
+	public string enemyShipPicture;
 
 
 }
