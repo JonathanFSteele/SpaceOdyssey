@@ -26,10 +26,13 @@ public class PopUp : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Get this to work with earth!!!!!!!!!!!!!!!
+	/// </summary>
 	public void UpdatePath() {
 
-		player = GameObject.Find ("Player");
-		library = GameObject.Find ("Library");
+		player = GameObject.FindGameObjectWithTag ("Player");
+		library = GameObject.FindGameObjectWithTag ("Library");
 		
 		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
@@ -38,10 +41,13 @@ public class PopUp : MonoBehaviour {
 
 		if ( player.GetComponent<Player> ().TargetLocationID == 1)
 			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Earth");
+		
 		if ( player.GetComponent<Player> ().TargetLocationID == 2)
 			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
 
 	}
+
+
 
 	public void TransitToEncounter () {
 		SceneManager.LoadScene ("Encounter");

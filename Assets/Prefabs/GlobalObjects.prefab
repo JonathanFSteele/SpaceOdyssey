@@ -162,19 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 10000
+  credits: 0
   sceneID: 1
   encounterIndex: -1
   playerCaptain:
-    captainName: 
-    captainPicture: 
-    medBonus: 0
-    combatBonus: 0
-    charsmaBonus: 0
+    captainName: Captain Testing
+    captainPicture: Cpt
+    medBonus: 5
+    combatBonus: 5
+    charsmaBonus: 5
   CurrentLocationID: 1
   TargetLocationID: 2
-  PathColor: 0
-  DistanceToTarget: 0
+  PathColor: 1
+  DistanceToTarget: 300000
   DistanceTraveled: 0
 --- !u!114 &114364452022347264
 MonoBehaviour:
@@ -207,13 +207,19 @@ MonoBehaviour:
   - groupID: Rocket
     group:
     - {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  - groupID: Enemies
+  - groupID: Enemy
     group:
     - {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
+    - {fileID: 21300000, guid: 73975eb97ffd3894c800df5072a493a1, type: 3}
+    - {fileID: 21300000, guid: 10b1930e7788e1442a0327c8b67be6a6, type: 3}
+    - {fileID: 21300000, guid: c36dac3c205ba374780e4aef06d98e17, type: 3}
   - groupID: shop_ships
     group:
     - {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
     - {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
+  - groupID: Nada
+    group:
+    - {fileID: 21300000, guid: 5cd45e06ced8749b1afec3fc7837b9e8, type: 3}
   displayImage: {fileID: 0}
   scrollIndex: 0
   shipArraySize: 0
@@ -244,6 +250,10 @@ MonoBehaviour:
     group: {fileID: 21300000, guid: 12ec81d7a45a4df40b5c582d76a4af85, type: 3}
   - groupID: Moon
     group: {fileID: 21300000, guid: b97925369f016ae43b014fe5a05e6d0d, type: 3}
+  - groupID: EarthBack
+    group: {fileID: 21300000, guid: 41ca71a7198d04b3596c50ccbd280aea, type: 3}
+  - groupID: MoonBack
+    group: {fileID: 21300000, guid: b96f8be135d56b94f9c34bcde15dcc4d, type: 3}
 --- !u!114 &114840051976301982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +301,7 @@ MonoBehaviour:
   health: 19
   shields: 1
   armor: 1
-  speed: 5
+  speed: 50000
   gunCount: 1
   gunDamage: 6
   maxFuel: 1000

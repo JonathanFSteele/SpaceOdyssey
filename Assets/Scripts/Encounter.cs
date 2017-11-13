@@ -36,7 +36,7 @@ public class Encounter : MonoBehaviour {
 
 	public void AttemptPrimary() {
 		roll = Random.Range (0, 20);
-		if (this.encFocus == "Combat") {
+
 			if (roll + player.GetComponent<Player> ().playerCaptain.combatBonus > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI ();
@@ -44,7 +44,7 @@ public class Encounter : MonoBehaviour {
 			} else {
 
 			}
-		}
+
 		if (this.encFocus == "Charisma") {
 			if (roll + player.GetComponent<Player> ().playerCaptain.charsmaBonus > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
@@ -62,8 +62,9 @@ public class Encounter : MonoBehaviour {
 			} else {
 
 			}
-
 		}
+
+
 	}
 
 
@@ -77,7 +78,8 @@ public class Encounter : MonoBehaviour {
 			} else {
 
 			}
-		}
+			}
+		
 		if (this.enc2ndFocus == "Charisma") {
 			if (roll + player.GetComponent<Player> ().playerCaptain.charsmaBonus > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
@@ -86,8 +88,9 @@ public class Encounter : MonoBehaviour {
 			} else {
 
 			}
+				}
 
-		}
+		
 		if (this.enc2ndFocus == "Medical") {
 			if (roll + player.GetComponent<Player> ().playerCaptain.medBonus > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
@@ -96,7 +99,7 @@ public class Encounter : MonoBehaviour {
 
 			}
 
-		}
+					}
 	}
 
 

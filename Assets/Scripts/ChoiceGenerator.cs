@@ -8,9 +8,13 @@ public class ChoiceGenerator : MonoBehaviour {
 	public int CurrentPosition;
 	public GameObject MoonChoices;
 	public GameObject EarthChoices;
+	public GameObject library;
+	public GameObject BackGround;
 
 	// Use this for initialization
 	void Start () {
+
+		library = GameObject.FindGameObjectWithTag ("Library");
 		CurrentPlayer = GameObject.Find("Player");
 		CurrentPosition = CurrentPlayer.GetComponent<Player> ().CurrentLocationID;
 		Debug.Log("CurrentPosition: " + CurrentPosition);
@@ -18,13 +22,15 @@ public class ChoiceGenerator : MonoBehaviour {
 		if (CurrentPosition == 1) { //Earth
 			Debug.Log("You are on the Earth");
 			//Probably should display a title as well
+			BackGround.GetComponent<SpriteRenderer> ().sprite = library.GetComponent<PlaceLibrary>().GetClipFromName("EarthBack");
 			//Need to also change Background
 			EarthChoices.SetActive (true);
 
 
 		} else if (CurrentPosition == 2) { //Moon
 			Debug.Log("You are on the Moon");
-			//Probably should display a title as well
+			//Probably should display a title as well\
+			BackGround.GetComponent<SpriteRenderer> ().sprite = library.GetComponent<PlaceLibrary>().GetClipFromName("MoonBack");
 			//Need to also change Background
 			MoonChoices.SetActive (true);
 
