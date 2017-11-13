@@ -210,8 +210,13 @@ MonoBehaviour:
   - groupID: Enemies
     group:
     - {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  - groupID: 
-    group: []
+  - groupID: shop_ships
+    group:
+    - {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
+    - {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
+  displayImage: {fileID: 0}
+  scrollIndex: 0
+  shipArraySize: 0
 --- !u!114 &114687250807915432
 MonoBehaviour:
   m_ObjectHideFlags: 1
