@@ -16,8 +16,8 @@ public class PopUp : MonoBehaviour {
 	public void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 	    library = GameObject.FindGameObjectWithTag ("Library");
-		//player = GameObject.Find ("Player");
-		//library = GameObject.Find ("Library");
+		player = GameObject.Find ("Player");
+		library = GameObject.Find ("Library");
 	}
 	
 	// Update is called once per frame
@@ -28,11 +28,8 @@ public class PopUp : MonoBehaviour {
 
 	public void UpdatePath() {
 
-		player = GameObject.FindGameObjectWithTag ("Player");
-		library = GameObject.FindGameObjectWithTag ("Library");
-
-		//player = GameObject.Find ("Player");
-		//library = GameObject.Find ("Library");
+		player = GameObject.Find ("Player");
+		library = GameObject.Find ("Library");
 		
 		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
