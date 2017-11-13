@@ -16,6 +16,12 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		OverwritePopup.gameObject.SetActive(true);
 	}
 
+	public void SaveGame(int CurrentSelectedSlot)
+	{
+		Player player = FindObjectOfType<Player>().GetComponent<Player>();
+		player.Save (CurrentSelectedSlot);
+	}
+
 	public void NewGame(bool value)
 	{
 		Debug.Log ("Are you allowing a new Game?: " + value);
@@ -29,6 +35,14 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 			//Cancel Save
 			OverwritePopup.gameObject.SetActive(false);
 		}
+	}
+
+	public void InGameLoadSave(int value)
+	{
+		Debug.Log ("Loading Game on Game Slot: " + value);
+		Player player = FindObjectOfType<Player>().GetComponent<Player>();
+		player.Load (value);
+		//SceneManager.LoadScene ("Safezone"); //Change scene based on id stored in Player Object being Loaded
 	}
 
 	public void LoadGame(int value)
