@@ -63,24 +63,24 @@ public class ShipLibrary : MonoBehaviour {
 
 
 
-//
-//	public Sprite GetClipFromName(string name) {
-//		if (groupDictionary.ContainsKey(name)) {
-//			Sprite[] sounds = groupDictionary[name]; 
-//			return sounds[0];
-//		}
-//		print ("GetClipFromName() fail");
-//		return null;
-//	}
-//
-//	public Sprite GetRandomClipFromName(string name) {
-//		if (groupDictionary.ContainsKey(name)) {
-//			Sprite[] sounds = groupDictionary[name];
-//			return sounds[Random.Range(0,sounds.Length)];
-//		}
-//		print ("GetRandomClipFromName() fail");
-//		return null;
-//	}
+
+	public Sprite GetClipFromName(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+			Sprite[] sounds = groupDictionary[name]; 
+			return sounds[0];
+		}
+		print ("GetClipFromName() fail");
+		return null;
+	}
+
+	public Sprite GetRandomClipFromName(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+			Sprite[] sounds = groupDictionary[name];
+			return sounds[Random.Range(0,sounds.Length)];
+		}
+		print ("GetRandomClipFromName() fail");
+		return null;
+	}
 
 
 	[System.Serializable]
