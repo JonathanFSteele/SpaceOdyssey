@@ -30,23 +30,39 @@ public class EncounterGenerator : MonoBehaviour {
 		//Debug.Log ("Rng is" + RanNum);
 
 		if (path == 1) {
-			if (RanNum < 25) {
+			if (RanNum <= 10) {
 				return CombatRoll( NewEnc);
 			}
-			if (RanNum > 25 && RanNum < 30) {
+			if (RanNum > 10 && RanNum <= 20) {
 				return CharismaRoll( NewEnc);
 			}
-			if (RanNum > 30 && RanNum < 35) {
+			if (RanNum > 20 && RanNum <= 30) {
 				return  MedicalRoll( NewEnc);
 			}
 		}
 
 		if (path == 2) {
-			return CombatRoll(NewEnc);
+			if (RanNum <= 15) {
+				return CombatRoll( NewEnc);
+			}
+			if (RanNum > 15 && RanNum <= 30) {
+				return CharismaRoll( NewEnc);
+			}
+			if (RanNum > 30 && RanNum <= 45) {
+				return  MedicalRoll( NewEnc);
+			}
 		}
 
 		if (path == 3 ) {
-			return CombatRoll(NewEnc);
+			if (RanNum < 20) {
+				return CombatRoll( NewEnc);
+			}
+			if (RanNum > 20 && RanNum <= 40) {
+				return CharismaRoll( NewEnc);
+			}
+			if (RanNum >= 40 && RanNum <= 60) {
+				return  MedicalRoll( NewEnc);
+			}
 		}
 		SetUI ();
 		return null;
