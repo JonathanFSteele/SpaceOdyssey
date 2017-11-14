@@ -38,7 +38,11 @@ public class MoonPos : MonoBehaviour {
 	}
 		
 
-	public void PathChoose() {
+	public void PathChooseMoon() {
+		player.GetComponent<Player> ().TargetLocationID = 2;
+
+		if (player.GetComponent<Player> ().CurrentLocationID == 2) 
+			player.GetComponent<Player> ().TargetLocationID =-1;
 
 		int CurrentPath = -1;
 			CurrentPath = GetMoonPos();
@@ -51,14 +55,30 @@ public class MoonPos : MonoBehaviour {
 			RedPath ();
 	}
 
+
+	public void PathChooseEarth() {
+
+
+		player.GetComponent<Player> ().TargetLocationID = 1;
+
+		if (player.GetComponent<Player> ().CurrentLocationID == 1) 
+			player.GetComponent<Player> ().TargetLocationID =-1;
+		
+		int CurrentPath = -1;
+		CurrentPath = GetMoonPos();
+
+		if (CurrentPath == 0 || CurrentPath == 4)
+			GreenPath ();
+		else if (CurrentPath == 1 || CurrentPath == 3 || CurrentPath == 5 || CurrentPath == 7)
+			YellowPath ();
+		else if (CurrentPath == 2 || CurrentPath == 6)
+			RedPath ();
+	}
+
 	 void YellowPath() {
 		if (player != null) {
 
-			if (player.GetComponent<Player> ().CurrentLocationID == 1)
-				player.GetComponent<Player> ().TargetLocationID = 2;
-
-			else if (player.GetComponent<Player> ().CurrentLocationID == 2)
-				player.GetComponent<Player> ().TargetLocationID = 1;
+		
 
 			player.GetComponent<Player> ().PathColor = 2;
 			player.GetComponent<Player> ().DistanceToTarget = MoonDist;
@@ -75,11 +95,7 @@ public class MoonPos : MonoBehaviour {
 
 		if (player != null) {
 
-			if (player.GetComponent<Player> ().CurrentLocationID == 1)
-				player.GetComponent<Player> ().TargetLocationID = 2;
-
-			else if (player.GetComponent<Player> ().CurrentLocationID == 2)
-				player.GetComponent<Player> ().TargetLocationID = 1;
+		
 
 			player.GetComponent<Player> ().PathColor = 3;
 			player.GetComponent<Player> ().DistanceToTarget = .8f * MoonDist;
@@ -94,11 +110,6 @@ public class MoonPos : MonoBehaviour {
 
 		if (player != null) {
 
-			if (player.GetComponent<Player> ().CurrentLocationID == 1)
-				player.GetComponent<Player> ().TargetLocationID = 2;
-
-			else if (player.GetComponent<Player> ().CurrentLocationID == 2)
-				player.GetComponent<Player> ().TargetLocationID = 1;
 
 			player.GetComponent<Player> ().PathColor = 1;
 			player.GetComponent<Player> ().DistanceToTarget = 1.2f * MoonDist;

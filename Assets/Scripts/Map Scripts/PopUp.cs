@@ -45,6 +45,18 @@ public class PopUp : MonoBehaviour {
 		if ( player.GetComponent<Player> ().TargetLocationID == 2)
 			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
 
+		if (player.GetComponent<Player> ().TargetLocationID == -1) {
+			timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time: None";
+			distanceText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Distance: none, you're already here";
+			player.GetComponent<Player> ().DistanceToTarget = - 1;
+
+			if ( player.GetComponent<Player> ().CurrentLocationID == 1)
+				image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Earth");
+
+			if ( player.GetComponent<Player> ().CurrentLocationID == 2)
+				image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PlaceLibrary> ().GetClipFromName ("Moon");
+		}
+
 	}
 
 
