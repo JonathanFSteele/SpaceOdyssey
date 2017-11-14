@@ -14,13 +14,18 @@ public class MoonPos : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+		if (player != null)
+			moonStart = ((int)(player.GetComponent<Player>().TimePassedSinceStart / 3.5)) % 8;
 		moonCont = moonStart;
 		transform.localPosition = MoonPosition [moonStart];
-		player = GameObject.Find("Player") ;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (player != null)
+			moonCont = ((int)(player.GetComponent<Player>().TimePassedSinceStart / 3.5)) % 8;
 		transform.localPosition = MoonPosition [moonCont];
 	}
 
@@ -29,8 +34,7 @@ public class MoonPos : MonoBehaviour {
 	}
 
 	public void NextMoonPos() {
-		moonCont = ++moonCont % 8;
-		transform.localPosition = MoonPosition [ (moonCont)];
+		player.GetComponent<Player>().TimePassedSinceStart = player.GetComponent<Player>().TimePassedSinceStart + 1;
 	}
 
 	public int GetMoonPos() {

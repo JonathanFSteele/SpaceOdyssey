@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
 	public int PathColor; // 1 == green, 2 == yellow, 3 == Red
 	public float DistanceToTarget;
 	public float DistanceTraveled;
+	public float TimeToTarget;
+	public float TimePassedSinceStart;
 
 	public void Save(int Id)
 	{

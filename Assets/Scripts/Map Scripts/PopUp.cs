@@ -35,6 +35,7 @@ public class PopUp : MonoBehaviour {
 		library = GameObject.FindGameObjectWithTag ("Library");
 		
 		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
+		player.GetComponent<Player> ().TimeToTarget = timeToTravel;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
 		distanceText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Distance:" + player.GetComponent<Player> ().DistanceToTarget.ToString();
 
