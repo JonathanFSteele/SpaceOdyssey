@@ -10,9 +10,9 @@ public class Captain {
 
 	public string captainName;
 	public string captainPicture;
-	public int medBonus;
+	public int medicalBonus;
 	public int combatBonus;
-	public int charsmaBonus;
+	public int charismaBonus;
 	//public int[] traits;
 
 }

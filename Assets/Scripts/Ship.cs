@@ -20,6 +20,7 @@ public class Ship : MonoBehaviour {
 	public int gunCount;
 	public int gunDamage;
 	public int maxFuel;
+	public int fuelEfficiency;
 	public int fuel;
 	public int crewCapacity;
 	public int crewAmt; //present amount of crew members

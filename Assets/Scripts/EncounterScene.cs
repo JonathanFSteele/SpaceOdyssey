@@ -22,6 +22,7 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject playerShip;
 	public GameObject playerStartPlace;
 	public GameObject playerEndPlace;
+	public GameObject playerText;
 
 	//progress bar variables
 	Vector2 playerStart;
@@ -35,14 +36,17 @@ public class EncounterScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		encounter = GameObject.FindGameObjectWithTag ("Encounter");
 		//player value retrieving
 		player = GameObject.FindGameObjectWithTag ("Player");
 		if (player != null) {
 			if (player.GetComponent<Player> ().DistanceToTarget == -1)
 				SceneManager.LoadScene ("Safezone");
-			else if (player.GetComponent<Player> ().DistanceToTarget > 0)
+			else if (player.GetComponent<Player> ().DistanceToTarget > 0) {
 				MaxDistance = player.GetComponent<Player> ().DistanceToTarget;
+				playerText.GetComponent<UnityEngine.UI.Text>().text = "Player Stats: Combat-" + player.GetComponent<Player> ().totalCombat + " Charisma-" + player.GetComponent<Player> ().totalCharisma + " Medical-" + player.GetComponent<Player> ().totalMedical;
+			}
 			else
 				Debug.Log ("Player DistanceToTarget Not Set!!!!");
 		}
@@ -94,6 +98,7 @@ public class EncounterScene : MonoBehaviour {
 					//// move object
 
 					// Generate encounter
+					if (percent != 1)
 					GenEnc = this.GetComponent<EncounterGenerator>().GenerateEncounter (player.GetComponent<Player>().PathColor,this.GetComponent<Encounter>() );
 					if (GenEnc != null) {
 						EncounterTF = true;
@@ -119,8 +124,26 @@ public class EncounterScene : MonoBehaviour {
 		SceneManager.LoadScene ("Safezone");
 	}
 
-	public void EncounterComplete() {
+	public void EncounterComplete(int a) {
+		
+		if (a == 1) {
+
+		}
+
+		if (a == 2) {
+
+
+		}
+
+		if (a == 3) {
+
+		}
+			
 		EncounterTF = false;
+		
 		//StartCoroutine(Travel());
 	}
+
+
+
 }

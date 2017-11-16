@@ -23,6 +23,21 @@ public class Player : MonoBehaviour {
 	public float TimeToTarget;
 	public float TimePassedSinceStart;
 
+	public int totalCombat;
+	public int totalCharisma;
+	public int totalMedical;
+
+	/// <summary>
+	///  needs to be updated at every stat implementation
+	/// </summary>
+	void Start() {
+
+		totalCombat = playerCaptain.combatBonus;
+		totalCharisma = playerCaptain.charismaBonus;
+		totalMedical = playerCaptain.medicalBonus;
+	}
+
+
 	public void Save(int Id)
 	{
 		Debug.Log("Save(" + Id + ")");

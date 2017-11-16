@@ -168,14 +168,19 @@ MonoBehaviour:
   playerCaptain:
     captainName: Captain Testing
     captainPicture: Cpt
-    medBonus: 5
+    medicalBonus: 5
     combatBonus: 5
-    charsmaBonus: 5
+    charismaBonus: 5
   CurrentLocationID: 1
   TargetLocationID: 2
   PathColor: 1
   DistanceToTarget: 300000
   DistanceTraveled: 0
+  TimeToTarget: 0
+  TimePassedSinceStart: 0
+  totalCombat: 0
+  totalCharisma: 0
+  totalMedical: 0
 --- !u!114 &114364452022347264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,6 +310,7 @@ MonoBehaviour:
   gunCount: 1
   gunDamage: 6
   maxFuel: 1000
+  fuelEfficiency: 0
   fuel: 800
   crewCapacity: 25
   crewAmt: 22

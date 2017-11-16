@@ -38,29 +38,33 @@ public class Encounter : MonoBehaviour {
 		roll = Random.Range (0, 20);
 
 			if (roll + player.GetComponent<Player> ().playerCaptain.combatBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
-				encounterScripts.GetComponent<EncounterGenerator> ().SetUI ();
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-
+			encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+			encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
 			}
 
 		if (this.encFocus == "Charisma") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.charsmaBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
-				encounterScripts.GetComponent<EncounterGenerator> ().SetUI ();
+			if (roll + player.GetComponent<Player> ().playerCaptain.charismaBonus > this.Combat) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (2);
 			}
 
 		}
 		if (this.encFocus == "Medical") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.medBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
+			if (roll + player.GetComponent<Player> ().playerCaptain.medicalBonus > this.Combat) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
 				return;
 			} else {
-
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (3);
 			}
 		}
 
@@ -72,34 +76,38 @@ public class Encounter : MonoBehaviour {
 		roll = Random.Range (0, 20);
 		if (this.enc2ndFocus == "Combat") {
 			if (roll + player.GetComponent<Player> ().playerCaptain.combatBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
-				encounterScripts.GetComponent<EncounterGenerator> ().SetUI ();
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
 			}
-			}
+		}
 		
 		if (this.enc2ndFocus == "Charisma") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.charsmaBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
-				encounterScripts.GetComponent<EncounterGenerator> ().SetUI ();
+			if (roll + player.GetComponent<Player> ().playerCaptain.charismaBonus > this.Combat) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (2);
 			}
-				}
+		}
 
 		
 		if (this.enc2ndFocus == "Medical") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.medBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete ();
+			if (roll + player.GetComponent<Player> ().playerCaptain.medicalBonus > this.Combat) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (3);
 			}
 
-					}
+		}
 	}
 
 
