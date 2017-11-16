@@ -56,14 +56,19 @@ public class ShowAndHideUI : MonoBehaviour
 		ShipUI.gameObject.SetActive(value);
 	}
 
-	public void ShowCrewTF(bool value)
+	public void ShowCrewTF(GameObject Canvas_Crew)
 	{
-		LogUI.gameObject.SetActive(value);
-	}
+        Canvas_Crew.SetActive(!Canvas_Crew.activeSelf);
+    }
 
-	public void ShowLogTF(bool value)
+    public void ShowCrewPG(GameObject Character_Page)
+    {
+        Character_Page.SetActive(!Character_Page.activeSelf);
+    }
+
+	public void ShowLogTF(GameObject  Canvas_Crew)
 	{
-		CrewUI.gameObject.SetActive(value);
-	}
+        Canvas_Crew.SetActive(!Canvas_Crew.activeSelf);
+    }
 
 }

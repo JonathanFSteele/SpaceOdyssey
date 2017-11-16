@@ -3836,11 +3836,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1316613795}
-        m_MethodName: ShowCrewTF
-        m_Mode: 6
+        m_MethodName: ShowLogTF
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2078685338}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4531,7 +4531,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 355632845}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &355632845
@@ -5712,10 +5723,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1316613795}
         m_MethodName: ShowCrewTF
-        m_Mode: 6
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2057949694}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7887,11 +7898,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1316613795}
-        m_MethodName: ShowCrewTF
-        m_Mode: 6
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8528,7 +8539,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 717236488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &717236488
@@ -10956,7 +10978,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 918959544}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &918959544
@@ -11600,7 +11633,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 960339505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &960339505
@@ -13933,18 +13977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce900c256503d4c71a3b5c4882c84da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHP: 1000
-  fuelAmt: 2000
-  supplyAmt: 500
-  crewAmt: 20
-  hpDisplayText: {fileID: 1353445704}
-  fuelDisplayText: {fileID: 1008904686}
-  supplyDisplayText: {fileID: 2088147833}
-  crewDisplayText: {fileID: 1301735025}
-  shipHPBar: {fileID: 1660990835}
-  fuelBar: {fileID: 649308243}
-  supplyBar: {fileID: 1718544820}
-  crewBar: {fileID: 509611810}
 --- !u!1 &1170696378
 GameObject:
   m_ObjectHideFlags: 0
@@ -15422,7 +15454,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1309222271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1309222271
@@ -17454,10 +17497,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1316613795}
         m_MethodName: ShowCrewTF
-        m_Mode: 6
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2057949694}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19664,10 +19707,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1316613795}
         m_MethodName: ShowLogTF
-        m_Mode: 6
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2078685338}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19955,7 +19998,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1746469406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316613795}
+        m_MethodName: ShowCrewPG
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849880469}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1746469406
