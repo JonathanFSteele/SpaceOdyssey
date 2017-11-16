@@ -7,6 +7,7 @@ using System.Collections;
 public class AdjustBarAndStatLevels : MonoBehaviour
 {
 	public GameObject player;
+	Ship ship;
 
    public Text shipNameDisplayText;
    public Image shipPicture;
@@ -37,9 +38,9 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 		player = GameObject.FindGameObjectWithTag ("Player");
 
-		Ship ship = player.GetComponentInChildren<Ship> ();		
+	    ship = player.GetComponentInChildren<Ship> ();		
 
-      if(shipNameDisplayText != null)
+      if (shipNameDisplayText != null)
          shipNameDisplayText.text = ship.shipName.ToString ();
 
       /* ship stats tab */
@@ -77,6 +78,40 @@ public class AdjustBarAndStatLevels : MonoBehaviour
       
 
    }
+
+	public void UpdateText(){
+
+		player = GameObject.FindGameObjectWithTag ("Player");
+
+
+		ship = player.GetComponentInChildren<Ship> ();
+
+
+		if(hpDisplayText != null)
+		{         
+			hpDisplayText.text = ship.health.ToString ();
+			 depleteHP(0);
+		}
+
+		if(fuelDisplayText != null)
+		{
+			fuelDisplayText.text = ship.fuel.ToString ();
+			 depleteFuel(0);         
+		}
+
+		if(crewDisplayText != null)
+		{
+			crewDisplayText.text = ship.crewAmt.ToString ();
+			 depleteCrew(0);
+		}
+
+		if(supplyDisplayText != null)
+		{
+			supplyDisplayText.text = ship.supplies.ToString ();
+			 depleteSupply(0);
+		}
+
+	}
 
 
 

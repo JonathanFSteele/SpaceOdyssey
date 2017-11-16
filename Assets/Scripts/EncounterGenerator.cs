@@ -114,7 +114,7 @@ public class EncounterGenerator : MonoBehaviour {
 			MedicalCanvas.gameObject.SetActive (true);
 		}
 
-		EncounterText.GetComponent<UnityEngine.UI.Text> ().text = "Stats : Combat-" + NewEnc.Combat + " Charisma-" + NewEnc.Charisma + " Medical-" + NewEnc.Medical;
+		EncounterText.GetComponent<UnityEngine.UI.Text> ().text = "Stats : Combat:" + NewEnc.Combat + " Charisma:" + NewEnc.Charisma + " Medical:" + NewEnc.Medical;
 
 
 	}

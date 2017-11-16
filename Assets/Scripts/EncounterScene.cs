@@ -23,6 +23,8 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject playerStartPlace;
 	public GameObject playerEndPlace;
 	public GameObject playerText;
+	public GameObject bars1;
+	public GameObject bars2;
 
 	//progress bar variables
 	Vector2 playerStart;
@@ -45,7 +47,7 @@ public class EncounterScene : MonoBehaviour {
 				SceneManager.LoadScene ("Safezone");
 			else if (player.GetComponent<Player> ().DistanceToTarget > 0) {
 				MaxDistance = player.GetComponent<Player> ().DistanceToTarget;
-				playerText.GetComponent<UnityEngine.UI.Text>().text = "Player Stats: Combat-" + player.GetComponent<Player> ().totalCombat + " Charisma-" + player.GetComponent<Player> ().totalCharisma + " Medical-" + player.GetComponent<Player> ().totalMedical;
+				playerText.GetComponent<UnityEngine.UI.Text>().text = "Player Stats: Combat:" + player.GetComponent<Player> ().totalCombat + " Charisma:" + player.GetComponent<Player> ().totalCharisma + " Medical:" + player.GetComponent<Player> ().totalMedical;
 			}
 			else
 				Debug.Log ("Player DistanceToTarget Not Set!!!!");
@@ -93,17 +95,20 @@ public class EncounterScene : MonoBehaviour {
 						//Debug.Log (percent);
 						playerPos = new Vector2 (playerPos.x + (progress - prevProgress), playerPos.y);
 						prevProgress = progress;
+						player.GetComponentInChildren<Ship>().fuel -= player.GetComponentInChildren<Ship>().fuelEfficiency;
+						bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
+						bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 					}
 					playerShip.transform.localPosition =  new Vector2(playerPos.x, playerPos.y);
 					//// move object
 
 					// Generate encounter
-					if (percent != 1)
+					if (percent < 1)
 					GenEnc = this.GetComponent<EncounterGenerator>().GenerateEncounter (player.GetComponent<Player>().PathColor,this.GetComponent<Encounter>() );
 					if (GenEnc != null) {
 						EncounterTF = true;
 						this.GetComponent<Encounter> ().Equals (this.GetComponent<Encounter>(), GenEnc);
-						Debug.Log ("IT WORKED?");
+						//Debug.Log ("IT WORKED?");
 					}
 					//Call Encounter Generator Function -- Return EncounterTF == true or false
 					Debug.Log ("Traveled " + CurrentDistance + " Miles In " + TimeTaken + " Earth Days");
@@ -113,6 +118,14 @@ public class EncounterScene : MonoBehaviour {
 
 				}
 			} else {
+				if (CurrentDistance >= MaxDistance) {
+					
+					player.GetComponent<Player> ().TimePassedSinceStart += player.GetComponent<Player> ().TimeToTarget;
+					player.GetComponent<Player> ().CurrentLocationID = player.GetComponent<Player> ().TargetLocationID;
+					player.GetComponent<Player> ().TargetLocationID = 0;
+					SceneManager.LoadScene ("Safezone");
+
+				}
 				//Debug.Log ("Encounter Encountered, Waiting for Results ");
 			}
 		}
