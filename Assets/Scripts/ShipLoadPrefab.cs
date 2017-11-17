@@ -73,7 +73,7 @@ public class ShipLoadPrefab : MonoBehaviour {
 		playerShip.crewAmt = ship.crewAmt;
 		playerShip.maxSupplies = ship.maxSupplies;
 		playerShip.supplies = ship.supplies;
-		playerShip.medBonus = ship.medBonus;
+		playerShip.medicalBonus = ship.medicalBonus;
 		playerShip.combatBonus = ship.combatBonus;
 		playerShip.charsmaBonus = ship.charsmaBonus;
 

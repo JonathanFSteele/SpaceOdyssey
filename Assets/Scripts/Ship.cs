@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour {
 	public int crewAmt; //present amount of crew members
 	public int maxSupplies;
 	public int supplies;
-	public int medBonus;
+	public int medicalBonus;
 	public int combatBonus;
 	public int charsmaBonus;
 
