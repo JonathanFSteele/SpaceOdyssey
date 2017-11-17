@@ -24,56 +24,6 @@ public class ShipLibrary : MonoBehaviour {
 	}
 
 
-	public Sprite getFirstShip(string name) {
-		if (groupDictionary.ContainsKey(name)) {
-
-			Sprite[] sounds = groupDictionary[name]; 
-			return sounds[0];
-		}
-		print ("getFirstShip() fail");
-		return null;
-	}
-
-
-	public Sprite getNextShip(string name) {
-		if (groupDictionary.ContainsKey(name)) {
-
-			Sprite[] sounds = groupDictionary[name]; 
-
-			scrollIndex++;
-			if (scrollIndex >= shipArraySize)
-				scrollIndex = 0;
-
-			print ("scrollIndex: " + scrollIndex);
-
-			return sounds[scrollIndex];
-		}
-		print ("getNextShip() fail");
-		return null;
-	}
-
-
-	public Sprite getPreviousShip(string name) {
-		if (groupDictionary.ContainsKey(name)) {
-
-			Sprite[] sounds = groupDictionary[name]; 
-
-			scrollIndex--;
-			if (scrollIndex <= 0)
-				scrollIndex = shipArraySize-1;
-
-			print ("scrollIndex: " + scrollIndex);
-
-			return sounds[scrollIndex];
-		}
-		print ("getPreviousShip() fail");
-		return null;
-	}
-
-
-
-
-
 
 	public Sprite GetClipFromName(string name) {
 		if (groupDictionary.ContainsKey(name)) {

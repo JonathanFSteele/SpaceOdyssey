@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PrefabShipLoad : MonoBehaviour {
+public class ShipLoadPrefab : MonoBehaviour {
 
 //	public GameObject distanceText;
 //	public GameObject timeText;
@@ -24,20 +24,20 @@ public class PrefabShipLoad : MonoBehaviour {
 	public void nextShopShip() {
 		library = GameObject.FindGameObjectWithTag ("Library");
 		//		print ("loadShip()");
-		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PrefabShipLibrary> ().getNextShip ("shop_ships");
+		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
 	}
 		
 	public void previousShopShip() {
 		library = GameObject.FindGameObjectWithTag ("Library");
 		//		print ("loadShip()");
-		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PrefabShipLibrary> ().getPreviousShip ("shop_ships");
+		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
 	}
 
 	public void loadShipYard() {
 		library = GameObject.FindGameObjectWithTag ("Library");
 		//		print ("loadShip()");
 		if(image.GetComponent<UnityEngine.UI.Image>().sprite == null)
-			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<PrefabShipLibrary> ().getFirstShip ("shop_ships");
+			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getFirstShip ("shop_ships");
 	}
 
 	public void TransitToEncounter () {

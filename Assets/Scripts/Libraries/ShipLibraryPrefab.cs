@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabShipLibrary : MonoBehaviour {
+public class ShipLibraryPrefab : MonoBehaviour {
 
 	// public GameObject test1;
 
