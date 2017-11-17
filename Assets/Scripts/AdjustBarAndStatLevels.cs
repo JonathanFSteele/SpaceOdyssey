@@ -82,15 +82,15 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 
 
-	public void UpdateText(){
+	public void UpdateText(){ //used just in header, and when buying ship
 
 		ship = shipObj.GetComponent<Ship> ();		
 
-
-		if(hpDisplayText != null)
+ 		if(hpDisplayText != null)
 		{         
 			hpDisplayText.text = ship.health.ToString ();
-			 depleteHP(0);
+			 depleteHP(0);print("test2");
+
 		}
 
 		if(fuelDisplayText != null)
