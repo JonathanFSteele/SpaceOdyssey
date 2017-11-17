@@ -38,25 +38,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPicture: {fileID: 21300000, guid: 73975eb97ffd3894c800df5072a493a1, type: 3}
+  shipPicture: {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
   shipName: UFO
-  maxHealth: 20
-  health: 0
-  shields: 1
-  armor: 1
-  speed: 5
-  gunCount: 1
-  gunDamage: 6
-  maxFuel: 1000
-  fuelEfficiency: 0
-  fuel: 580
-  crewCapacity: 5
-  crewAmt: 0
-  maxSupplies: 0
-  supplies: 0
-  medBonus: 2
-  combatBonus: 0
-  charsmaBonus: 7
+  maxHealth: 100
+  health: 100
+  shields: 55
+  armor: 12
+  speed: 44
+  gunCount: 8
+  gunDamage: 9
+  maxFuel: 500
+  fuelEfficiency: 10
+  fuel: 450
+  crewCapacity: 12
+  crewAmt: 9
+  maxSupplies: 11
+  supplies: 10
+  medBonus: 5
+  combatBonus: 1
+  charsmaBonus: 4
 --- !u!224 &224406245795448836
 RectTransform:
   m_ObjectHideFlags: 1

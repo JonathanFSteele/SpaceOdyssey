@@ -40,8 +40,8 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 		ship = shipObj.GetComponent<Ship> ();		
 
-      // if (shipNameDisplayText != null)
-      //    shipNameDisplayText.text = ship.shipName.ToString ();
+       if (shipNameDisplayText != null)
+          shipNameDisplayText.text = ship.shipName.ToString ();
 
       /* ship stats tab */
      if(hpDisplayText != null)
@@ -81,10 +81,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 	public void UpdateText(){
 
-		// player = GameObject.FindGameObjectWithTag ("Player");
-
-
-		// ship = player.GetComponentInChildren<Ship> ();
 		ship = shipObj.GetComponent<Ship> ();		
 
 

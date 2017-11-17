@@ -2,45 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class ShipLoadPrefab : MonoBehaviour {
 
-//	public GameObject distanceText;
-//	public GameObject timeText;
-	public GameObject image;
 	public GameObject library;
-//	public GameObject player;
+
+	public GameObject canvas; //aka: Canvas_ShipYardUI_wScript
+	private AdjustBarAndStatLevels stats; //attached to Canvas_ShipYardUI_wScript
+	private Ship ship;
 
 
-	// Use this for initialization
-	public void Start () {
-//		player = GameObject.FindGameObjectWithTag ("Player");
-	    library = GameObject.FindGameObjectWithTag ("Library");
-//		player = GameObject.Find ("Player");
-//		library = GameObject.Find ("Library");
+// Use this for initialization
+	public void Start () {}
+
+
+	public void loadShipYard() {
+
+		library = GameObject.FindGameObjectWithTag ("Library");
+		ship = library.GetComponent<ShipLibraryPrefab> ().getFirstShip ("shop_ships");
+		stats = canvas.GetComponent<AdjustBarAndStatLevels>();
+
+		stats.shipPicture.sprite = ship.shipPicture;
+
+		stats.shipNameDisplayText.text = ship.shipName.ToString();
+		stats.hpDisplayText.text = ship.health.ToString();
+		stats.speedDisplayText.text = ship.speed.ToString();
+		stats.shieldsDisplayText.text = ship.shields.ToString();
+		stats.gunDamageDisplayText.text = ship.gunDamage.ToString();
+		stats.fuelDisplayText.text = ship.fuel.ToString();
+		stats.armorDisplayText.text = ship.armor.ToString();
+		stats.gunCountDisplayText.text = ship.gunCount.ToString();
+		stats.crewDisplayText.text = ship.crewAmt.ToString();
+	}
+
+
+	public void previousShopShip() {
+		library = GameObject.FindGameObjectWithTag ("Library");
+		ship = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
+		stats = canvas.GetComponent<AdjustBarAndStatLevels>();
+
+		stats.shipPicture.sprite = ship.shipPicture;
+
+		stats.shipNameDisplayText.text = ship.shipName.ToString();
+		stats.hpDisplayText.text = ship.health.ToString();
+		stats.speedDisplayText.text = ship.speed.ToString();
+		stats.shieldsDisplayText.text = ship.shields.ToString();
+		stats.gunDamageDisplayText.text = ship.gunDamage.ToString();
+		stats.fuelDisplayText.text = ship.fuel.ToString();
+		stats.armorDisplayText.text = ship.armor.ToString();
+		stats.gunCountDisplayText.text = ship.gunCount.ToString();
+		stats.crewDisplayText.text = ship.crewAmt.ToString();
 	}
 
 
 	public void nextShopShip() {
 		library = GameObject.FindGameObjectWithTag ("Library");
-		//		print ("loadShip()");
-		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
-	}
-		
-	public void previousShopShip() {
-		library = GameObject.FindGameObjectWithTag ("Library");
-		//		print ("loadShip()");
-		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
+		ship = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
+		stats = canvas.GetComponent<AdjustBarAndStatLevels>();
+
+		stats.shipPicture.sprite = ship.shipPicture;
+
+		stats.shipNameDisplayText.text = ship.shipName.ToString();
+		stats.hpDisplayText.text = ship.health.ToString();
+		stats.speedDisplayText.text = ship.speed.ToString();
+		stats.shieldsDisplayText.text = ship.shields.ToString();
+		stats.gunDamageDisplayText.text = ship.gunDamage.ToString();
+		stats.fuelDisplayText.text = ship.fuel.ToString();
+		stats.armorDisplayText.text = ship.armor.ToString();
+		stats.gunCountDisplayText.text = ship.gunCount.ToString();
+		stats.crewDisplayText.text = ship.crewAmt.ToString();
 	}
 
-	public void loadShipYard() {
-		library = GameObject.FindGameObjectWithTag ("Library");
-		//		print ("loadShip()");
-		if(image.GetComponent<UnityEngine.UI.Image>().sprite == null)
-			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibraryPrefab> ().getFirstShip ("shop_ships");
-	}
 
-	public void TransitToEncounter () {
-		SceneManager.LoadScene ("Encounter");
-	}
+
+//	public void TransitToEncounter () {
+//		SceneManager.LoadScene ("Encounter");
+//	}
 }
