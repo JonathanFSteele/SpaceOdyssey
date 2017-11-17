@@ -15,6 +15,8 @@ public class EncounterScene : MonoBehaviour {
 	private bool TravelFinishedTF = false;
 	//public float distancePerSecond = 5;
 	public GameObject player;
+   public GameObject shipObj;
+	private Ship ship;
 
 	public GameObject encounter;
 	public Encounter GenEnc;
@@ -39,6 +41,7 @@ public class EncounterScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+		ship = shipObj.GetComponent<Ship> ();		
 		encounter = GameObject.FindGameObjectWithTag ("Encounter");
 		//player value retrieving
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -54,9 +57,9 @@ public class EncounterScene : MonoBehaviour {
 		}
 
 		if (player != null) {
-			if (player.GetComponentInChildren<Ship> ().speed > 0) {
+			if (ship.speed > 0) {
 				MaxDistance = player.GetComponent<Player> ().DistanceToTarget;
-				ShipSpeed = player.GetComponentInChildren<Ship> ().speed;
+				ShipSpeed = ship.speed;
 			}
 			else
 				Debug.Log ("Player Speed Not Set!!!!");
@@ -95,7 +98,7 @@ public class EncounterScene : MonoBehaviour {
 						//Debug.Log (percent);
 						playerPos = new Vector2 (playerPos.x + (progress - prevProgress), playerPos.y);
 						prevProgress = progress;
-						player.GetComponentInChildren<Ship>().fuel -= player.GetComponentInChildren<Ship>().fuelEfficiency;
+						ship.fuel -= ship.fuelEfficiency;
 						bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 						bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 					}

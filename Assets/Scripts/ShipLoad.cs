@@ -26,14 +26,19 @@ public class ShipLoad : MonoBehaviour {
 		//		print ("loadShip()");
 		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibrary> ().getNextShip ("shop_ships");
 	}
-
-
+		
 	public void previousShopShip() {
 		library = GameObject.FindGameObjectWithTag ("Library");
 		//		print ("loadShip()");
 		image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibrary> ().getNextShip ("shop_ships");
 	}
 
+	public void loadShipYard() {
+		library = GameObject.FindGameObjectWithTag ("Library");
+		//		print ("loadShip()");
+		if(image.GetComponent<UnityEngine.UI.Image>().sprite == null)
+			image.GetComponent<UnityEngine.UI.Image>().sprite =  library.GetComponent<ShipLibrary> ().getFirstShip ("shop_ships");
+	}
 
 	public void TransitToEncounter () {
 		SceneManager.LoadScene ("Encounter");

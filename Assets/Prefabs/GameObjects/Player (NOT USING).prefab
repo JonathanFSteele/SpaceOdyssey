@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4338800121001364}
   - component: {fileID: 114420220290744008}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player (NOT USING)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,14 +74,19 @@ MonoBehaviour:
   playerCaptain:
     captainName: 
     captainPicture: 
-    medBonus: 0
+    medicalBonus: 0
     combatBonus: 0
-    charsmaBonus: 0
+    charismaBonus: 0
   CurrentLocationID: 1
   TargetLocationID: 2
   PathColor: 0
   DistanceToTarget: 0
   DistanceTraveled: 0
+  TimeToTarget: 0
+  TimePassedSinceStart: 0
+  totalCombat: 0
+  totalCharisma: 0
+  totalMedical: 0
 --- !u!114 &114937727301031668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +108,7 @@ MonoBehaviour:
   gunCount: 1
   gunDamage: 6
   maxFuel: 1000
+  fuelEfficiency: 0
   fuel: 800
   crewCapacity: 25
   crewAmt: 22

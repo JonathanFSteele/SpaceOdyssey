@@ -24,6 +24,17 @@ public class ShipLibrary : MonoBehaviour {
 	}
 
 
+	public Sprite getFirstShip(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+
+			Sprite[] sounds = groupDictionary[name]; 
+			return sounds[0];
+		}
+		print ("getFirstShip() fail");
+		return null;
+	}
+
+
 	public Sprite getNextShip(string name) {
 		if (groupDictionary.ContainsKey(name)) {
 

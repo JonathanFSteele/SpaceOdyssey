@@ -6,9 +6,9 @@ using System.Collections;
 
 public class AdjustBarAndStatLevels : MonoBehaviour
 {
-	public GameObject player;
-	Ship ship;
-
+   // public GameObject player;
+   public GameObject shipObj;
+	private Ship ship;
    public Text shipNameDisplayText;
    public Image shipPicture;
 
@@ -36,19 +36,19 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    void Start() {
 
-		player = GameObject.FindGameObjectWithTag ("Player");
+		// player = GameObject.FindGameObjectWithTag ("Player");
 
-	    ship = player.GetComponentInChildren<Ship> ();		
+		ship = shipObj.GetComponent<Ship> ();		
 
-      if (shipNameDisplayText != null)
-         shipNameDisplayText.text = ship.shipName.ToString ();
+      // if (shipNameDisplayText != null)
+      //    shipNameDisplayText.text = ship.shipName.ToString ();
 
       /* ship stats tab */
-      if(hpDisplayText != null)
-      {         
-         hpDisplayText.text = ship.health.ToString ();
-         depleteHP(0);
-      }
+     if(hpDisplayText != null)
+     {         
+        hpDisplayText.text = ship.health.ToString ();
+        depleteHP(0);
+     }
 
       if(speedDisplayText != null)
          speedDisplayText.text = ship.speed.ToString ();
@@ -81,10 +81,11 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 	public void UpdateText(){
 
-		player = GameObject.FindGameObjectWithTag ("Player");
+		// player = GameObject.FindGameObjectWithTag ("Player");
 
 
-		ship = player.GetComponentInChildren<Ship> ();
+		// ship = player.GetComponentInChildren<Ship> ();
+		ship = shipObj.GetComponent<Ship> ();		
 
 
 		if(hpDisplayText != null)
@@ -117,7 +118,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    public void depleteHP(int damageCount)
    {
-      Ship ship = player.GetComponentInChildren<Ship> ();		
+      ship = shipObj.GetComponent<Ship> ();     		
 
       ship.health -= damageCount;
 
@@ -133,7 +134,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    public void depleteFuel(int reduceAmt)
    {
-      Ship ship = player.GetComponentInChildren<Ship> ();      
+      ship = shipObj.GetComponent<Ship> ();           
 
       ship.fuel -= reduceAmt;
 
@@ -150,7 +151,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    public void depleteSupply(int reduceAmt)
    {
-      Ship ship = player.GetComponentInChildren<Ship> ();      
+      ship = shipObj.GetComponent<Ship> ();           
 
       ship.supplies -= reduceAmt;
 
@@ -167,7 +168,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    public void depleteCrew(int reduceAmt)
    {
-      Ship ship = player.GetComponentInChildren<Ship> ();      
+      ship = shipObj.GetComponent<Ship> ();           
 
       ship.crewAmt -= reduceAmt;
 

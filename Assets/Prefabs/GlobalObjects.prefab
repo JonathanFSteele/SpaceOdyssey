@@ -9,33 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1789287420471366}
+  m_RootGameObject: {fileID: 1147003012983590}
   m_IsPrefabParent: 1
---- !u!1 &1007617641798242
+--- !u!1 &1015215081175962
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4653952190438502}
-  - component: {fileID: 114840051976301982}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1655557311957150
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4981797014903204}
-  - component: {fileID: 114302420835841668}
+  - component: {fileID: 4414443543448436}
+  - component: {fileID: 114647382330650332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -43,31 +27,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1756337201409324
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 224801815640100546}
-  - component: {fileID: 114933418400195690}
-  m_Layer: 5
-  m_Name: RocketShip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1789287420471366
+--- !u!1 &1147003012983590
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4888949525260230}
-  - component: {fileID: 114687250807915432}
+  - component: {fileID: 4484114457516100}
+  - component: {fileID: 114963583908522172}
   m_Layer: 0
   m_Name: GlobalObjects
   m_TagString: Untagged
@@ -75,19 +43,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1911387360774834
+--- !u!1 &1921915300660872
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4439946628860926}
-  - component: {fileID: 114742478240691176}
-  - component: {fileID: 114850268049248290}
-  - component: {fileID: 114422493820471972}
-  - component: {fileID: 114989967420077278}
-  - component: {fileID: 114364452022347264}
+  - component: {fileID: 4387010396674668}
+  - component: {fileID: 114401266651515082}
+  - component: {fileID: 114750175185313118}
+  - component: {fileID: 114172579716767360}
+  - component: {fileID: 114867388827181838}
+  - component: {fileID: 114428131286564130}
   m_Layer: 0
   m_Name: ImageLibraries
   m_TagString: Library
@@ -95,114 +63,100 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4439946628860926
+--- !u!1 &1975435287390594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224253765200969692}
+  - component: {fileID: 114175302828538060}
+  m_Layer: 5
+  m_Name: PlayerShip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1982109806435764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4714903428466872}
+  - component: {fileID: 114325715866008540}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4387010396674668
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
+  m_GameObject: {fileID: 1921915300660872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4888949525260230}
+  m_Father: {fileID: 4484114457516100}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4414443543448436
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015215081175962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4484114457516100}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4653952190438502
+--- !u!4 &4484114457516100
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007617641798242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4888949525260230}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4888949525260230
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789287420471366}
+  m_GameObject: {fileID: 1147003012983590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.10084045, y: -1.1823529, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4653952190438502}
-  - {fileID: 4981797014903204}
-  - {fileID: 4439946628860926}
+  - {fileID: 4714903428466872}
+  - {fileID: 224253765200969692}
+  - {fileID: 4414443543448436}
+  - {fileID: 4387010396674668}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4981797014903204
+--- !u!4 &4714903428466872
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1655557311957150}
+  m_GameObject: {fileID: 1982109806435764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 224801815640100546}
-  m_Father: {fileID: 4888949525260230}
-  m_RootOrder: 1
+  m_Children: []
+  m_Father: {fileID: 4484114457516100}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114302420835841668
+--- !u!114 &114172579716767360
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1655557311957150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  credits: 0
-  sceneID: 1
-  encounterIndex: -1
-  playerCaptain:
-    captainName: Captain Testing
-    captainPicture: Cpt
-    medicalBonus: 1
-    combatBonus: 1
-    charismaBonus: 1
-  CurrentLocationID: 1
-  TargetLocationID: 2
-  PathColor: 1
-  DistanceToTarget: 300000
-  DistanceTraveled: 0
-  TimeToTarget: 0
-  TimePassedSinceStart: 0
-  totalCombat: 0
-  totalCharisma: 0
-  totalMedical: 0
---- !u!114 &114364452022347264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e1a42ee88aa704dada68e7e14f198f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageGroups:
-  - groupID: ApAmmo
-    group: {fileID: 21300000, guid: e458bb5cbc8ed43a18968722be213fa0, type: 3}
-  - groupID: Kevlar
-    group: {fileID: 21300000, guid: 02f72e3fa785c4c6d86d8ffd44c17731, type: 3}
---- !u!114 &114422493820471972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
+  m_GameObject: {fileID: 1921915300660872}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a80d6652083ec584389397417786c186, type: 3}
@@ -228,73 +182,12 @@ MonoBehaviour:
   displayImage: {fileID: 0}
   scrollIndex: 0
   shipArraySize: 0
---- !u!114 &114687250807915432
+--- !u!114 &114175302828538060
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789287420471366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04afc800688fb42f9aa3364f2f57031e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114742478240691176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d4b6d4095269514dbdc617c0b345be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageGroups:
-  - groupID: Earth
-    group: {fileID: 21300000, guid: 12ec81d7a45a4df40b5c582d76a4af85, type: 3}
-  - groupID: Moon
-    group: {fileID: 21300000, guid: b97925369f016ae43b014fe5a05e6d0d, type: 3}
-  - groupID: EarthBack
-    group: {fileID: 21300000, guid: 41ca71a7198d04b3596c50ccbd280aea, type: 3}
-  - groupID: MoonBack
-    group: {fileID: 21300000, guid: b96f8be135d56b94f9c34bcde15dcc4d, type: 3}
---- !u!114 &114840051976301982
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007617641798242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81dd3c5e9f701648b8df460e4a805bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
---- !u!114 &114850268049248290
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04fab4e7209b8a2459a8d677091e7078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageGroups:
-  - groupID: Cool
-    group: {fileID: 21300000, guid: bb9ddc9f42a724c7e9d7182bb8057412, type: 3}
-  - groupID: Cpt
-    group: {fileID: 21300000, guid: 733050ac936da4a5b912f35859575713, type: 3}
-  - groupID: Donny
-    group: {fileID: 21300000, guid: 34cbc143bef8543dd8e1fca1b9d6ce2a, type: 3}
---- !u!114 &114933418400195690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756337201409324}
+  m_GameObject: {fileID: 1975435287390594}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
@@ -310,7 +203,7 @@ MonoBehaviour:
   gunCount: 1
   gunDamage: 6
   maxFuel: 1000
-  fuelEfficiency: 150
+  fuelEfficiency: 100
   fuel: 800
   crewCapacity: 25
   crewAmt: 22
@@ -319,12 +212,108 @@ MonoBehaviour:
   medBonus: 2
   combatBonus: 0
   charsmaBonus: 7
---- !u!114 &114989967420077278
+--- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911387360774834}
+  m_GameObject: {fileID: 1982109806435764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81dd3c5e9f701648b8df460e4a805bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &114401266651515082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4b6d4095269514dbdc617c0b345be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: Earth
+    group: {fileID: 21300000, guid: 12ec81d7a45a4df40b5c582d76a4af85, type: 3}
+  - groupID: Moon
+    group: {fileID: 21300000, guid: b97925369f016ae43b014fe5a05e6d0d, type: 3}
+  - groupID: EarthBack
+    group: {fileID: 21300000, guid: 41ca71a7198d04b3596c50ccbd280aea, type: 3}
+  - groupID: MoonBack
+    group: {fileID: 21300000, guid: b96f8be135d56b94f9c34bcde15dcc4d, type: 3}
+--- !u!114 &114428131286564130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1a42ee88aa704dada68e7e14f198f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: ApAmmo
+    group: {fileID: 21300000, guid: e458bb5cbc8ed43a18968722be213fa0, type: 3}
+  - groupID: Kevlar
+    group: {fileID: 21300000, guid: 02f72e3fa785c4c6d86d8ffd44c17731, type: 3}
+--- !u!114 &114647382330650332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015215081175962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: 0
+  sceneID: 1
+  encounterIndex: -1
+  playerCaptain:
+    captainName: Captain Testing
+    captainPicture: Cpt
+    medicalBonus: 1
+    combatBonus: 1
+    charismaBonus: 1
+  CurrentLocationID: 1
+  TargetLocationID: 2
+  PathColor: 1
+  DistanceToTarget: 300000
+  DistanceTraveled: 0
+  TimeToTarget: 0
+  TimePassedSinceStart: 0
+  totalCombat: 0
+  totalCharisma: 0
+  totalMedical: 0
+--- !u!114 &114750175185313118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fab4e7209b8a2459a8d677091e7078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: Cool
+    group: {fileID: 21300000, guid: bb9ddc9f42a724c7e9d7182bb8057412, type: 3}
+  - groupID: Cpt
+    group: {fileID: 21300000, guid: 733050ac936da4a5b912f35859575713, type: 3}
+  - groupID: Donny
+    group: {fileID: 21300000, guid: 34cbc143bef8543dd8e1fca1b9d6ce2a, type: 3}
+--- !u!114 &114867388827181838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08578cd233b952c4fb51ac3723cd5fa6, type: 3}
@@ -341,18 +330,29 @@ MonoBehaviour:
     group: {fileID: 21300000, guid: d4c52f52160da45388e75e141d0e60b8, type: 3}
   - groupID: Naked
     group: {fileID: 21300000, guid: 9c4caa9009c304d5d94be49299ce604d, type: 3}
---- !u!224 &224801815640100546
+--- !u!114 &114963583908522172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147003012983590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04afc800688fb42f9aa3364f2f57031e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &224253765200969692
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1756337201409324}
+  m_GameObject: {fileID: 1975435287390594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4981797014903204}
-  m_RootOrder: 0
+  m_Father: {fileID: 4484114457516100}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

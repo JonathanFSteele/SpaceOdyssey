@@ -11,9 +11,13 @@ public class PopUp : MonoBehaviour {
 	public GameObject library;
 	public GameObject player;
 
+  public GameObject shipObj;
+	private Ship ship;
 
 	// Use this for initialization
 	public void Start () {
+		ship = shipObj.GetComponent<Ship> ();		
+
 		player = GameObject.FindGameObjectWithTag ("Player");
 	    library = GameObject.FindGameObjectWithTag ("Library");
 		player = GameObject.Find ("Player");
@@ -34,7 +38,7 @@ public class PopUp : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		library = GameObject.FindGameObjectWithTag ("Library");
 		
-		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget / player.GetComponentInChildren<Ship> ().speed;
+		float timeToTravel = player.GetComponent<Player> ().DistanceToTarget /  ship.speed;
 		player.GetComponent<Player> ().TimeToTarget = timeToTravel;
 		timeText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Time:" + timeToTravel;
 		distanceText.GetComponent<UnityEngine.UI.Text> ().text = "Estimated Distance:" + player.GetComponent<Player> ().DistanceToTarget.ToString();
