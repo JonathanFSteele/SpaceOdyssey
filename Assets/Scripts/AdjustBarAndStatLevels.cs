@@ -40,6 +40,10 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 		ship = shipObj.GetComponent<Ship> ();		
 
+       if (shipPicture != null)
+          // shipNameDisplayText.text = ship.shipName.ToString ();
+         shipPicture.sprite = ship.shipPicture;
+
        if (shipNameDisplayText != null)
           shipNameDisplayText.text = ship.shipName.ToString ();
 

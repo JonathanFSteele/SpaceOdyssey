@@ -56,18 +56,27 @@ public class ShipLoadPrefab : MonoBehaviour {
 //METHOD #3
 		playerShip.shipPicture = ship.shipPicture;
 
+		playerShip.shipPicture = ship.shipPicture;
+		playerShip.shipName = ship.shipName;
+		playerShip.maxHealth = ship.maxHealth;
+		playerShip.health = ship.health;
+		playerShip.shields = ship.shields;
+		playerShip.armor = ship.armor;
+		playerShip.speed = ship.speed;
 
-		// stats.shipPicture.sprite = ship.shipPicture;
+		playerShip.gunCount = ship.gunCount;
+		playerShip.gunDamage = ship.gunDamage;
+		playerShip.maxFuel = ship.maxFuel;
+		playerShip.fuelEfficiency = ship.fuelEfficiency;
+		playerShip.fuel = ship.fuel;
+		playerShip.crewCapacity = ship.crewCapacity;
+		playerShip.crewAmt = ship.crewAmt;
+		playerShip.maxSupplies = ship.maxSupplies;
+		playerShip.supplies = ship.supplies;
+		playerShip.medBonus = ship.medBonus;
+		playerShip.combatBonus = ship.combatBonus;
+		playerShip.charsmaBonus = ship.charsmaBonus;
 
-		// stats.shipNameDisplayText.text = ship.shipName.ToString();
-		// stats.hpDisplayText.text = ship.health.ToString();
-		// stats.speedDisplayText.text = ship.speed.ToString();
-		// stats.shieldsDisplayText.text = ship.shields.ToString();
-		// stats.gunDamageDisplayText.text = ship.gunDamage.ToString();
-		// stats.fuelDisplayText.text = ship.fuel.ToString();
-		// stats.armorDisplayText.text = ship.armor.ToString();
-		// stats.gunCountDisplayText.text = ship.gunCount.ToString();
-		// stats.crewDisplayText.text = ship.crewAmt.ToString();
 	}
 
 
