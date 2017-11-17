@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114172579716767360}
   - component: {fileID: 114867388827181838}
   - component: {fileID: 114428131286564130}
+  - component: {fileID: 114768233630018080}
   m_Layer: 0
   m_Name: ImageLibraries
   m_TagString: Library
@@ -204,7 +205,7 @@ MonoBehaviour:
   gunDamage: 6
   maxFuel: 1000
   fuelEfficiency: 100
-  fuel: 800
+  fuel: 200
   crewCapacity: 25
   crewAmt: 22
   maxSupplies: 500
@@ -308,6 +309,24 @@ MonoBehaviour:
     group: {fileID: 21300000, guid: 733050ac936da4a5b912f35859575713, type: 3}
   - groupID: Donny
     group: {fileID: 21300000, guid: 34cbc143bef8543dd8e1fca1b9d6ce2a, type: 3}
+--- !u!114 &114768233630018080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a351e3f8e1743b8a656ee4f6a11ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipList:
+  - groupID: shop_ships
+    group:
+    - {fileID: 114204484156179186, guid: 2a46ddd6ed41b444181b6770741a593b, type: 2}
+    - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
+  scrollIndex: 0
+  shipArraySize: 0
 --- !u!114 &114867388827181838
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,8 +21,10 @@ GameObject:
   - component: {fileID: 4539947358230966}
   - component: {fileID: 114060321997211506}
   - component: {fileID: 114503851058614768}
+  - component: {fileID: 114651809065962564}
+  - component: {fileID: 114425080504618180}
   m_Layer: 5
-  m_Name: Menu UIScripts
+  m_Name: Menu UIScripts DELETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +61,19 @@ MonoBehaviour:
   ShipUI: {fileID: 0}
   LogUI: {fileID: 0}
   CrewUI: {fileID: 0}
+--- !u!114 &114425080504618180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1180872546987266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794b642ed75894a7a85762e9d6a532cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  library: {fileID: 0}
 --- !u!114 &114503851058614768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,4 +86,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OverwritePopup: {fileID: 0}
+  BackToMainMenuPopUp: {fileID: 0}
   ExitGameMenu: {fileID: 0}
+--- !u!114 &114651809065962564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1180872546987266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a351e3f8e1743b8a656ee4f6a11ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test1: {fileID: 0}
+  imageGroups: []
+  scrollIndex: 0
+  shipArraySize: 0
