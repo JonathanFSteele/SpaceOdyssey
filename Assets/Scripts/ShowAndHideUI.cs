@@ -66,9 +66,9 @@ public class ShowAndHideUI : MonoBehaviour
         Character_Page.SetActive(!Character_Page.activeSelf);
     }
 
-	public void ShowLogTF(GameObject  Canvas_Crew)
+	public void ShowLogTF(GameObject  Canvas_Log)
 	{
-        Canvas_Crew.SetActive(!Canvas_Crew.activeSelf);
+        Canvas_Log.SetActive(!Canvas_Log.activeSelf);
     }
 
 }
