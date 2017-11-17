@@ -27,6 +27,19 @@ public class ShipLibraryPrefab : MonoBehaviour {
 	}
 
 
+	public Ship getCurrentShip(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+
+			Ship[] ships = groupDictionary[name]; 
+			print ("buy: " + scrollIndex);
+
+			return ships[scrollIndex];
+		}
+		print ("getCurrentShip() fail");
+		return null;
+	}
+
+
 	public Ship getFirstShip(string name) {
 		if (groupDictionary.ContainsKey(name)) {
 
