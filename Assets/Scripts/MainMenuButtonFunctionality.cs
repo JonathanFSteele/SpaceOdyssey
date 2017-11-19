@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuButtonFunctionality : MonoBehaviour {
 
 	public Transform OverwritePopup;
 	public Transform BackToMainMenuPopUp;
 	private int CurrentSelectedSlot;
+
+	public Button BtnLoad1;
+	public Button BtnLoad2;
+	public Button BtnLoad3;
+	public Button BtnLoad4;
+
+	public Button BtnSave1;
+	public Button BtnSave2;
+	public Button BtnSave3;
+	public Button BtnSave4;
 
 	public void overwriteGamePopup(int saveSpaceNumber)
 	{
@@ -95,10 +106,10 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 
 	public void InitializeSaveData()
 	{
-		PlayerData player1 = SaveAndLoadManager.LoadPlayer (0);
-		PlayerData player2 = SaveAndLoadManager.LoadPlayer (1);
-		PlayerData player3 = SaveAndLoadManager.LoadPlayer (2);
-		PlayerData player4 = SaveAndLoadManager.LoadPlayer (3);
+		PlayerData player1 = SaveAndLoadManager.LoadPlayer (1);
+		PlayerData player2 = SaveAndLoadManager.LoadPlayer (2);
+		PlayerData player3 = SaveAndLoadManager.LoadPlayer (3);
+		PlayerData player4 = SaveAndLoadManager.LoadPlayer (4);
 
 		GameObject SaveSlot1 = GameObject.FindWithTag("SaveSlot1");
 		GameObject SaveSlot2 = GameObject.FindWithTag("SaveSlot2");
@@ -129,10 +140,10 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 
 	public void InitializeLoadData()
 	{
-		PlayerData player1 = SaveAndLoadManager.LoadPlayer (0);
-		PlayerData player2 = SaveAndLoadManager.LoadPlayer (1);
-		PlayerData player3 = SaveAndLoadManager.LoadPlayer (2);
-		PlayerData player4 = SaveAndLoadManager.LoadPlayer (3);
+		PlayerData player1 = SaveAndLoadManager.LoadPlayer (1);
+		PlayerData player2 = SaveAndLoadManager.LoadPlayer (2);
+		PlayerData player3 = SaveAndLoadManager.LoadPlayer (3);
+		PlayerData player4 = SaveAndLoadManager.LoadPlayer (4);
 
 		GameObject LoadSlot1 = GameObject.FindWithTag("LoadSlot1");
 		GameObject LoadSlot2 = GameObject.FindWithTag("LoadSlot2");
@@ -142,31 +153,40 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		if (player1 != null) {
 			LoadSlot1.GetComponent<UnityEngine.UI.Text> ().text = player1.playerCaptain.captainName;
 		} else {
-			LoadSlot1.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+			LoadSlot1.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+			//LoadSlot1.GetComponent<UnityEngine.UI.Button>().interactable = false;
+			BtnLoad1.interactable = false;
 		}
 		if (player2 != null) {
 			LoadSlot2.GetComponent<UnityEngine.UI.Text> ().text = player2.playerCaptain.captainName;
 		} else {
-			LoadSlot2.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+			LoadSlot2.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+			//LoadSlot2.GetComponent<UnityEngine.UI.Button>().interactable = false;
+			BtnLoad2.interactable = false;
 		}
 		if (player3 != null) {
 			LoadSlot3.GetComponent<UnityEngine.UI.Text> ().text = player3.playerCaptain.captainName;
 		} else {
-			LoadSlot3.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+			LoadSlot3.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+			//LoadSlot3.GetComponent<UnityEngine.UI.Button>().interactable = false;
+			BtnLoad3.interactable = false;
 		}
 		if (player4 != null) {
 			LoadSlot4.GetComponent<UnityEngine.UI.Text> ().text = player4.playerCaptain.captainName;
 		} else {
-			LoadSlot4.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+			LoadSlot4.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+			//LoadSlot4.GetComponent<UnityEngine.UI.Button>().interactable = false;
+			BtnLoad4.interactable = false;
 		}
 	}
 
 	public void DeleteAllData()
 	{
 		Debug.Log ("Resetting All Data");
-		SaveAndLoadManager.DeleteFile(0);
+		//SaveAndLoadManager.DeleteFile(0);
 		SaveAndLoadManager.DeleteFile(1);
 		SaveAndLoadManager.DeleteFile(2);
 		SaveAndLoadManager.DeleteFile(3);
+		SaveAndLoadManager.DeleteFile(4);
 	}
 }

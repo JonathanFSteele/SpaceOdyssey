@@ -14,15 +14,7 @@ public static class SaveAndLoadManager {
 		Debug.Log("Saving Player Data");
 		BinaryFormatter bf = new BinaryFormatter();
 
-		if (saveSlot == 0) {
-
-			FileStream stream = new FileStream (Application.persistentDataPath + "/player0.sav", FileMode.Create);
-
-			PlayerData data = new PlayerData (player);
-
-			bf.Serialize (stream, data);
-			stream.Close ();
-		} else if(saveSlot == 1) {
+		if (saveSlot == 1) {
 
 			FileStream stream = new FileStream (Application.persistentDataPath + "/player1.sav", FileMode.Create);
 
@@ -46,29 +38,19 @@ public static class SaveAndLoadManager {
 
 			bf.Serialize (stream, data);
 			stream.Close ();
+		} else if(saveSlot == 4) {
+
+			FileStream stream = new FileStream (Application.persistentDataPath + "/player4.sav", FileMode.Create);
+
+			PlayerData data = new PlayerData (player);
+
+			bf.Serialize (stream, data);
+			stream.Close ();
 		}
 	}
 
 	public static PlayerData LoadPlayer(int loadSlot) {
-		if (loadSlot == 0) {
-			if (File.Exists (Application.persistentDataPath + "/player0.sav")) {
-				Debug.Log ("Loading Player Data");
-				BinaryFormatter bf = new BinaryFormatter ();
-				FileStream stream = new FileStream (Application.persistentDataPath + "/player0.sav", FileMode.Open);
-
-				PlayerData data = bf.Deserialize (stream) as PlayerData;
-
-				stream.Close ();
-				//return data.stats;
-				return data;
-			} else {
-				Debug.LogWarning ("File 0 Does not Exist");
-
-				return null;
-				//return new PlayerData ();
-
-			}
-		} else if(loadSlot == 1) {
+		if (loadSlot == 1) {
 			if (File.Exists (Application.persistentDataPath + "/player1.sav")) {
 				Debug.Log ("Loading Player Data");
 				BinaryFormatter bf = new BinaryFormatter ();
@@ -84,6 +66,7 @@ public static class SaveAndLoadManager {
 
 				return null;
 				//return new PlayerData ();
+
 			}
 		} else if(loadSlot == 2) {
 			if (File.Exists (Application.persistentDataPath + "/player2.sav")) {
@@ -102,7 +85,7 @@ public static class SaveAndLoadManager {
 				return null;
 				//return new PlayerData ();
 			}
-		} else {
+		} else if(loadSlot == 3) {
 			if (File.Exists (Application.persistentDataPath + "/player3.sav")) {
 				Debug.Log ("Loading Player Data");
 				BinaryFormatter bf = new BinaryFormatter ();
@@ -115,6 +98,23 @@ public static class SaveAndLoadManager {
 				return data;
 			} else {
 				Debug.LogWarning ("File 3 Does not Exist");
+
+				return null;
+				//return new PlayerData ();
+			}
+		} else {
+			if (File.Exists (Application.persistentDataPath + "/player4.sav")) {
+				Debug.Log ("Loading Player Data");
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream stream = new FileStream (Application.persistentDataPath + "/player4.sav", FileMode.Open);
+
+				PlayerData data = bf.Deserialize (stream) as PlayerData;
+
+				stream.Close ();
+				//return data.stats;
+				return data;
+			} else {
+				Debug.LogWarning ("File 4 Does not Exist");
 
 				return null;
 				//return new PlayerData ();
