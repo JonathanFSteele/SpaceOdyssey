@@ -105,10 +105,26 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		GameObject SaveSlot3 = GameObject.FindWithTag("SaveSlot3");
 		GameObject SaveSlot4 = GameObject.FindWithTag("SaveSlot4");
 
-		SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
-		SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
-		SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
-		SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
+		if (player1 != null) {
+			SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
+		} else {
+			SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+		}
+		if (player2 != null) {
+			SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
+		} else {
+			SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+		}
+		if (player3 != null) {
+			SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
+		} else {
+			SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+		}
+		if (player4 != null) {
+			SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
+		} else {
+			SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = "Empty";
+		}
 	}
 
 	public void InitializeLoadData()
@@ -123,9 +139,34 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		GameObject LoadSlot3 = GameObject.FindWithTag("LoadSlot3");
 		GameObject LoadSlot4 = GameObject.FindWithTag("LoadSlot4");
 
-		LoadSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
-		LoadSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
-		LoadSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
-		LoadSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
+		if (player1 != null) {
+			LoadSlot1.GetComponent<UnityEngine.UI.Text> ().text = player1.playerCaptain.captainName;
+		} else {
+			LoadSlot1.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+		}
+		if (player2 != null) {
+			LoadSlot2.GetComponent<UnityEngine.UI.Text> ().text = player2.playerCaptain.captainName;
+		} else {
+			LoadSlot2.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+		}
+		if (player3 != null) {
+			LoadSlot3.GetComponent<UnityEngine.UI.Text> ().text = player3.playerCaptain.captainName;
+		} else {
+			LoadSlot3.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+		}
+		if (player4 != null) {
+			LoadSlot4.GetComponent<UnityEngine.UI.Text> ().text = player4.playerCaptain.captainName;
+		} else {
+			LoadSlot4.GetComponent<UnityEngine.UI.Button> ().interactable = false;
+		}
+	}
+
+	public void DeleteAllData()
+	{
+		Debug.Log ("Resetting All Data");
+		SaveAndLoadManager.DeleteFile(0);
+		SaveAndLoadManager.DeleteFile(1);
+		SaveAndLoadManager.DeleteFile(2);
+		SaveAndLoadManager.DeleteFile(3);
 	}
 }

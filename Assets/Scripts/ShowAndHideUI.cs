@@ -15,6 +15,7 @@ public class ShowAndHideUI : MonoBehaviour
 	public Transform ShipUI;
 	public Transform LogUI;
 	public Transform CrewUI;
+	public Transform OptionsUI;
 
 	void Update () {
 
@@ -71,4 +72,8 @@ public class ShowAndHideUI : MonoBehaviour
         Canvas_Log.SetActive(!Canvas_Log.activeSelf);
     }
 
+	public void ShowOptionsTF(bool value)
+	{
+		OptionsUI.gameObject.SetActive(value);
+	}
 }
