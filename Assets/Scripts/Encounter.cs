@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 	public GameObject player;
+	public GameObject playerShip;
 	public GameObject encounterScripts;
 
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
+		playerShip = GameObject.FindGameObjectWithTag ("PlayerShip");
 		if (player != null) {
 			//player = player.GetComponent<Player> ();
 		}
@@ -23,6 +25,7 @@ public class Encounter : MonoBehaviour {
 	public int Combat;
 	public int Charisma;
 	public string prompt;
+	public int speed;
 	public int roll;
 
 	public void Equals(Encounter a, Encounter b){
@@ -122,10 +125,21 @@ public class Encounter : MonoBehaviour {
 //	}
 
 	public void Ignore(){
-		roll = Random.Range (0, 20);
-		if (player != null) {
-
+		if (this.encFocus == "Combat") {
+			if (playerShip.GetComponent<Ship> ().speed > this.speed) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
+				return;
+			} else {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				return;
+			}
 		}
+		encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+		encounterScripts.GetComponent<EncounterGenerator> ().SetUI (2);
+
+
 	}
 
 //	public void Help(){

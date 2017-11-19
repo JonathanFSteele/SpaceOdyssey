@@ -106,7 +106,7 @@ public class EncounterScene : MonoBehaviour {
 						playerPos = new Vector2 (playerPos.x + (progress - prevProgress), playerPos.y);
 						prevProgress = progress;
 						ship.fuel -= ship.fuelEfficiency;
-						ship.supplies -= 3;
+						ship.supplies -= 3;//when crew implemented, this needs to change
 						bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 						bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 					}
@@ -186,6 +186,7 @@ public class EncounterScene : MonoBehaviour {
 	public void ContinueTravel(){
 		EncounterTF = false;
 	}
+		
 
 
 
