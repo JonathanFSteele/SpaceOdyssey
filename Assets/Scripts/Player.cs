@@ -55,6 +55,8 @@ public class Player : MonoBehaviour {
 			sceneID = loadedStats.sceneID;
 			encounterIndex = loadedStats.encounterIndex;
 			playerCaptain = loadedStats.playerCaptain;
+			Debug.Log("CurrentPlayerData--( credits: " + credits + " | sceneID: " + sceneID + "" +
+				" | encounterIndex: " + encounterIndex + " | playerCaptain: " + playerCaptain + ")");
 		}
 	}
 
