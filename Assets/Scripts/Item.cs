@@ -6,7 +6,7 @@ public class Item : MonoBehaviour {
 
 	public bool isPerm;
 	public Sprite itemPicture;
-	public int medBonus;
+	public int medicalBonus;
 	public int combatBonus;
 	public int charsmaBonus;
 

@@ -9,7 +9,7 @@ using System.IO;
 public class CrewMember : MonoBehaviour {
 
 	public string crewPicture;
-	public int medBonus;
+	public int medicalBonus;
 	public int combatBonus;
 	public int charsmaBonus;
 	public int[] traits;

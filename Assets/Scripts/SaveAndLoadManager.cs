@@ -47,6 +47,26 @@ public static class SaveAndLoadManager {
 		}
 	}
 
+//	public void DeleteFile(int value) 
+//	{
+//		string guiMessage = "type in a file name and hit save";
+//		string filePath = Application.dataPath + "/player"+ value +".sav";
+//
+//		// check if file exists
+//		if ( !File.Exists( filePath ) )
+//		{
+//			guiMessage = "no /player" + + " file exists"; //Debug.Log( "no " + fileName + " file exists" );
+//		}
+//		else
+//		{
+//			guiMessage = " /player" + value + " file exists, deleting..."; //Debug.Log( fileName + " file exists, deleting..." );
+//
+//			File.Delete( filePath );
+//
+//			//RefreshEditorProjectWindow();
+//		}
+//	}
+
 	public static PlayerData LoadPlayer(int loadSlot) {
 		if (loadSlot == 0) {
 			if (File.Exists (Application.persistentDataPath + "/player0.sav")) {
