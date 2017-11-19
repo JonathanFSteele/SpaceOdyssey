@@ -47,10 +47,15 @@ public class Player : MonoBehaviour {
 	public void Load(int Id)
 	{
 		PlayerData loadedStats = SaveAndLoadManager.LoadPlayer(Id);
-		credits = loadedStats.credits;
-		sceneID = loadedStats.sceneID;
-		encounterIndex = loadedStats.encounterIndex;
-		playerCaptain = loadedStats.playerCaptain;
+		if (loadedStats == null) {
+			Debug.LogWarning ("There is no data to load from this slot");
+			//Do Nothing
+		} else {
+			credits = loadedStats.credits;
+			sceneID = loadedStats.sceneID;
+			encounterIndex = loadedStats.encounterIndex;
+			playerCaptain = loadedStats.playerCaptain;
+		}
 	}
 
 }
