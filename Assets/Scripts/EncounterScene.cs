@@ -134,6 +134,7 @@ public class EncounterScene : MonoBehaviour {
 					player.GetComponent<Player> ().TimePassedSinceStart += player.GetComponent<Player> ().TimeToTarget;
 					player.GetComponent<Player> ().CurrentLocationID = player.GetComponent<Player> ().TargetLocationID;
 					player.GetComponent<Player> ().TargetLocationID = 0;
+					player.GetComponent<Player> ().sceneID = 1;
 					SceneManager.LoadScene ("Safezone");
 
 				}
@@ -145,6 +146,7 @@ public class EncounterScene : MonoBehaviour {
 		player.GetComponent<Player> ().TimePassedSinceStart += player.GetComponent<Player> ().TimeToTarget;
 		player.GetComponent<Player> ().CurrentLocationID = player.GetComponent<Player> ().TargetLocationID;
 		player.GetComponent<Player> ().TargetLocationID = 0;
+		player.GetComponent<Player> ().sceneID = 1;
 		SceneManager.LoadScene ("Safezone");
 	}
 
