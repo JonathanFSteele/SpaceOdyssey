@@ -9,11 +9,13 @@ public class ShipPort : MonoBehaviour {
 
 	public GameObject library;
 
-public GameObject canvasShipUI; 
+	public GameObject canvasShipUI; 
 public GameObject canvasShipYard; //aka: Canvas_TopRow w/ script
 public GameObject canvasHeader; //aka: Canvas_ShipYardUI_wScript
 public GameObject playerShipObj; 
+public GameObject playerObj; 
 
+private Player player;	// to get playerMoney
 private Ship playerShip;	// public GameObject storeShip;
 private AdjustBarAndStatLevels portStats; //attached to Canvas_ShipYardUI_wScript
 private AdjustBarAndStatLevels headerStats;
@@ -51,10 +53,21 @@ public void buyShip() { //called by purchase button
 
 //UPDATE header and shipUIcanvas
 	headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
-	headerStats.UpdateText();		
+	headerStats.UpdateText();	//updates balance and header stats	
 
 	shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-	shipUIStats.Start();			
+	shipUIStats.Start();		
+
+	//handle credits:
+	player = playerObj.GetComponent<Player>();
+
+	// if(not enough money)
+	player.credits -= ship.shipPrice;
+
+
+
+	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	portStats.UpdateText();			
 }
 
 
@@ -62,7 +75,10 @@ public void loadShipYard() {
 	library = GameObject.FindGameObjectWithTag ("Library");
 	ship = library.GetComponent<ShipLibraryPrefab> ().getFirstShip ("shop_ships");
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	player = playerObj.GetComponent<Player>();
 
+	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+	portStats.costDisplayText.text = ship.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = ship.shipPicture;
 	portStats.shipNameDisplayText.text = ship.shipName.ToString();
 	portStats.hpDisplayText.text = ship.health.ToString();
@@ -80,7 +96,10 @@ public void previousShopShip() {
 	library = GameObject.FindGameObjectWithTag ("Library");
 	ship = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	player = playerObj.GetComponent<Player>();
 
+	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+	portStats.costDisplayText.text = ship.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = ship.shipPicture;
 	portStats.shipNameDisplayText.text = ship.shipName.ToString();
 	portStats.hpDisplayText.text = ship.health.ToString();
@@ -98,7 +117,10 @@ public void nextShopShip() {
 	library = GameObject.FindGameObjectWithTag ("Library");
 	ship = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	player = playerObj.GetComponent<Player>();
 
+	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+	portStats.costDisplayText.text = ship.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = ship.shipPicture;
 	portStats.shipNameDisplayText.text = ship.shipName.ToString();
 	portStats.hpDisplayText.text = ship.health.ToString();

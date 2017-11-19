@@ -5,12 +5,17 @@ using System.Collections;
 
 
 public class AdjustBarAndStatLevels : MonoBehaviour
-{
+{  
+   public GameObject playerObj; 
+   private Player player;  // to get playerMoney
+
    public GameObject shipObj;
 	private Ship ship;
    public Text shipNameDisplayText;
    public Image shipPicture;
 
+   public Text balanceDisplayText; //ship cost in shipPort UI
+   public Text costDisplayText; //ship cost in shipPort UI
    public Text hpDisplayText;
    public Text fuelDisplayText;
    public Text supplyDisplayText;
@@ -20,7 +25,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
    // public Text supplyMaxDisplayText;   
    // public Text crewMaxDisplayText;
 
-   /* just stats tab */
+   /* just stats tab */ //not header stats
    public Text speedDisplayText;
    public Text shieldsDisplayText;
    public Text gunDamageDisplayText;
@@ -34,8 +39,8 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 
    public void Start() {
-
 		ship = shipObj.GetComponent<Ship> ();		
+
 
        if (shipPicture != null)
           // shipNameDisplayText.text = ship.shipName.ToString ();
@@ -82,15 +87,20 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 
 
-	public void UpdateText(){ //used just in header, and when buying ship
+	public void UpdateText(){ //used just in header, and when buying ship. updates balance
+		ship = shipObj.GetComponent<Ship> ();	
 
-		ship = shipObj.GetComponent<Ship> ();		
+
+
+      if (balanceDisplayText != null) {
+         player = playerObj.GetComponent<Player>();
+         balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+      }
 
  		if(hpDisplayText != null)
 		{         
 			hpDisplayText.text = ship.health.ToString ();
 			 depleteHP(0);print("test2");
-
 		}
 
 		if(fuelDisplayText != null)
@@ -110,7 +120,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 			supplyDisplayText.text = ship.supplies.ToString ();
 			 depleteSupply(0);
 		}
-
 	}
 
 
