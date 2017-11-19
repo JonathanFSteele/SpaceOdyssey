@@ -62,7 +62,11 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		Player player = FindObjectOfType<Player>().GetComponent<Player>();
 		player.Load (value);
 		//Load Functionality
-		SceneManager.LoadScene ("Safezone");
+		//if (SceneID == 1) { //Player in Safezone
+			SceneManager.LoadScene ("Safezone");
+		//} else if (SceneID == 2) { //Player is in Encounter
+			//SceneManager.LoadScene ("Encounter");
+		//}
 	}
 
 	public void MainMenu()
