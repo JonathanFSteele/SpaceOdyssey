@@ -198,25 +198,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrice: 0
-  shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  shipName: testShip
-  maxHealth: 8
-  health: 8
-  shields: 4
-  armor: 64
-  speed: 84
-  gunCount: 6
-  gunDamage: 4
-  maxFuel: 6584
-  fuelEfficiency: 64
-  fuel: 3832
-  crewCapacity: 654
-  crewAmt: 365
-  maxSupplies: 43
-  supplies: 514
-  medicalBonus: 32
-  combatBonus: 132
-  charsmaBonus: 145
+  shipPicture: {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
+  shipName: UFO
+  maxHealth: 100
+  health: 100
+  shields: 55
+  armor: 12
+  speed: 44000
+  gunCount: 8
+  gunDamage: 9
+  maxFuel: 500
+  fuelEfficiency: 10
+  fuel: 450
+  crewCapacity: 12
+  crewAmt: 1
+  maxSupplies: 11
+  supplies: 10
+  medicalBonus: 0
+  combatBonus: 0
+  charsmaBonus: 0
 --- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 2241
+  credits: 741
   sceneID: 1
   encounterIndex: -1
   playerCaptain:
