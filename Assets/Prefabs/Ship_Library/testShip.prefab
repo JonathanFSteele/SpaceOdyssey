@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224406245795448836}
   - component: {fileID: 114204484156179186}
   m_Layer: 5
-  m_Name: RocketShip
+  m_Name: testShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,27 +38,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrice: 2000
-  creditBalance: 0
-  shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  shipName: Rocket Ship
-  maxHealth: 20
-  health: 19
-  shields: 1
-  armor: 1
-  speed: 5
-  gunCount: 1
-  gunDamage: 6
-  maxFuel: 1000
-  fuelEfficiency: 0
-  fuel: 800
-  crewCapacity: 25
-  crewAmt: 22
-  maxSupplies: 0
-  supplies: 0
-  medicalBonus: 0
-  combatBonus: 0
-  charsmaBonus: 7
+  shipPrice: 3
+  shipPicture: {fileID: 21300000, guid: c36dac3c205ba374780e4aef06d98e17, type: 3}
+  shipName: testShip
+  maxHealth: 8
+  health: 4
+  shields: 4
+  armor: 64
+  speed: 84
+  gunCount: 6
+  gunDamage: 4
+  maxFuel: 6584
+  fuelEfficiency: 64
+  fuel: 654
+  crewCapacity: 654
+  crewAmt: 365
+  maxSupplies: 43
+  supplies: 514
+  medicalBonus: 32
+  combatBonus: 132
+  charsmaBonus: 145
 --- !u!224 &224406245795448836
 RectTransform:
   m_ObjectHideFlags: 1

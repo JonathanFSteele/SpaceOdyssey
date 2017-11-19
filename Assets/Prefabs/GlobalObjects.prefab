@@ -194,25 +194,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  shipName: Basic Rocket Ship
-  maxHealth: 20
-  health: 19
-  shields: 1
-  armor: 1
-  speed: 50000
-  gunCount: 1
-  gunDamage: 6
-  maxFuel: 1000
-  fuelEfficiency: 100
-  fuel: 1000
-  crewCapacity: 25
-  crewAmt: 22
-  maxSupplies: 500
-  supplies: 444
-  medBonus: 2
-  combatBonus: 0
-  charsmaBonus: 7
+  shipPrice: 0
+  shipPicture: {fileID: 21300000, guid: c36dac3c205ba374780e4aef06d98e17, type: 3}
+  shipName: testShip
+  maxHealth: 8
+  health: 8
+  shields: 4
+  armor: 64
+  speed: 84
+  gunCount: 6
+  gunDamage: 4
+  maxFuel: 6584
+  fuelEfficiency: 64
+  fuel: 6584
+  crewCapacity: 654
+  crewAmt: 365
+  maxSupplies: 43
+  supplies: 514
+  medicalBonus: 32
+  combatBonus: 132
+  charsmaBonus: 145
 --- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 0
+  credits: 2241
   sceneID: 1
   encounterIndex: -1
   playerCaptain:
@@ -325,6 +326,7 @@ MonoBehaviour:
     group:
     - {fileID: 114204484156179186, guid: 2a46ddd6ed41b444181b6770741a593b, type: 2}
     - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
+    - {fileID: 114204484156179186, guid: 72720b3ad61304486b8e8064543a2352, type: 2}
   scrollIndex: 0
   shipArraySize: 0
 --- !u!114 &114867388827181838

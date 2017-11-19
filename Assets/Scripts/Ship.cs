@@ -10,6 +10,8 @@ using UnityEngine.UI;
 [Serializable]
 public class Ship : MonoBehaviour {
 
+	public int shipPrice; //how much it costs in the store
+
 	public Sprite shipPicture;
 	public String shipName;
 	public int maxHealth;

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ShipLibraryPrefab : MonoBehaviour {
 
-// public GameObject test1;
-
 	public Ship_List[] shipList;
-// public Sprite displayImage;
 
 	public int scrollIndex = 0;
 	public int shipArraySize;
@@ -27,7 +24,7 @@ public class ShipLibraryPrefab : MonoBehaviour {
 	}
 
 
-	public Ship getCurrentShip(string name) {
+	public Ship buyCurrentShip(string name) {
 		if (groupDictionary.ContainsKey(name)) {
 
 			Ship[] ships = groupDictionary[name]; 
@@ -35,7 +32,7 @@ public class ShipLibraryPrefab : MonoBehaviour {
 
 			return ships[scrollIndex];
 		}
-		print ("getCurrentShip() fail");
+		print ("buyCurrentShip() fail");
 		return null;
 	}
 
