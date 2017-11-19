@@ -77,6 +77,7 @@ public class EncounterGenerator : MonoBehaviour {
 		NewEnc.enc2ndFocus = "Charisma";
 		NewEnc.Charisma = Random.Range(3,10);
 		NewEnc.prompt = "Enemy ship wants to fight us, What are we going to do?" ;
+		NewEnc.speed = (int) Random.Range (20000, 80000);
 		SetUI (NewEnc);
 		return NewEnc;
 	}
@@ -144,6 +145,12 @@ public class EncounterGenerator : MonoBehaviour {
 		EncounterImage.GetComponent<UnityEngine.UI.Image> ().sprite = library.GetComponent<ShipLibrary>().GetClipFromName("Nada");
 		wlPopUp.SetActive (true);
 
+
+		if (a == 2) {
+			promptBox.GetComponent<UnityEngine.UI.Text> ().text = "We Just kinda left them there...";
+
+
+		}
 
 		if (a == 1) {
 			promptBox.GetComponent<UnityEngine.UI.Text> ().text = "That was close! We should be more careful.";

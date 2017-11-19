@@ -5665,6 +5665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1015215081175962, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
+  playerShip: {fileID: 0}
   encounterScripts: {fileID: 0}
   encFocus: 
   enc2ndFocus: 
@@ -5673,6 +5674,7 @@ MonoBehaviour:
   Combat: 0
   Charisma: 0
   prompt: 
+  speed: 0
   roll: 0
 --- !u!1 &1224349041
 GameObject:
@@ -8004,6 +8006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerShip: {fileID: 0}
   encounterScripts: {fileID: 0}
   encFocus: 
   enc2ndFocus: 
@@ -8012,6 +8015,7 @@ MonoBehaviour:
   Combat: 0
   Charisma: 0
   prompt: 
+  speed: 0
   roll: 0
 --- !u!1 &1832167758
 GameObject:
@@ -8513,6 +8517,10 @@ Prefab:
     - target: {fileID: 4484114457516100, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975435287390594, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
+      propertyPath: m_TagString
+      value: PlayerShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
