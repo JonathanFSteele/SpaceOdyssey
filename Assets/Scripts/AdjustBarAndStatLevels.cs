@@ -85,6 +85,14 @@ public class AdjustBarAndStatLevels : MonoBehaviour
    }
 
 
+   public void UpdateBalance(){ //used just in header, and when buying ship. updates balance
+      ship = shipObj.GetComponent<Ship> ();  
+
+      if (balanceDisplayText != null) {
+         player = playerObj.GetComponent<Player>();
+         balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+      }
+   }
 
 	public void UpdateText(){ //used just in header, and when buying ship. updates balance
 		ship = shipObj.GetComponent<Ship> ();	
