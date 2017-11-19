@@ -22,6 +22,7 @@ public class EncounterScene : MonoBehaviour {
 	public Encounter GenEnc;
 	//progress bar references
 	public GameObject playerShip;
+	public GameObject PlayerImage;
 	public GameObject playerStartPlace;
 	public GameObject playerEndPlace;
 	public GameObject playerText;
@@ -49,6 +50,7 @@ public class EncounterScene : MonoBehaviour {
 			if (player.GetComponent<Player> ().DistanceToTarget == -1)
 				SceneManager.LoadScene ("Safezone");
 			else if (player.GetComponent<Player> ().DistanceToTarget > 0) {
+				PlayerImage.GetComponent<UnityEngine.UI.Image> ().sprite = ship.shipPicture;
 				MaxDistance = player.GetComponent<Player> ().DistanceToTarget;
 				playerText.GetComponent<UnityEngine.UI.Text>().text = "Player Stats: Combat:" + player.GetComponent<Player> ().totalCombat + " Charisma:" + player.GetComponent<Player> ().totalCharisma + " Medical:" + player.GetComponent<Player> ().totalMedical;
 			}
