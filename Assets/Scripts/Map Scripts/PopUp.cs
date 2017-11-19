@@ -67,6 +67,7 @@ public class PopUp : MonoBehaviour {
 
 
 	public void TransitToEncounter () {
+		player.GetComponent<Player> ().sceneID = 2;
 		SceneManager.LoadScene ("Encounter");
 	}
 }
