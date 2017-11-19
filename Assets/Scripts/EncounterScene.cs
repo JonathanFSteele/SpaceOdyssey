@@ -29,6 +29,11 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject bars1;
 	public GameObject bars2;
 
+	//Win/Lose popUP stuff
+	public GameObject rewards;
+	public GameObject loses;
+	public GameObject toptext;
+
 	//progress bar variables
 	Vector2 playerStart;
 	Vector2 playerEnd;
@@ -101,6 +106,7 @@ public class EncounterScene : MonoBehaviour {
 						playerPos = new Vector2 (playerPos.x + (progress - prevProgress), playerPos.y);
 						prevProgress = progress;
 						ship.fuel -= ship.fuelEfficiency;
+						ship.supplies -= 3;
 						bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 						bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 					}
@@ -145,21 +151,40 @@ public class EncounterScene : MonoBehaviour {
 	public void EncounterComplete(int a) {
 		
 		if (a == 1) {
-
+			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
+			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			//EncounterTF = false;
+			return;
 		}
 
 		if (a == 2) {
-
-
+			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
+			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			//EncounterTF = false;
+			return;
 		}
 
 		if (a == 3) {
-
+			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
+			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			//EncounterTF = false;
+			return;
 		}
-			
-		EncounterTF = false;
+
+
+		toptext.GetComponent<UnityEngine.UI.Text> ().text = "Success!";	
+		rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+		loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: None";
+		//EncounterTF = false;
 		
 		//StartCoroutine(Travel());
+	}
+
+	public void ContinueTravel(){
+		EncounterTF = false;
 	}
 
 

@@ -12,6 +12,7 @@ public class EncounterGenerator : MonoBehaviour {
 	public GameObject CombatCanvas;
 	public GameObject CharismaCanvas;
 	public GameObject MedicalCanvas;
+	public GameObject wlPopUp;
 
 
 
@@ -141,10 +142,12 @@ public class EncounterGenerator : MonoBehaviour {
 		MedicalCanvas.gameObject.SetActive (false);
 		EncounterText.GetComponent<UnityEngine.UI.Text> ().text = "";
 		EncounterImage.GetComponent<UnityEngine.UI.Image> ().sprite = library.GetComponent<ShipLibrary>().GetClipFromName("Nada");
+		wlPopUp.SetActive (true);
 
 
 		if (a == 1) {
 			promptBox.GetComponent<UnityEngine.UI.Text> ().text = "That was close! We should be more careful.";
+
 
 		}
 
