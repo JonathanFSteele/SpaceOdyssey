@@ -53,8 +53,8 @@ public void buyFuel()
 
 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
 		// shipUIStats.UpdateText();		
-		loadShipYard();
-		
+		loadShipUI_Display();
+
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 			portStats.UpdateBalance();			
 	}
@@ -81,8 +81,8 @@ public void buyRepair()
 
 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
 		// shipUIStats.UpdateText();		
-		loadShipYard();
-		
+		loadShipUI_Display();
+
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 		portStats.UpdateBalance();			
 	}
@@ -133,8 +133,8 @@ public void buyShip()
 
 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
 		// shipUIStats.UpdateText();		
-		loadShipYard();
-		
+		loadShipUI_Display();
+
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 		portStats.UpdateBalance();			
 
