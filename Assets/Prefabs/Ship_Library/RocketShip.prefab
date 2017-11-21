@@ -41,8 +41,8 @@ MonoBehaviour:
   shipPrice: 2000
   shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
   shipName: Rocket Ship
-  maxHealth: 20
-  health: 19
+  maxHealth: 120
+  health: 120
   shields: 1
   armor: 1
   speed: 50000
@@ -50,11 +50,11 @@ MonoBehaviour:
   gunDamage: 6
   maxFuel: 1000
   fuelEfficiency: 0
-  fuel: 800
+  fuel: 1000
   crewCapacity: 6
   crewAmt: 1
-  maxSupplies: 0
-  supplies: 0
+  maxSupplies: 8
+  supplies: 6
   medicalBonus: 0
   combatBonus: 0
   charsmaBonus: 0

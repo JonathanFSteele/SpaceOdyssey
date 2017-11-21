@@ -51,11 +51,12 @@ public void buyFuel()
 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
 		headerStats.UpdateText();	//updates balance and header stats	
 
-		shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-		shipUIStats.UpdateText();		
-
+		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
+		// shipUIStats.UpdateText();		
+		loadShipYard();
+		
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-		portStats.UpdateText();			
+			portStats.UpdateBalance();			
 	}
 }
 
@@ -78,9 +79,10 @@ public void buyRepair()
 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
 		headerStats.UpdateText();	//updates balance and header stats	
 
-		shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-		shipUIStats.UpdateText();		
-
+		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
+		// shipUIStats.UpdateText();		
+		loadShipYard();
+		
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 		portStats.UpdateBalance();			
 	}
@@ -101,7 +103,8 @@ public void buyShip()
 		playerShip.shipPicture = shopShip.shipPicture;
 		playerShip.shipName = shopShip.shipName;
 		playerShip.maxHealth = shopShip.maxHealth;
-		playerShip.health = shopShip.health;
+		// if(playerShip.health > shopShip.maxHealth)
+			playerShip.health = shopShip.maxHealth;
 		playerShip.shields = shopShip.shields;
 		playerShip.armor = shopShip.armor;
 		playerShip.speed = shopShip.speed;
@@ -109,25 +112,33 @@ public void buyShip()
 		playerShip.gunDamage = shopShip.gunDamage;
 		playerShip.maxFuel = shopShip.maxFuel;
 		playerShip.fuelEfficiency = shopShip.fuelEfficiency;
-		playerShip.fuel = shopShip.fuel;
+		// if(playerShip.fuel > shopShip.maxFuel)
+			playerShip.fuel = shopShip.maxFuel;
 		playerShip.crewCapacity = shopShip.crewCapacity;
-		playerShip.crewAmt = shopShip.crewAmt;
+		if(playerShip.crewAmt > shopShip.crewCapacity)
+			playerShip.crewAmt = shopShip.crewCapacity;
 		playerShip.maxSupplies = shopShip.maxSupplies;
-		playerShip.supplies = shopShip.supplies;
+		if(playerShip.supplies > shopShip.maxSupplies)
+			playerShip.supplies = shopShip.maxSupplies;
 		playerShip.medicalBonus = shopShip.medicalBonus;
 		playerShip.combatBonus = shopShip.combatBonus;
 		playerShip.charsmaBonus = shopShip.charsmaBonus;
+
+		// playerShip.health = 5;
+		// playerShip.fuel = 5;
 
 		//UPDATE header and shipUIcanvas
 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
 		headerStats.UpdateText();	//updates balance and header stats	
 
-		shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-		shipUIStats.UpdateText();		
-
+		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
+		// shipUIStats.UpdateText();		
+		loadShipYard();
+		
 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-		portStats.UpdateText();			
+		portStats.UpdateBalance();			
 
+ 
 	}
 }
 
@@ -152,14 +163,14 @@ public void loadShipYard()
 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = shopShip.shipPicture;
 	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-	portStats.hpDisplayText.text = shopShip.health.ToString();
-	portStats.speedDisplayText.text = shopShip.speed.ToString();
-	portStats.shieldsDisplayText.text = shopShip.shields.ToString();
-	portStats.gunDamageDisplayText.text = shopShip.gunDamage.ToString();
-	portStats.fuelDisplayText.text = shopShip.fuel.ToString();
-	portStats.armorDisplayText.text = shopShip.armor.ToString();
-	portStats.gunCountDisplayText.text = shopShip.gunCount.ToString();
-	portStats.crewDisplayText.text = shopShip.crewAmt.ToString();
+	portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
+	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
+	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
+	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
+	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
+	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
 
 
 
@@ -203,14 +214,14 @@ public void previousShopShip()
 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = shopShip.shipPicture;
 	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-	portStats.hpDisplayText.text = shopShip.health.ToString();
-	portStats.speedDisplayText.text = shopShip.speed.ToString();
-	portStats.shieldsDisplayText.text = shopShip.shields.ToString();
-	portStats.gunDamageDisplayText.text = shopShip.gunDamage.ToString();
-	portStats.fuelDisplayText.text = shopShip.fuel.ToString();
-	portStats.armorDisplayText.text = shopShip.armor.ToString();
-	portStats.gunCountDisplayText.text = shopShip.gunCount.ToString();
-	portStats.crewDisplayText.text = shopShip.crewAmt.ToString();
+	portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
+	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
+	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
+	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
+	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
+	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
 }
 
 
@@ -234,14 +245,36 @@ public void nextShopShip()
 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
 	portStats.shipPicture.sprite = shopShip.shipPicture;
 	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-	portStats.hpDisplayText.text = shopShip.health.ToString();
-	portStats.speedDisplayText.text = shopShip.speed.ToString();
-	portStats.shieldsDisplayText.text = shopShip.shields.ToString();
-	portStats.gunDamageDisplayText.text = shopShip.gunDamage.ToString();
-	portStats.fuelDisplayText.text = shopShip.fuel.ToString();
-	portStats.armorDisplayText.text = shopShip.armor.ToString();
-	portStats.gunCountDisplayText.text = shopShip.gunCount.ToString();
-	portStats.crewDisplayText.text = shopShip.crewAmt.ToString();
+	portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
+	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
+	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
+	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
+	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
+	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
+}
+
+
+
+public void loadShipUI_Display() 
+{
+ 	shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
+	playerShip = playerShipObj.GetComponent<Ship> ();		
+  
+
+//	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+//	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " £  ";
+	shipUIStats.shipPicture.sprite = playerShip.shipPicture;
+//	shipUIStats.shipNameDisplayText.text = playerShip.shipName.ToString();
+	shipUIStats.hpDisplayText.text = "Health Max: " + playerShip.maxHealth.ToString();
+	shipUIStats.speedDisplayText.text = "Speed: " + playerShip.speed.ToString();
+	shipUIStats.shieldsDisplayText.text = "Shields: " + playerShip.shields.ToString();
+	shipUIStats.gunDamageDisplayText.text = "Gun Damage: " + playerShip.gunDamage.ToString();
+	shipUIStats.fuelDisplayText.text = "Fuel: " + playerShip.fuel.ToString();
+	shipUIStats.armorDisplayText.text = "Armor: " + playerShip.armor.ToString();
+	shipUIStats.gunCountDisplayText.text = "Gun Count: " + playerShip.gunCount.ToString();
+	shipUIStats.crewDisplayText.text = "Crew Capacity: " + playerShip.crewCapacity.ToString();
 }
 
 
