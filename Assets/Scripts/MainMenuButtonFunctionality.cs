@@ -78,6 +78,8 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 	{
 		if (value == true) {
 			//Save Game Functionality Goes Here...
+			Player player = FindObjectOfType<Player>().GetComponent<Player>();
+			player.Load(-1);
 			SceneManager.LoadScene ("MainMenu");
 		} else {
 			BackToMainMenuPopUp.gameObject.SetActive(false);

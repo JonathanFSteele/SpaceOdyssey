@@ -7,7 +7,9 @@ public class GameController : MonoBehaviour {
 	public Player player;
 
 	void Awake() {
-		player = FindObjectOfType<Player>();
+		player = FindObjectOfType<Player>().GetComponent<Player>();
+		player.Load(-1);
+//		player = FindObjectOfType<Player>();
 	}
 
 

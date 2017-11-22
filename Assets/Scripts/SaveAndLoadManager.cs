@@ -50,6 +50,11 @@ public static class SaveAndLoadManager {
 	}
 
 	public static PlayerData LoadPlayer(int loadSlot) {
+		if (loadSlot == -1) {
+			Debug.Log ("Initialize New Player");
+			PlayerData data = new PlayerData ();
+			return data;
+		}
 		if (loadSlot == 1) {
 			if (File.Exists (Application.persistentDataPath + "/player1.sav")) {
 				Debug.Log ("Loading Player Data");
@@ -168,7 +173,7 @@ public class PlayerData {
 	public int encounterIndex;
 	public Captain playerCaptain;
 	//	public Ship playerShip;
-	//	public CrewMember[] playerCrew;
+	//public CrewMember[] playerCrew;
 	//	public Item[] inventory;
 	public int CurrentLocationID;
 	public int TargetLocationID;
@@ -179,14 +184,18 @@ public class PlayerData {
 	public float TimePassedSinceStart;
 	public float TotalDistanceTraveled;
 
-
 	public PlayerData() {
 		credits = 5000;
 		sceneID = 1;
 		encounterIndex = -1;
-		playerCaptain = null;
+		playerCaptain = new Captain();
+			playerCaptain.captainName = "Captain Testing";
+			playerCaptain.captainPicture = "Cpt";
+			playerCaptain.combatBonus = 2;
+			playerCaptain.charismaBonus = 2;
+			playerCaptain.medicalBonus = 2;
 		//playerShip = null;
-		//playerCrew = null;
+		//playerCrew = new Crew();
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = -1; //-1 means there is no target yet
