@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	public float DistanceTraveled;
 	public float TimeToTarget;
 	public float TimePassedSinceStart;
+	public float TotalDistanceTraveled;
 
 	public int totalCombat;
 	public int totalCharisma;

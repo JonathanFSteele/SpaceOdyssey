@@ -24,6 +24,7 @@ public class ChoiceGenerator : MonoBehaviour {
 			//Probably should display a title as well
 			BackGround.GetComponent<SpriteRenderer> ().sprite = library.GetComponent<PlaceLibrary>().GetClipFromName("EarthBack");
 			//Need to also change Background
+			MoonChoices.SetActive (false);
 			EarthChoices.SetActive (true);
 
 
@@ -32,6 +33,7 @@ public class ChoiceGenerator : MonoBehaviour {
 			//Probably should display a title as well\
 			BackGround.GetComponent<SpriteRenderer> ().sprite = library.GetComponent<PlaceLibrary>().GetClipFromName("MoonBack");
 			//Need to also change Background
+			EarthChoices.SetActive (false);
 			MoonChoices.SetActive (true);
 
 
