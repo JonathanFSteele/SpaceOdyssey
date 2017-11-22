@@ -198,21 +198,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrice: 0
-  shipPicture: {fileID: 21300000, guid: e8fbea5d06a3d42f28e901f259009c35, type: 3}
-  shipName: testShip
-  maxHealth: 8
-  health: 8
-  shields: 4
-  armor: 64
-  speed: 84000
-  gunCount: 6
-  gunDamage: 4
-  maxFuel: 6584
-  fuelEfficiency: 64
-  fuel: 6456
-  crewCapacity: 4
+  shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
+  shipName: Rocket Ship
+  maxHealth: 120
+  health: 120
+  shields: 1
+  armor: 1
+  speed: 50000
+  gunCount: 1
+  gunDamage: 6
+  maxFuel: 1000
+  fuelEfficiency: 0
+  fuel: 1000
+  crewCapacity: 6
   crewAmt: 4
-  maxSupplies: 43
+  maxSupplies: 8
   supplies: 0
   medicalBonus: 0
   combatBonus: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 35625
+  credits: 31222
   sceneID: 1
   encounterIndex: -1
   playerCaptain:
@@ -293,6 +293,7 @@ MonoBehaviour:
   DistanceTraveled: 0
   TimeToTarget: 0
   TimePassedSinceStart: 0
+  TotalDistanceTraveled: 0
   totalCombat: 1
   totalCharisma: 1
   totalMedical: 1
