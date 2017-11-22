@@ -56,6 +56,18 @@ public class Player : MonoBehaviour {
 			sceneID = loadedStats.sceneID;
 			encounterIndex = loadedStats.encounterIndex;
 			playerCaptain = loadedStats.playerCaptain;
+			//		playerShip = player.playerShip;
+			//		playerCrew = player.playerCrew;
+			//		inventory = player.inventory;
+			CurrentLocationID = loadedStats.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
+			TargetLocationID = loadedStats.TargetLocationID; //-1 means there is no target yet
+			PathColor = loadedStats.PathColor; //-1 means there is no path chosen 1 == green, 2 == yellow, 3 == Red
+			DistanceToTarget = loadedStats.DistanceToTarget;
+			DistanceTraveled = loadedStats.DistanceTraveled;
+			TimeToTarget = loadedStats.TimeToTarget;
+			TimePassedSinceStart = loadedStats.TimePassedSinceStart;
+			TotalDistanceTraveled = loadedStats.TotalDistanceTraveled;
+
 			Debug.Log("CurrentPlayerData--( credits: " + credits + " | sceneID: " + sceneID + "" +
 				" | encounterIndex: " + encounterIndex + " | playerCaptain: " + playerCaptain + ")");
 		}

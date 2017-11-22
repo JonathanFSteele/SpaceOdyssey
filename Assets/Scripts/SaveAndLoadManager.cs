@@ -11,7 +11,7 @@ public static class SaveAndLoadManager {
 
 	//Saving Functionality
 	public static void SavePlayer(Player player, int saveSlot){
-		Debug.Log("Saving Player Data");
+		Debug.Log("Saving Player Data: " + player.TotalDistanceTraveled);
 		BinaryFormatter bf = new BinaryFormatter();
 
 		if (saveSlot == 1) {
@@ -167,18 +167,35 @@ public class PlayerData {
 	public int sceneID;
 	public int encounterIndex;
 	public Captain playerCaptain;
-//	public Ship playerShip;
-//	public CrewMember[] playerCrew;
-//	public Item[] inventory;
+	//	public Ship playerShip;
+	//	public CrewMember[] playerCrew;
+	//	public Item[] inventory;
+	public int CurrentLocationID;
+	public int TargetLocationID;
+	public int PathColor;
+	public float DistanceToTarget;
+	public float DistanceTraveled;
+	public float TimeToTarget;
+	public float TimePassedSinceStart;
+	public float TotalDistanceTraveled;
+
 
 	public PlayerData() {
-		credits = 0;
-		sceneID = 0;
+		credits = 5000;
+		sceneID = 1;
 		encounterIndex = -1;
 		playerCaptain = null;
-//		playerShip = null;
-//		playerCrew = null;
-//		inventory = null;
+		//playerShip = null;
+		//playerCrew = null;
+		//inventory = null;
+		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
+		TargetLocationID = -1; //-1 means there is no target yet
+		PathColor = -1; //-1 means there is no path chosen 1 == green, 2 == yellow, 3 == Red
+		DistanceToTarget = 0;
+		DistanceTraveled = 0;
+		TimeToTarget = 0;
+		TimePassedSinceStart = 0;
+		TotalDistanceTraveled = 0;
 	}
 
 
@@ -191,6 +208,14 @@ public class PlayerData {
 //		playerShip = player.playerShip;
 //		playerCrew = player.playerCrew;
 //		inventory = player.inventory;
+		CurrentLocationID = player.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
+		TargetLocationID = player.TargetLocationID; //-1 means there is no target yet
+		PathColor = player.PathColor; //-1 means there is no path chosen 1 == green, 2 == yellow, 3 == Red
+		DistanceToTarget = player.DistanceToTarget;
+		DistanceTraveled = player.DistanceTraveled;
+		TimeToTarget = player.TimeToTarget;
+		TimePassedSinceStart = player.TimePassedSinceStart;
+		TotalDistanceTraveled = player.TotalDistanceTraveled;
 	}
 
 }

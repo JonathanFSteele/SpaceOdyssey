@@ -276,27 +276,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 31222
+  credits: 5000
   sceneID: 1
   encounterIndex: -1
   playerCaptain:
     captainName: Captain Testing
     captainPicture: Cpt
     medBonus: 0
-    medicalBonus: 1
-    combatBonus: 1
-    charismaBonus: 1
+    medicalBonus: 2
+    combatBonus: 2
+    charismaBonus: 2
   CurrentLocationID: 1
-  TargetLocationID: 2
-  PathColor: 1
-  DistanceToTarget: 300000
+  TargetLocationID: -1
+  PathColor: -1
+  DistanceToTarget: -1
   DistanceTraveled: 0
   TimeToTarget: 0
   TimePassedSinceStart: 0
   TotalDistanceTraveled: 0
-  totalCombat: 1
-  totalCharisma: 1
-  totalMedical: 1
+  totalCombat: 0
+  totalCharisma: 0
+  totalMedical: 0
 --- !u!114 &114750175185313118
 MonoBehaviour:
   m_ObjectHideFlags: 1

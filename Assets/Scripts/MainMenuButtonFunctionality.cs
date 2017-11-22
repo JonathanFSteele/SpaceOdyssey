@@ -121,22 +121,26 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		GameObject SaveSlot4 = GameObject.FindWithTag("SaveSlot4");
 
 		if (player1 != null) {
-			SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName;
+			SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = player1.playerCaptain.captainName + " (Time: "
+				+ player1.TimePassedSinceStart + " ED | Distance: " + player1.TotalDistanceTraveled + " Mi)";
 		} else {
 			SaveSlot1.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 		}
 		if (player2 != null) {
-			SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName;
+			SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = player2.playerCaptain.captainName + " (Time: "
+				+ player2.TimePassedSinceStart + " ED | Distance: " + player2.TotalDistanceTraveled + " Mi)";
 		} else {
 			SaveSlot2.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 		}
 		if (player3 != null) {
-			SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName;
+			SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = player3.playerCaptain.captainName + " (Time: "
+				+ player3.TimePassedSinceStart + " ED | Distance: " + player3.TotalDistanceTraveled + " Mi)";
 		} else {
 			SaveSlot3.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 		}
 		if (player4 != null) {
-			SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName;
+			SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = player4.playerCaptain.captainName + " (Time: "
+				+ player4.TimePassedSinceStart + " ED | Distance: " + player4.TotalDistanceTraveled + " Mi)";
 		} else {
 			SaveSlot4.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 		}
@@ -155,28 +159,32 @@ public class MainMenuButtonFunctionality : MonoBehaviour {
 		GameObject LoadSlot4 = GameObject.FindWithTag("LoadSlot4");
 
 		if (player1 != null) {
-			LoadSlot1.GetComponent<UnityEngine.UI.Text> ().text = player1.playerCaptain.captainName;
+			LoadSlot1.GetComponent<UnityEngine.UI.Text> ().text = player1.playerCaptain.captainName + " (Time: "
+				+ player1.TimePassedSinceStart + " ED | Distance : " + player1.TotalDistanceTraveled + " Mi)";
 		} else {
 			LoadSlot1.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 			//LoadSlot1.GetComponent<UnityEngine.UI.Button>().interactable = false;
 			BtnLoad1.interactable = false;
 		}
 		if (player2 != null) {
-			LoadSlot2.GetComponent<UnityEngine.UI.Text> ().text = player2.playerCaptain.captainName;
+			LoadSlot2.GetComponent<UnityEngine.UI.Text> ().text = player2.playerCaptain.captainName + " (Time: "
+				+ player2.TimePassedSinceStart + " ED | Distance: " + player2.TotalDistanceTraveled + " Mi)";
 		} else {
 			LoadSlot2.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 			//LoadSlot2.GetComponent<UnityEngine.UI.Button>().interactable = false;
 			BtnLoad2.interactable = false;
 		}
 		if (player3 != null) {
-			LoadSlot3.GetComponent<UnityEngine.UI.Text> ().text = player3.playerCaptain.captainName;
+			LoadSlot3.GetComponent<UnityEngine.UI.Text> ().text = player3.playerCaptain.captainName + " (Time: "
+				+ player3.TimePassedSinceStart + " ED | Distance: " + player3.TotalDistanceTraveled + " Mi)";
 		} else {
 			LoadSlot3.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 			//LoadSlot3.GetComponent<UnityEngine.UI.Button>().interactable = false;
 			BtnLoad3.interactable = false;
 		}
 		if (player4 != null) {
-			LoadSlot4.GetComponent<UnityEngine.UI.Text> ().text = player4.playerCaptain.captainName;
+			LoadSlot4.GetComponent<UnityEngine.UI.Text> ().text = player4.playerCaptain.captainName + " (Time: "
+				+ player4.TimePassedSinceStart + " ED | Distance: " + player4.TotalDistanceTraveled + " Mi)";
 		} else {
 			LoadSlot4.GetComponent<UnityEngine.UI.Text>().text = "Empty";
 			//LoadSlot4.GetComponent<UnityEngine.UI.Button>().interactable = false;

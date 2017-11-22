@@ -680,6 +680,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1002251467}
+    - target: {fileID: 114610407886637944, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1455794535}
+    - target: {fileID: 114610407886637944, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1117734429}
     - target: {fileID: 114351225627401762, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -696,16 +706,6 @@ Prefab:
       value: 
       objectReference: {fileID: 1455794535}
     - target: {fileID: 114631406064573128, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1117734429}
-    - target: {fileID: 114610407886637944, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1455794535}
-    - target: {fileID: 114610407886637944, guid: 2c9ff9803d890407a8ffdd70a5f0d30f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -868,12 +868,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1002251467}
-    - target: {fileID: 114680982475865176, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114601980610539082, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1455794535}
-    - target: {fileID: 114680982475865176, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114601980610539082, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -888,22 +888,22 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1117734429}
-    - target: {fileID: 114601980610539082, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114444975545651170, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1455794535}
-    - target: {fileID: 114601980610539082, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114444975545651170, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1117734429}
-    - target: {fileID: 114444975545651170, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114680982475865176, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1455794535}
-    - target: {fileID: 114444975545651170, guid: eaf6746c7eef64d289df6e487b58b52c,
+    - target: {fileID: 114680982475865176, guid: eaf6746c7eef64d289df6e487b58b52c,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1800,10 +1800,6 @@ MonoBehaviour:
   NewSaveGameUI: {fileID: 584761639}
   LoadGameUI: {fileID: 1573170630}
   MenuUI: {fileID: 1270206714}
-  MapUI: {fileID: 0}
-  ShipUI: {fileID: 0}
-  LogUI: {fileID: 0}
-  CrewUI: {fileID: 0}
   OptionsUI: {fileID: 201999708}
 --- !u!4 &1455794534
 Transform:
