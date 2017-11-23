@@ -35,7 +35,7 @@ public void Start () {}
 
 public void buyFuel() 
 { //called by purchase button
-	library = GameObject.FindGameObjectWithTag ("Library");
+	// library = GameObject.FindGameObjectWithTag ("Library");
 	player = playerObj.GetComponent<Player>();
 	playerShip = playerShipObj.GetComponent<Ship> ();		
 
@@ -63,7 +63,7 @@ public void buyFuel()
 
 public void buyRepair() 
 { //called by purchase button
-	library = GameObject.FindGameObjectWithTag ("Library");
+	// library = GameObject.FindGameObjectWithTag ("Library");
 	player = playerObj.GetComponent<Player>();
 	playerShip = playerShipObj.GetComponent<Ship> ();		
 
