@@ -4,45 +4,57 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//WILL NEED to auto generate each row with script in future
 
 // Attached to every row in Item_Field_Horizontal Group(x) within...
 // Canvas_MarketPlaceUI_wScript -> Right_Side
-public class ItemScroll : MonoBehaviour {
+public class LoadMarketPlace : MonoBehaviour {
 
-public GameObject library;
+	public GameObject library;
 
-public Item itemScript;
+	public Item itemScript;
+	// private Item item;
 
-public Text itemName;
-public Text itemPrice;
+	public Image itemPicture;
+	public Text itemDescription;
+
+	public Text itemName;
+	public Text itemPrice;
+
+	public GameObject picUI;
+	public GameObject textUI;
 
 
+	public GameObject verticalGroup; 
+	public GameObject itemFieldPrefab; 
 
-	public void rowClick()
+
+// public void LoadScrollEntries()
+	public void Start()
 	{
-		Item item = itemScript.GetComponent<Item> ();
- 
-		GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
-		GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
+		library = GameObject.FindGameObjectWithTag ("Library");
+		int itemListSize = library.GetComponent<ItemLibrary> ().itemArraySize;
+		print("itemArraySize: " + itemListSize);
+		
+		for(int i=0; i<itemListSize; i++)
+		{
+			Item item = library.GetComponent<ItemLibrary> ().getNextItem ("market_supplies");
 
-//no need since inactive tags cant be found		
-		// if (!picUI.activeSelf)
-		// 	picUI.SetActive(true);
-		// if (!textUI.activeSelf)
-		// 	textUI.SetActive(true);
-
-		Image iPicture = picUI.GetComponent<Image> ();
-		Text itemDescription = textUI.GetComponent<Text> ();
-
-		iPicture.sprite = item.itemPicture;
-		itemDescription.text = item.description.ToString ();
+			GameObject field = Instantiate(itemFieldPrefab);
+			field.transform.SetParent(verticalGroup.transform, false); //for loading items dynamically as particular child
+			
+			ItemScroll rowPtr = field.GetComponent<ItemScroll> ();	
+			rowPtr.itemScript = item;
+			rowPtr.itemPrice.text = item.price.ToString () + " £";
+			rowPtr.itemName.text = item.name;
+		}
 	}
 
 
 
-	// public void loadSHipYard() 
-	// {
 
+	// public void Start2() 
+	// {
 	// 	// portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 	// 	// player = playerObj.GetComponent<Player>();
 	// 	// playerShip = playerShipObj.GetComponent<Ship> ();		
@@ -221,11 +233,11 @@ public Text itemPrice;
 // 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
 // 		portStats.UpdateBalance();			
 
- 
+
 // 	}
 // }
 
-	 
+
 
 // public void previousShopShip() 
 // {
@@ -294,7 +306,7 @@ public Text itemPrice;
 // {
 //  	shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
 // 	playerShip = playerShipObj.GetComponent<Ship> ();		
-  
+
 
 // //	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
 // //	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " £  ";

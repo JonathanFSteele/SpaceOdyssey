@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ItemLibrary : MonoBehaviour {
 
 	public Item_List[] itemList;
 	public int itemArraySize;
+	private int scrollIndex = -1;
 
 	Dictionary<string, Item[]> groupDictionary = new Dictionary<string, Item[]>();
 
-//not applicable
-	// public Sprite GetClipFromName(string name) {
-	// 	if (groupDictionary.ContainsKey(name)) {
-	// 		return groupDictionary[name];;
-	// 	}
-	// 	return null;
-	// }
 
 
 	void Awake() {
@@ -28,6 +23,24 @@ public class ItemLibrary : MonoBehaviour {
 			print ("itemArraySize: " + itemArraySize);
 		}
 	}
+
+
+	public Item getNextItem(string name) {
+		if (groupDictionary.ContainsKey(name)) {
+
+			Item[] items = groupDictionary[name]; 
+
+			scrollIndex++;
+			if (scrollIndex >= itemArraySize)
+			scrollIndex = 0;
+
+			print ("scrollIndex: " + scrollIndex);
+
+			return items[scrollIndex];
+		}
+		print ("getNextItem() fail");
+		return null;
+	}	
 
 
 	[System.Serializable]

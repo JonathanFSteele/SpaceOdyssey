@@ -20,7 +20,7 @@ public class ShipLibrary : MonoBehaviour {
 		Sprite[] sounds = groupDictionary ["shop_ships"];
 			
 		shipArraySize = sounds.Length;
-		print ("shipArraySize: " + shipArraySize);
+		// print ("shipArraySize: " + shipArraySize);
 	}
 
 
@@ -30,7 +30,7 @@ public class ShipLibrary : MonoBehaviour {
 			Sprite[] sounds = groupDictionary[name]; 
 			return sounds[0];
 		}
-		print ("GetClipFromName() fail");
+		// print ("GetClipFromName() fail");
 		return null;
 	}
 
@@ -39,7 +39,7 @@ public class ShipLibrary : MonoBehaviour {
 			Sprite[] sounds = groupDictionary[name];
 			return sounds[Random.Range(0,sounds.Length)];
 		}
-		print ("GetRandomClipFromName() fail");
+		// print ("GetRandomClipFromName() fail");
 		return null;
 	}
 

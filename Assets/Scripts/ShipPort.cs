@@ -155,7 +155,7 @@ public void loadShipYard()
 	// print("playerShip.shipName: " + playerShip.shipName);
 	while(playerShip.shipName == shopShip.shipName)
 	{
-		print("NAME SAME");
+		// print("NAME SAME");
 		shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
 	}
 

@@ -185,7 +185,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
   displayImage: {fileID: 0}
   scrollIndex: 0
-  shipArraySize: 2
+  shipArraySize: 5
 --- !u!114 &114175302828538060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,12 +261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList:
-  - groupID: 
-    group: []
-  - groupID: 
-    group: []
-  - groupID: 
-    group: []
+  - groupID: market_supplies
+    group:
+    - {fileID: 114904798777285080, guid: bb4a796b5c16f498196da8cc8903f40c, type: 2}
+    - {fileID: 114904798777285080, guid: d6b13704b979249268024f59accddb51, type: 2}
+    - {fileID: 114904798777285080, guid: bd6318dd95fb54177a4f738181e1aa28, type: 2}
   itemArraySize: 3
 --- !u!114 &114647382330650332
 MonoBehaviour:
@@ -335,7 +334,6 @@ MonoBehaviour:
     - {fileID: 114204484156179186, guid: 2a46ddd6ed41b444181b6770741a593b, type: 2}
     - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
     - {fileID: 114204484156179186, guid: 72720b3ad61304486b8e8064543a2352, type: 2}
-  scrollIndex: 0
   shipArraySize: 3
 --- !u!114 &114867388827181838
 MonoBehaviour:
