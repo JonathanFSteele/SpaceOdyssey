@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
 	public float TimeToTarget;
 	public float TimePassedSinceStart;
 	public float TotalDistanceTraveled;
+	public bool newGameTF;
 
 	public int totalCombat;
 	public int totalCharisma;
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour {
 			TimeToTarget = loadedStats.TimeToTarget;
 			TimePassedSinceStart = loadedStats.TimePassedSinceStart;
 			TotalDistanceTraveled = loadedStats.TotalDistanceTraveled;
+			newGameTF = loadedStats.newGameTF;
 
 			Debug.Log("CurrentPlayerData--( credits: " + credits + " | sceneID: " + sceneID + "" +
 				" | encounterIndex: " + encounterIndex + " | playerCaptain: " + playerCaptain + ")");
