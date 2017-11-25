@@ -14,7 +14,9 @@ public class Item : MonoBehaviour {
 	public int charsmaBonus;
 
 	// public int amountInStore = -1; //probably won't implement
+	public int supplyBonus;
 	public string description; 
+	public int amountPurchasing = 1;
 	public int price;
 
 

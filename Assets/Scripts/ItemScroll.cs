@@ -1,315 +1,211 @@
-﻿using System.Collections;
+﻿// Attached to every row in Item_Field_Horizontal Group(x) within...
+// Canvas_MarketPlaceUI_wScript -> Right_Side
+
+//script updates Supply bar and amount too
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-// Attached to every row in Item_Field_Horizontal Group(x) within...
-// Canvas_MarketPlaceUI_wScript -> Right_Side
 public class ItemScroll : MonoBehaviour {
 
-public GameObject library;
-
+public Player player;
+public Ship playerShip;
 public Item itemScript;
 
-public Text itemName;
-public Text itemPrice;
+
+public Text itemName; //used to initialize values through LoadMarketPlace.cs
+public Text itemPrice; //used to initialize values through LoadMarketPlace.cs
+public Text itemAmount;
+public Text itemTotal;
 
 
+private int intAmount = 1;
+private int intTotal = 1;
+private int incFlag = 0;
 
-	public void rowClick()
-	{
+public Button decButton;
+public Button incButton;
+public Button buyButton;
+
+// public GameObject scrollRectwVerticalGroups;
+public GameObject areYouSureItemPrefab; 
+
+public void destroyYouSureWindow()
+{
+	buyButton.interactable = true;
+	Destroy(gameObject);
+}
+
+
+public void Start()
+{
+	GameObject balanceParentScript = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
+	balanceParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";		
+	
+	if (itemScript.GetComponent<Item> () != null) {
 		Item item = itemScript.GetComponent<Item> ();
- 
-		GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
-		GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
 
-//no need since inactive tags cant be found		
-		// if (!picUI.activeSelf)
-		// 	picUI.SetActive(true);
-		// if (!textUI.activeSelf)
-		// 	textUI.SetActive(true);
+		if (player.credits - item.price < 0) {
+			incButton.interactable = false;
+			decButton.interactable = false;
+			buyButton.interactable = false;
 
-		Image iPicture = picUI.GetComponent<Image> ();
-		Text itemDescription = textUI.GetComponent<Text> ();
+			itemTotal.text = "Not Enough";					
+		}
+	}
+	else
+	print ("item is null");
+}
 
-		iPicture.sprite = item.itemPicture;
-		itemDescription.text = item.description.ToString ();
+
+public void rowClick()
+{
+	Item item = itemScript.GetComponent<Item> ();
+	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
+	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
+	Image iPicture = picUI.GetComponent<Image> ();
+	Text itemDescription = textUI.GetComponent<Text> ();
+	iPicture.sprite = item.itemPicture;
+	itemDescription.text = item.description.ToString () + item.supplyBonus.ToString ();
+}
+
+
+public void incAmount()
+{
+	Item item = itemScript.GetComponent<Item> ();
+	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
+	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
+	Image iPicture = picUI.GetComponent<Image> ();
+	Text itemDescription = textUI.GetComponent<Text> ();
+	iPicture.sprite = item.itemPicture;
+	itemDescription.text = item.description.ToString () + item.supplyBonus.ToString ();
+
+
+	intAmount++;
+	if(player.credits - item.price*intAmount >= 0)
+	{
+		intTotal = item.price*intAmount;
+		itemTotal.text = intTotal.ToString () + " £";		
+		itemAmount.text = intAmount.ToString ();
+
+	}
+	else if(incFlag > 0)
+	{
+		itemAmount.text = (incFlag).ToString ();
+		intAmount--;
+		itemTotal.text = "Not Enough";					
+	}		
+	else  
+	{
+		itemAmount.text = (intAmount).ToString ();
+		incFlag = intAmount;
+		itemTotal.text = "Not Enough";			
 	}
 
+}
 
 
-	// public void loadSHipYard() 
-	// {
-
-	// 	// portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-	// 	// player = playerObj.GetComponent<Player>();
-	// 	// playerShip = playerShipObj.GetComponent<Ship> ();		
-
-	// 	// // print("shopShip.shipName: " + shopShip.shipName);
-	// 	// // print("playerShip.shipName: " + playerShip.shipName);
-	// 	// while(playerShip.shipName == shopShip.shipName)
-	// 	// {
-	// 	// 	print("NAME SAME");
-	// 	// 	shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
-	// 	// }
-
-	// 	// portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-	// 	// portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-	// 	// portStats.shipPicture.sprite = shopShip.shipPicture;
-	// 	// portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-	// 	// portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
-	// 	// portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-	// 	// portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-	// 	// portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
-	// 	// portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-	// 	// portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-	// 	// portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
-	// 	// portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
+public void decAmount()
+{
+	Item item = itemScript.GetComponent<Item> ();
+	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
+	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
+	Image iPicture = picUI.GetComponent<Image> ();
+	Text itemDescription = textUI.GetComponent<Text> ();
+	iPicture.sprite = item.itemPicture;
+	itemDescription.text = item.description.ToString () + item.supplyBonus.ToString ();
 
 
 
-	// 	// //checks if player can afford 'upgrades'. and needs them
-	// 	// if(player.credits - repairPrice >= 0 && playerShip.health < playerShip.maxHealth)
-	// 	// 	repairButton.interactable = true;
-	// 	// else
-	// 	// 	repairButton.interactable = false;		
+	if(intAmount > 1)
+	{
+		intAmount--;
+		itemAmount.text = intAmount.ToString ();
+		intTotal = item.price*intAmount;
+		itemTotal.text = intTotal.ToString () + " £";		
+		incFlag = 0;
+	}
+
+	if(player.credits - item.price*intAmount >= 0)
+	itemTotal.text = intTotal.ToString () + " £";		
+	else  
+	itemTotal.text = "Not Enough";			
+
+}
 
 
-	// 	// if(player.credits - fuelPrice >= 0 && playerShip.fuel < playerShip.maxFuel)
-	// 	// 	fuelButton.interactable = true;
-	// 	// else
-	// 	// 	fuelButton.interactable = false;		
+//FOR buyButton
+public void buyItemPart1()
+{
+	Item item = itemScript.GetComponent<Item> ();
+	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
+	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
+	Image iPicture = picUI.GetComponent<Image> ();
+	Text itemDescription = textUI.GetComponent<Text> ();
+	iPicture.sprite = item.itemPicture;
+	itemDescription.text = item.description.ToString () + item.supplyBonus.ToString ();
 
 
-	// 	// if(player.credits - shopShip.shipPrice >= 0)
-	// 	// 	purchaseButton.interactable = true;
-	// 	// else
-	// 	// 	purchaseButton.interactable = false;		
-	// }
+	if(player.credits - item.price*intAmount >= 0)
+	{
+		buyButton.interactable = false;
+
+		GameObject foo = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
+		GameObject field = Instantiate(areYouSureItemPrefab);
+		field.transform.SetParent(foo.transform, false); //for loading items dynamically as particular child
 
 
+		field.GetComponent<ItemScroll>().itemScript = item;
+		field.GetComponent<ItemScroll>().itemScript.amountPurchasing = intAmount;
+		field.GetComponent<ItemScroll>().buyButton = buyButton;
+
+	}
+	else  
+	itemTotal.text = "Not Enough!";			
+
+}
 
 
-// public GameObject canvasShipUI; 
-// public GameObject canvasShipYard; //aka: Canvas_TopRow w/ script
-// public GameObject canvasHeader; //aka: Canvas_ShipYardUI_wScript
-// public GameObject playerShipObj; 
-// public GameObject playerObj; 
-
-// private Player player;	// to get playerMoney
-// private Ship playerShip;	// public GameObject storeShip;
-// private AdjustBarAndStatLevels portStats; //attached to Canvas_ShipYardUI_wScript
-// private AdjustBarAndStatLevels headerStats;
-// private AdjustBarAndStatLevels shipUIStats;
-// private Ship shopShip;
-
-// public Button purchaseButton;
-// public Button fuelButton;
-// public Button repairButton;
-
-// private int fuelPrice = 200;
-// private int repairPrice = 300;
+//FOR AREyouSureScreen
+public void buyItemPart2()
+{
+	Item item = itemScript.GetComponent<Item> ();
 
 
-// public void Start () {}
+	if(player.credits - item.price*item.amountPurchasing >= 0)
+	{
+		player.credits -= item.price*item.amountPurchasing;
 
 
-// public void buyFuel() 
-// { //called by purchase button
-// 	library = GameObject.FindGameObjectWithTag ("Library");
-// 	player = playerObj.GetComponent<Player>();
-// 	playerShip = playerShipObj.GetComponent<Ship> ();		
+		GameObject supplyTextDisplay = GameObject.FindGameObjectWithTag ("SupplyAmountText_X");
+		GameObject supplyBARDisplay = GameObject.FindGameObjectWithTag ("SupplyAmountBAR_X");
+
+		playerShip.supplies += item.supplyBonus*item.amountPurchasing;
+
+		if(playerShip.supplies > playerShip.maxSupplies)
+		playerShip.supplies = playerShip.maxSupplies;
+
+		// supplyTextDisplay.GetComponent<Text>().text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
+		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
+
+		GameObject getParentScript = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
+		getParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";		
 
 
-// 	if(player.credits - fuelPrice >= 0)
-// 	{
-// 		player.credits -= fuelPrice;
+		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyDisplayText.text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
+		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyBar.fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
 
-// 		playerShip.fuel = playerShip.maxFuel;
+		// supplyTextDisplay.GetComponent<Text>().text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
+		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
 
-
-// 		//UPDATE header and shipUIcanvas
-// 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
-// 		headerStats.UpdateText();	//updates balance and header stats	
-
-// 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-// 		// shipUIStats.UpdateText();		
-// 		loadShipUI_Display();
-
-// 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-// 			portStats.UpdateBalance();			
-// 	}
-// }
-
-
-// public void buyRepair() 
-// { //called by purchase button
-// 	library = GameObject.FindGameObjectWithTag ("Library");
-// 	player = playerObj.GetComponent<Player>();
-// 	playerShip = playerShipObj.GetComponent<Ship> ();		
-
-
-// 	if(player.credits - repairPrice >= 0)
-// 	{
-// 		player.credits -= repairPrice;
-
-// 		playerShip.health = playerShip.maxHealth;
-
-
-// 		//UPDATE header and shipUIcanvas
-// 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
-// 		headerStats.UpdateText();	//updates balance and header stats	
-
-// 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-// 		// shipUIStats.UpdateText();		
-// 		loadShipUI_Display();
-
-// 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-// 		portStats.UpdateBalance();			
-// 	}
-// }
-
-
-// public void buyShip()
-// { //called by purchase button
-// 	library = GameObject.FindGameObjectWithTag ("Library");
-// 	player = playerObj.GetComponent<Player>();
-// 	shopShip = library.GetComponent<ShipLibraryPrefab> ().buyCurrentShip ("shop_ships");
-// 		playerShip = playerShipObj.GetComponent<Ship> ();		
-
-// 	if(player.credits - shopShip.shipPrice >= 0)
-// 	{
-// 		player.credits -= shopShip.shipPrice;
-
-// 		playerShip.shipPicture = shopShip.shipPicture;
-// 		playerShip.shipName = shopShip.shipName;
-// 		playerShip.maxHealth = shopShip.maxHealth;
-// 		// if(playerShip.health > shopShip.maxHealth)
-// 			playerShip.health = shopShip.maxHealth;
-// 		playerShip.shields = shopShip.shields;
-// 		playerShip.armor = shopShip.armor;
-// 		playerShip.speed = shopShip.speed;
-// 		playerShip.gunCount = shopShip.gunCount;
-// 		playerShip.gunDamage = shopShip.gunDamage;
-// 		playerShip.maxFuel = shopShip.maxFuel;
-// 		playerShip.fuelEfficiency = shopShip.fuelEfficiency;
-// 		// if(playerShip.fuel > shopShip.maxFuel)
-// 			playerShip.fuel = shopShip.maxFuel;
-// 		playerShip.crewCapacity = shopShip.crewCapacity;
-// 		if(playerShip.crewAmt > shopShip.crewCapacity)
-// 			playerShip.crewAmt = shopShip.crewCapacity;
-// 		playerShip.maxSupplies = shopShip.maxSupplies;
-// 		if(playerShip.supplies > shopShip.maxSupplies)
-// 			playerShip.supplies = shopShip.maxSupplies;
-// 		playerShip.medicalBonus = shopShip.medicalBonus;
-// 		playerShip.combatBonus = shopShip.combatBonus;
-// 		playerShip.charsmaBonus = shopShip.charsmaBonus;
-
-// 		// playerShip.health = 5;
-// 		// playerShip.fuel = 5;
-
-// 		//UPDATE header and shipUIcanvas
-// 		headerStats = canvasHeader.GetComponent<AdjustBarAndStatLevels>();
-// 		headerStats.UpdateText();	//updates balance and header stats	
-
-// 		// shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-// 		// shipUIStats.UpdateText();		
-// 		loadShipUI_Display();
-
-// 		portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-// 		portStats.UpdateBalance();			
-
- 
-// 	}
-// }
-
-	 
-
-// public void previousShopShip() 
-// {
-// 	library = GameObject.FindGameObjectWithTag ("Library");
-// 	shopShip = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
-// 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-// 	player = playerObj.GetComponent<Player>();
-// 	playerShip = playerShipObj.GetComponent<Ship> ();		
-
-// 	if(playerShip.shipName == shopShip.shipName)
-// 		shopShip = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
-
-// 	if(player.credits - shopShip.shipPrice >= 0) //checks if player can afford ship. 
-// 		purchaseButton.interactable = true;
-// 	else
-// 		purchaseButton.interactable = false;		
-
-// 	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-// 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-// 	portStats.shipPicture.sprite = shopShip.shipPicture;
-// 	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-// 	portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
-// 	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-// 	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-// 	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
-// 	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-// 	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-// 	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
-// 	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
-// }
-
-
-// public void nextShopShip() 
-// {
-// 	library = GameObject.FindGameObjectWithTag ("Library");
-// 	shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
-// 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
-// 	player = playerObj.GetComponent<Player>();
-// 	playerShip = playerShipObj.GetComponent<Ship> ();		
-
-// 	if(playerShip.shipName == shopShip.shipName)
-// 		shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
-
-// 	if(player.credits - shopShip.shipPrice >= 0) //checks if player can afford ship. 
-// 		purchaseButton.interactable = true;
-// 	else
-// 		purchaseButton.interactable = false;		
-
-// 	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-// 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-// 	portStats.shipPicture.sprite = shopShip.shipPicture;
-// 	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-// 	portStats.hpDisplayText.text = "Health Max: " + shopShip.maxHealth.ToString();
-// 	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-// 	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-// 	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
-// 	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-// 	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-// 	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
-// 	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
-// }
-
-
-
-// public void loadShipUI_Display() 
-// {
-//  	shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-// 	playerShip = playerShipObj.GetComponent<Ship> ();		
-  
-
-// //	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-// //	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " £  ";
-// 	shipUIStats.shipPicture.sprite = playerShip.shipPicture;
-// //	shipUIStats.shipNameDisplayText.text = playerShip.shipName.ToString();
-// 	shipUIStats.hpDisplayText.text = "Health Max: " + playerShip.maxHealth.ToString();
-// 	shipUIStats.speedDisplayText.text = "Speed: " + playerShip.speed.ToString();
-// 	shipUIStats.shieldsDisplayText.text = "Shields: " + playerShip.shields.ToString();
-// 	shipUIStats.gunDamageDisplayText.text = "Gun Damage: " + playerShip.gunDamage.ToString();
-// 	shipUIStats.fuelDisplayText.text = "Fuel: " + playerShip.fuel.ToString();
-// 	shipUIStats.armorDisplayText.text = "Armor: " + playerShip.armor.ToString();
-// 	shipUIStats.gunCountDisplayText.text = "Gun Count: " + playerShip.gunCount.ToString();
-// 	shipUIStats.crewDisplayText.text = "Crew Capacity: " + playerShip.crewCapacity.ToString();
-// }
-
+	}
+	else  
+	itemTotal.text = "Not Enough!!!";			
+}
 
 
 } //end of script
