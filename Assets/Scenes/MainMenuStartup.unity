@@ -1333,6 +1333,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1270206714}
     m_Modifications:
+    - target: {fileID: 114027298791469514, guid: a34ebb78509f64a1c90a91d6fea01a6e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224823410285026002, guid: a34ebb78509f64a1c90a91d6fea01a6e,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1443,6 +1448,25 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1117734429}
+    - target: {fileID: 1132995805378036, guid: a34ebb78509f64a1c90a91d6fea01a6e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114027298791469514, guid: a34ebb78509f64a1c90a91d6fea01a6e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114027298791469514, guid: a34ebb78509f64a1c90a91d6fea01a6e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114027298791469514, guid: a34ebb78509f64a1c90a91d6fea01a6e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a34ebb78509f64a1c90a91d6fea01a6e, type: 2}
   m_IsPrefabParent: 0
@@ -1794,6 +1818,7 @@ GameObject:
   - component: {fileID: 1455794534}
   - component: {fileID: 1455794533}
   - component: {fileID: 1455794535}
+  - component: {fileID: 1455794536}
   m_Layer: 0
   m_Name: UIScripts
   m_TagString: Untagged
@@ -1851,6 +1876,22 @@ MonoBehaviour:
   BtnSave3: {fileID: 2140758243}
   BtnSave4: {fileID: 418172768}
   ExitGameMenu: {fileID: 1601370299}
+--- !u!114 &1455794536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1455794532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c21753d338a04b91a2f618b0c7dc009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 114647382330650332, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
+  playerShip: {fileID: 114175302828538060, guid: 5d0440017891f405c8079fa46241daa3,
+    type: 2}
+  noShip: {fileID: 114204484156179186, guid: 20081f5e5debd409c9129df58a5cd19a, type: 2}
+  initialCredits: 5000
 --- !u!1 &1526531561
 GameObject:
   m_ObjectHideFlags: 0
