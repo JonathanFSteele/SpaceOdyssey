@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-	public Player player;
+	private Player player;
+	private GameObject TutorialUI;
+	private GameObject StatSheet;
 
 	void Awake() {
 		player = FindObjectOfType<Player>().GetComponent<Player>();
@@ -15,14 +17,14 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		UpdateDisplay ();
+//		UpdateDisplay ();
 	}
 
 	public void UpdateDisplay(){
-		Debug.Log("Player Display Updating...");
-		Debug.Log(player.credits);
-		Debug.Log (player.sceneID);
-		Debug.Log (player.encounterIndex);
-		Debug.Log (player.playerCaptain);
+//		Debug.Log("Player Display Updating...");
+//		Debug.Log(player.credits);
+//		Debug.Log (player.sceneID);
+//		Debug.Log (player.encounterIndex);
+//		Debug.Log (player.playerCaptain);
 	}
 }

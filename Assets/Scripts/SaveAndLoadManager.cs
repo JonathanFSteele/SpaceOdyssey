@@ -183,6 +183,7 @@ public class PlayerData {
 	public float TimeToTarget;
 	public float TimePassedSinceStart;
 	public float TotalDistanceTraveled;
+	public bool newGameTF;
 
 	public PlayerData() {
 		credits = 5000;
@@ -205,6 +206,7 @@ public class PlayerData {
 		TimeToTarget = 0;
 		TimePassedSinceStart = 0;
 		TotalDistanceTraveled = 0;
+		newGameTF = true;
 	}
 
 
@@ -225,6 +227,7 @@ public class PlayerData {
 		TimeToTarget = player.TimeToTarget;
 		TimePassedSinceStart = player.TimePassedSinceStart;
 		TotalDistanceTraveled = player.TotalDistanceTraveled;
+		newGameTF = player.newGameTF;
 	}
 
 }
