@@ -8,9 +8,11 @@ using System.IO;
 [Serializable]
 public class Player : MonoBehaviour {
 
+
 	public int credits;
 	public int sceneID;
 	public int encounterIndex;
+	public PlayersItems playerItems;
 	public Captain playerCaptain;
 //	public Ship playerShip; //ship is an object inside of player now
 //	public CrewMember[] playerCrew;
