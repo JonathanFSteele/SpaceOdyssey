@@ -13,9 +13,9 @@ using UnityEngine.UI;
 public class ItemScroll : MonoBehaviour {
 
 public Player player;
-public Ship playerShip;
+//public Ship playerShip;
 public Item itemScript;
-
+public GameObject playerObj;
 
 public Text itemName; //used to initialize values through LoadMarketPlace.cs
 public Text itemPrice; //used to initialize values through LoadMarketPlace.cs
@@ -174,7 +174,8 @@ public void buyItemPart1()
 public void buyItemPart2()
 {
 	Item item = itemScript.GetComponent<Item> ();
-
+	playerObj = GameObject.FindGameObjectWithTag("Player");
+	player = playerObj.GetComponent<Player>();
 
 	if(player.credits - item.price*item.amountPurchasing >= 0)
 	{
@@ -184,10 +185,10 @@ public void buyItemPart2()
 		GameObject supplyTextDisplay = GameObject.FindGameObjectWithTag ("SupplyAmountText_X");
 		GameObject supplyBARDisplay = GameObject.FindGameObjectWithTag ("SupplyAmountBAR_X");
 
-		playerShip.supplies += item.supplyBonus*item.amountPurchasing;
+		player.playerShip.supplies += item.supplyBonus*item.amountPurchasing;
 
-		if(playerShip.supplies > playerShip.maxSupplies)
-		playerShip.supplies = playerShip.maxSupplies;
+		if(player.playerShip.supplies > player.playerShip.maxSupplies)
+			player.playerShip.supplies = player.playerShip.maxSupplies;
 
 		// supplyTextDisplay.GetComponent<Text>().text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
 		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
@@ -196,8 +197,8 @@ public void buyItemPart2()
 		getParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";		
 
 
-		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyDisplayText.text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
-		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyBar.fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
+		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyDisplayText.text = player.playerShip.supplies.ToString () + '/' + player.playerShip.maxSupplies.ToString();
+		getParentScript.GetComponent<AdjustBarAndStatLevels> ().supplyBar.fillAmount = (float)player.playerShip.supplies / player.playerShip.maxSupplies;
 
 		// supplyTextDisplay.GetComponent<Text>().text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
 		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
