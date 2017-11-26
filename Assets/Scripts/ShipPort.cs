@@ -124,8 +124,8 @@ public void buyShip()
 		playerShip.combatBonus = shopShip.combatBonus;
 //		playerShip.charsmaBonus = shopShip.charsmaBonus;
 		
-		Debug.Log ("PlayerShip Bought and Added: ", player.playerShip);
-		player.playerShip = playerShip;
+		//Debug.Log ("PlayerShip Bought and Added: ", player.playerShip);
+		//player.playerShip = playerShip;
 
 		// playerShip.health = 5;
 		// playerShip.fuel = 5;
