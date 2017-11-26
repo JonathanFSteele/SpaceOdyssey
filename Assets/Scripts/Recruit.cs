@@ -6,7 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
 
-public class Crew : MonoBehaviour {
+public class Recruit : MonoBehaviour
+{
 
     //Varibles that change the output text on screen
     public Sprite CrewImage;
@@ -38,7 +39,8 @@ public class Crew : MonoBehaviour {
     public Text Body;
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         //updates Stats
         cb.text = Combat.ToString();
         mc.text = Mechanics.ToString();
@@ -54,3 +56,4 @@ public class Crew : MonoBehaviour {
         Body.text = "Name:" + CrewName + "\n" + Description;
     }
 }
+

@@ -72,6 +72,18 @@ public class ShowAndHideUI : MonoBehaviour
         Canvas_Log.SetActive(!Canvas_Log.activeSelf);
     }
 
+    //used to open and close MissionControl
+    public void MissionControlTF(GameObject Canvas_MissionControl)
+    {
+        Canvas_MissionControl.SetActive(!Canvas_MissionControl.activeSelf);
+    }
+
+    //used to open and close RecruiTCenter
+    public void RecruitmentCenterTF(GameObject Canvas_RecruitCenter)
+    {
+        Canvas_RecruitCenter.SetActive(!Canvas_RecruitCenter.activeSelf);
+    }
+
 	public void ShowOptionsTF(bool value)
 	{
 		OptionsUI.gameObject.SetActive(value);
