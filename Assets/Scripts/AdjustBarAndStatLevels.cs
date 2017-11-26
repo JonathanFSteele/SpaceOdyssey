@@ -17,7 +17,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public Text crewDisplayText;
 	public Text speedDisplayText;
 	public Text combatModifierText;
-	public Sprite ImageTest;
 
 	public Image shipHPBar;
 	public Image fuelBar;
@@ -41,8 +40,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	//   public Text armorDisplayText;
 	//   public Text gunCountDisplayText;
 
-
-
+	/***************************************Awake Function**************************************************/
 
    public void Awake() {
 		Debug.Log ("Start of Awake in AdjustBarAndStatLevels");
@@ -51,60 +49,56 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 		playerObj = GameObject.FindGameObjectWithTag("Player");
 		player = playerObj.GetComponent<Player>();
 		CurrentShip = player.playerShip;
+		returnedPicture = Library.GetComponent<ShipLibrary>().GetClipFromName(CurrentShip.shipPicture);
 
-		if (CurrentShip == null) {
-//			CurrentShipDisplayImage.GetComponent<Image> ().sprite = null;
-//			CurrentShipNameDisplayText.text = "No Ship";
-
-		} else {
-			
-			//returnedPicture = Library.GetComponent<ShipLibrary>().GetClipFromName(ship.shipPicture);
-			returnedPicture = ImageTest;
-
-			if (returnedPicture != null) {
-				CurrentShipDisplayImage.GetComponent<Image> ().sprite = returnedPicture;
-			}
-
-			if (CurrentShipNameDisplayText != null) {
-				CurrentShipNameDisplayText.text = "RocketShip";			
-				//CurrentShipNameDisplayText.text = ship.shipName.ToString();
-			}
-
-			Debug.Log ("End first 2 Awake ifs!!!!!!");
-			/* ship stats tab */
-			if(hpDisplayText != null)
-			{         
-				hpDisplayText.text = CurrentShip.health.ToString ();
-				depleteHP(0);
-			}
-			Debug.Log ("IS IT HERE!!!!!!!!!!!!!!!!!!!");
-			if(speedDisplayText != null)
-				speedDisplayText.text = CurrentShip.speed.ToString ();
-			//      if(shieldsDisplayText != null)
-			//         shieldsDisplayText.text = ship.shields.ToString ();
-			//      if(gunDamageDisplayText != null)
-			//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
-			if(fuelDisplayText != null)
-			{
-				fuelDisplayText.text = CurrentShip.fuel.ToString ();
-				depleteFuel(0);         
-			}
-			//      if(armorDisplayText != null)
-			//         armorDisplayText.text = ship.armor.ToString ();
-			//      if(gunCountDisplayText != null)
-			//         gunCountDisplayText.text = ship.gunCount.ToString ();
-			if(crewDisplayText != null)
-			{
-				crewDisplayText.text = CurrentShip.crewAmt.ToString ();
-				depleteCrew(0);
-			}
-			if(supplyDisplayText != null)
-			{
-				supplyDisplayText.text = CurrentShip.supplies.ToString ();
-				depleteSupply(0);
-			}
+		if (returnedPicture != null && CurrentShipDisplayImage != null) {
+			CurrentShipDisplayImage.sprite = returnedPicture;
 		}
+
+		if (CurrentShipNameDisplayText != null) {		
+			CurrentShipNameDisplayText.text = CurrentShip.shipName.ToString();
+		}
+			
+		/* ship stats tab */
+		if(hpDisplayText != null)
+		{         
+			hpDisplayText.text = CurrentShip.health.ToString ();
+			depleteHP(0);
+		}
+
+		if (speedDisplayText != null) {
+			speedDisplayText.text = CurrentShip.speed.ToString ();
+		}
+
+		if(fuelDisplayText != null)
+		{
+			fuelDisplayText.text = CurrentShip.fuel.ToString ();
+			depleteFuel(0);         
+		}
+
+		if(crewDisplayText != null)
+		{
+			crewDisplayText.text = CurrentShip.crewAmt.ToString ();
+			depleteCrew(0);
+		}
+
+		if(supplyDisplayText != null)
+		{
+			supplyDisplayText.text = CurrentShip.supplies.ToString ();
+			depleteSupply(0);
+		}
+
+		//      if(armorDisplayText != null)
+		//         armorDisplayText.text = ship.armor.ToString ();
+		//      if(gunCountDisplayText != null)
+		//         gunCountDisplayText.text = ship.gunCount.ToString ();
+		//      if(shieldsDisplayText != null)
+		//         shieldsDisplayText.text = ship.shields.ToString ();
+		//      if(gunDamageDisplayText != null)
+		//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
    }
+
+	/***************************************Update Balance Function**************************************************/
 
 	public void UpdateBalance(){ //used just in header, and when buying ship. updates balance
 		Debug.Log ("Update Balance!!!");
@@ -118,6 +112,8 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 			 balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
 		}
 	}
+
+	/***************************************Update Text Function**************************************************/
 
 	public void UpdateText(){ //used just in header, and when buying ship. updates balance
 		Debug.Log ("Update Text!!!");
@@ -155,51 +151,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 			supplyDisplayText.text = CurrentShip.supplies.ToString ();
 			 depleteSupply(0);
 		}
-
-
-//		returnedPicture = Library.GetComponent<ShipLibrary> ().GetClipFromName(ship.shipPicture);
-//
-//		if (returnedPicture != null)
-//			CurrentShipDisplayImage.sprite = returnedPicture;
-//
-//		if (CurrentShipNameDisplayText != null)
-//			CurrentShipNameDisplayText.text = ship.shipName.ToString ();
-
-      /* ship stats tab */
-     // if(hpDisplayText != null)
-     // {         
-     //    hpDisplayText.text = ship.health.ToString ();
-     //    depleteHP(0);
-     // }
-
-      if(speedDisplayText != null)
-			speedDisplayText.text = CurrentShip.speed.ToString ();
-//      if(shieldsDisplayText != null)
-//         shieldsDisplayText.text = ship.shields.ToString ();
-//      if(gunDamageDisplayText != null)
-//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
-      // if(fuelDisplayText != null)
-      // {
-      //    fuelDisplayText.text = ship.fuel.ToString ();
-      //    depleteFuel(0);         
-      // }
-//      if(armorDisplayText != null)
-//         armorDisplayText.text = ship.armor.ToString ();
-//      if(gunCountDisplayText != null)
-//         gunCountDisplayText.text = ship.gunCount.ToString ();
-      // if(crewDisplayText != null)
-      // {
-      //    crewDisplayText.text = ship.crewAmt.ToString ();
-      //    depleteCrew(0);
-      // }
-      // if(supplyDisplayText != null)
-      // {
-      //    supplyDisplayText.text = ship.supplies.ToString ();
-      //    depleteSupply(0);
-      // }
-      
-
-
 	}
 
 
@@ -207,7 +158,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public void depleteHP(int damageCount)
 	{
 		Debug.Log ("Deplete HP!!!");
-		//ship = shipObj.GetComponent<Ship> ();
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player>();
 		CurrentShip = player.playerShip;
@@ -227,7 +177,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public void depleteFuel(int reduceAmt)
 	{
 		Debug.Log ("Deplete Fuel!!!");
-		//ship = shipObj.GetComponent<Ship> ();
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player>();
 		CurrentShip = player.playerShip;
@@ -248,7 +197,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public void depleteSupply(int reduceAmt)
 	{
 		Debug.Log ("Deplete Supply!!!");
-		//ship = shipObj.GetComponent<Ship> (); 
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player>();
 		CurrentShip = player.playerShip;
@@ -269,7 +217,6 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public void depleteCrew(int reduceAmt)
 	{
 		Debug.Log ("Deplete Crew!!!");
-		//ship = shipObj.GetComponent<Ship> ();
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player>();
 		CurrentShip = player.playerShip;
