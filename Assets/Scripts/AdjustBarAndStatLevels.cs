@@ -6,97 +6,126 @@ using System.Collections;
 
 public class AdjustBarAndStatLevels : MonoBehaviour
 {  
-   public GameObject playerObj; 
-   private Player player;  // to get playerMoney
+	public GameObject playerObj; 
+	public Text CurrentShipNameDisplayText;
+	public Image CurrentShipDisplayImage;
+	public Text balanceDisplayText; //ship cost in shipPort UI
+	public Text costDisplayText; //ship cost in shipPort UI
+	public Text hpDisplayText;
+	public Text fuelDisplayText;
+	public Text supplyDisplayText;
+	public Text crewDisplayText;
+	public Text speedDisplayText;
+	public Text combatModifierText;
+	public Sprite ImageTest;
 
-   public GameObject shipObj;
-	private Ship ship;
-   public Text shipNameDisplayText;
-   public Image shipPicture;
+	public Image shipHPBar;
+	public Image fuelBar;
+	public Image supplyBar;
+	public Image crewBar;
 
-   public Text balanceDisplayText; //ship cost in shipPort UI
-   public Text costDisplayText; //ship cost in shipPort UI
-   public Text hpDisplayText;
-   public Text fuelDisplayText;
-   public Text supplyDisplayText;
-   public Text crewDisplayText;
-   // public Text hpMaxDisplayText;
-   // public Text fuelMaxDisplayText;   
-   // public Text supplyMaxDisplayText;   
-   // public Text crewMaxDisplayText;
+	private Sprite returnedPicture;
+	private Player player;  // to get playerMoney
+	private Ship CurrentShip;
+	private GameObject Library;
 
-   /* just stats tab */ //not header stats
-   public Text speedDisplayText;
-   public Text combatModifierText;
-//   public Text shieldsDisplayText;
-//   public Text gunDamageDisplayText;
-//   public Text armorDisplayText;
-//   public Text gunCountDisplayText;
+	// public Text hpMaxDisplayText;
+	// public Text fuelMaxDisplayText;   
+	// public Text supplyMaxDisplayText;   
+	// public Text crewMaxDisplayText;
 
-   public Image shipHPBar;
-   public Image fuelBar;
-   public Image supplyBar;
-   public Image crewBar;
+	/* just stats tab */ //not header stats
+
+	//   public Text shieldsDisplayText;
+	//   public Text gunDamageDisplayText;
+	//   public Text armorDisplayText;
+	//   public Text gunCountDisplayText;
+
 
 
 
    public void Awake() {
-      ship = shipObj.GetComponent<Ship> ();     
+		Debug.Log ("Start of Awake in AdjustBarAndStatLevels");
 
+		Library = GameObject.FindGameObjectWithTag("Library");
+		playerObj = GameObject.FindGameObjectWithTag("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
-       if (shipPicture != null)
-         shipPicture.sprite = ship.shipPicture;
+		if (CurrentShip == null) {
+//			CurrentShipDisplayImage.GetComponent<Image> ().sprite = null;
+//			CurrentShipNameDisplayText.text = "No Ship";
 
-       if (shipNameDisplayText != null)
-          shipNameDisplayText.text = ship.shipName.ToString ();
+		} else {
+			
+			//returnedPicture = Library.GetComponent<ShipLibrary>().GetClipFromName(ship.shipPicture);
+			returnedPicture = ImageTest;
 
-      /* ship stats tab */
-     if(hpDisplayText != null)
-     {         
-        hpDisplayText.text = ship.health.ToString ();
-        depleteHP(0);
-     }
+			if (returnedPicture != null) {
+				CurrentShipDisplayImage.GetComponent<Image> ().sprite = returnedPicture;
+			}
 
-      if(speedDisplayText != null)
-         speedDisplayText.text = ship.speed.ToString ();
-//      if(shieldsDisplayText != null)
-//         shieldsDisplayText.text = ship.shields.ToString ();
-//      if(gunDamageDisplayText != null)
-//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
-      if(fuelDisplayText != null)
-      {
-         fuelDisplayText.text = ship.fuel.ToString ();
-         depleteFuel(0);         
-      }
-//      if(armorDisplayText != null)
-//         armorDisplayText.text = ship.armor.ToString ();
-//      if(gunCountDisplayText != null)
-//         gunCountDisplayText.text = ship.gunCount.ToString ();
-      if(crewDisplayText != null)
-      {
-         crewDisplayText.text = ship.crewAmt.ToString ();
-         depleteCrew(0);
-      }
-      if(supplyDisplayText != null)
-      {
-         supplyDisplayText.text = ship.supplies.ToString ();
-         depleteSupply(0);
-      }
-      
+			if (CurrentShipNameDisplayText != null) {
+				CurrentShipNameDisplayText.text = "RocketShip";			
+				//CurrentShipNameDisplayText.text = ship.shipName.ToString();
+			}
+
+			Debug.Log ("End first 2 Awake ifs!!!!!!");
+			/* ship stats tab */
+			if(hpDisplayText != null)
+			{         
+				hpDisplayText.text = CurrentShip.health.ToString ();
+				depleteHP(0);
+			}
+			Debug.Log ("IS IT HERE!!!!!!!!!!!!!!!!!!!");
+			if(speedDisplayText != null)
+				speedDisplayText.text = CurrentShip.speed.ToString ();
+			//      if(shieldsDisplayText != null)
+			//         shieldsDisplayText.text = ship.shields.ToString ();
+			//      if(gunDamageDisplayText != null)
+			//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
+			if(fuelDisplayText != null)
+			{
+				fuelDisplayText.text = CurrentShip.fuel.ToString ();
+				depleteFuel(0);         
+			}
+			//      if(armorDisplayText != null)
+			//         armorDisplayText.text = ship.armor.ToString ();
+			//      if(gunCountDisplayText != null)
+			//         gunCountDisplayText.text = ship.gunCount.ToString ();
+			if(crewDisplayText != null)
+			{
+				crewDisplayText.text = CurrentShip.crewAmt.ToString ();
+				depleteCrew(0);
+			}
+			if(supplyDisplayText != null)
+			{
+				supplyDisplayText.text = CurrentShip.supplies.ToString ();
+				depleteSupply(0);
+			}
+		}
    }
 
+	public void UpdateBalance(){ //used just in header, and when buying ship. updates balance
+		Debug.Log ("Update Balance!!!");
+		//ship = shipObj.GetComponent<Ship> ();
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
-   public void UpdateBalance(){ //used just in header, and when buying ship. updates balance
-      ship = shipObj.GetComponent<Ship> ();  
-
-      if (balanceDisplayText != null) {
-         player = playerObj.GetComponent<Player>();
-         balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-      }
-   }
+		if (balanceDisplayText != null) {
+			 player = playerObj.GetComponent<Player>();
+			 balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+		}
+	}
 
 	public void UpdateText(){ //used just in header, and when buying ship. updates balance
-		ship = shipObj.GetComponent<Ship> ();	
+		Debug.Log ("Update Text!!!");
+		Library = GameObject.FindGameObjectWithTag ("Library");
+		//ship = shipObj.GetComponent<Ship> ();
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
       if (balanceDisplayText != null) {
          player = playerObj.GetComponent<Player>();
@@ -105,35 +134,36 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
  		if(hpDisplayText != null)
 		{         
-			hpDisplayText.text = ship.health.ToString ();
+			hpDisplayText.text = CurrentShip.health.ToString ();
 			 depleteHP(0);
 		}
 
 		if(fuelDisplayText != null)
 		{
-			fuelDisplayText.text = ship.fuel.ToString ();
+			fuelDisplayText.text = CurrentShip.fuel.ToString ();
 			 depleteFuel(0);         
 		}
 
 		if(crewDisplayText != null)
 		{
-			crewDisplayText.text = ship.crewAmt.ToString ();
+			crewDisplayText.text = CurrentShip.crewAmt.ToString ();
 			 depleteCrew(0);
 		}
 
 		if(supplyDisplayText != null)
 		{
-			supplyDisplayText.text = ship.supplies.ToString ();
+			supplyDisplayText.text = CurrentShip.supplies.ToString ();
 			 depleteSupply(0);
 		}
 
 
-
-       if (shipPicture != null)
-         shipPicture.sprite = ship.shipPicture;
-
-       if (shipNameDisplayText != null)
-          shipNameDisplayText.text = ship.shipName.ToString ();
+//		returnedPicture = Library.GetComponent<ShipLibrary> ().GetClipFromName(ship.shipPicture);
+//
+//		if (returnedPicture != null)
+//			CurrentShipDisplayImage.sprite = returnedPicture;
+//
+//		if (CurrentShipNameDisplayText != null)
+//			CurrentShipNameDisplayText.text = ship.shipName.ToString ();
 
       /* ship stats tab */
      // if(hpDisplayText != null)
@@ -143,7 +173,7 @@ public class AdjustBarAndStatLevels : MonoBehaviour
      // }
 
       if(speedDisplayText != null)
-         speedDisplayText.text = ship.speed.ToString ();
+			speedDisplayText.text = CurrentShip.speed.ToString ();
 //      if(shieldsDisplayText != null)
 //         shieldsDisplayText.text = ship.shields.ToString ();
 //      if(gunDamageDisplayText != null)
@@ -174,70 +204,86 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
 
 
-   public void depleteHP(int damageCount)
-   {
-      ship = shipObj.GetComponent<Ship> ();     		
+	public void depleteHP(int damageCount)
+	{
+		Debug.Log ("Deplete HP!!!");
+		//ship = shipObj.GetComponent<Ship> ();
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
-      ship.health -= damageCount;
+		CurrentShip.health -= damageCount;
 
-      if(ship.health < 0)
-         ship.health = 0;
+		if(CurrentShip.health < 0)
+			CurrentShip.health = 0;
 
-      if (shipHPBar != null) {
-         shipHPBar.fillAmount = (float)ship.health / ship.maxHealth;
-         hpDisplayText.text = ship.health.ToString () + '/' + ship.maxHealth.ToString();
-      }
-   }
-
-
-   public void depleteFuel(int reduceAmt)
-   {
-      ship = shipObj.GetComponent<Ship> ();           
-
-      ship.fuel -= reduceAmt;
-
-      if(ship.fuel < 0)
-         ship.fuel = 0;
-
-      if (fuelBar != null) {
-         fuelBar.fillAmount = (float)ship.fuel / ship.maxFuel;
-         fuelDisplayText.text = ship.fuel.ToString () + '/' + ship.maxFuel.ToString();
-      }
-   }
+		if (shipHPBar != null) {
+			shipHPBar.fillAmount = (float)CurrentShip.health / CurrentShip.maxHealth;
+			hpDisplayText.text = CurrentShip.health.ToString () + '/' + CurrentShip.maxHealth.ToString();
+		}
+	}
 
 
+	public void depleteFuel(int reduceAmt)
+	{
+		Debug.Log ("Deplete Fuel!!!");
+		//ship = shipObj.GetComponent<Ship> ();
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
-   public void depleteSupply(int reduceAmt)
-   {
-      ship = shipObj.GetComponent<Ship> ();           
+		CurrentShip.fuel -= reduceAmt;
 
-      ship.supplies -= reduceAmt;
+		if(CurrentShip.fuel < 0)
+			CurrentShip.fuel = 0;
 
-      if(ship.supplies < 0)
-         ship.supplies = 0;
-
-      if (supplyBar != null) {
-         supplyBar.fillAmount = (float)ship.supplies / ship.maxSupplies;
-         supplyDisplayText.text = ship.supplies.ToString () + '/' + ship.maxSupplies.ToString();
-      }
-   }
+		if (fuelBar != null) {
+			fuelBar.fillAmount = (float)CurrentShip.fuel / CurrentShip.maxFuel;
+			fuelDisplayText.text = CurrentShip.fuel.ToString () + '/' + CurrentShip.maxFuel.ToString();
+		}
+	}
 
 
 
-   public void depleteCrew(int reduceAmt)
-   {
-      ship = shipObj.GetComponent<Ship> ();           
+	public void depleteSupply(int reduceAmt)
+	{
+		Debug.Log ("Deplete Supply!!!");
+		//ship = shipObj.GetComponent<Ship> (); 
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
 
-      ship.crewAmt -= reduceAmt;
+		CurrentShip.supplies -= reduceAmt;
 
-      if(ship.crewAmt < 0)
-         ship.crewAmt = 0;
+		if(CurrentShip.supplies < 0)
+			CurrentShip.supplies = 0;
 
-      if (shipHPBar != null) {
-         crewBar.fillAmount = (float)ship.crewAmt / ship.crewCapacity;
-         crewDisplayText.text = ship.crewAmt.ToString () + '/' + ship.crewCapacity.ToString();
-      }
-   }      
+		if (supplyBar != null) {
+			supplyBar.fillAmount = (float)CurrentShip.supplies / CurrentShip.maxSupplies;
+			supplyDisplayText.text = CurrentShip.supplies.ToString () + '/' + CurrentShip.maxSupplies.ToString();
+		}
+	}
+
+
+
+	public void depleteCrew(int reduceAmt)
+	{
+		Debug.Log ("Deplete Crew!!!");
+		//ship = shipObj.GetComponent<Ship> ();
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player>();
+		CurrentShip = player.playerShip;
+
+		CurrentShip.crewAmt -= reduceAmt;
+
+		if(CurrentShip.crewAmt < 0)
+			CurrentShip.crewAmt = 0;
+
+		if (shipHPBar != null) {
+			crewBar.fillAmount = (float)CurrentShip.crewAmt / CurrentShip.crewCapacity;
+			crewDisplayText.text = CurrentShip.crewAmt.ToString () + '/' + CurrentShip.crewCapacity.ToString();
+		}
+	}      
 
 
 

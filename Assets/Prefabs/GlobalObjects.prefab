@@ -56,26 +56,10 @@ GameObject:
   - component: {fileID: 114172579716767360}
   - component: {fileID: 114867388827181838}
   - component: {fileID: 114428131286564130}
-  - component: {fileID: 114768233630018080}
+  - component: {fileID: 114157775416317616}
   m_Layer: 0
   m_Name: ImageLibraries
   m_TagString: Library
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1975435287390594
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 224253765200969692}
-  - component: {fileID: 114175302828538060}
-  m_Layer: 5
-  m_Name: PlayerShip
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +91,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4484114457516100}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4414443543448436
 Transform:
@@ -120,7 +104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4484114457516100}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4484114457516100
 Transform:
@@ -133,7 +117,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4714903428466872}
-  - {fileID: 224253765200969692}
   - {fileID: 4414443543448436}
   - {fileID: 4387010396674668}
   m_Father: {fileID: 0}
@@ -152,6 +135,49 @@ Transform:
   m_Father: {fileID: 4484114457516100}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114157775416317616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a42c0f0e9aa48048be695826f54d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipList:
+  - groupID: 0
+    group:
+    - shipPrice: 1000
+      shipPicture: Rocket
+      shipName: Rocket Ship
+      maxHealth: 20
+      health: 20
+      speed: 50000
+      maxFuel: 1200
+      fuelEfficiency: 100
+      fuel: 1200
+      crewCapacity: 10
+      crewAmt: 1
+      maxSupplies: 20
+      supplies: 0
+      combatBonus: 4
+    - shipPrice: 2000
+      shipPicture: UFO
+      shipName: UFO
+      maxHealth: 30
+      health: 30
+      speed: 45000
+      maxFuel: 1400
+      fuelEfficiency: 90
+      fuel: 1400
+      crewCapacity: 12
+      crewAmt: 1
+      maxSupplies: 25
+      supplies: 0
+      combatBonus: 6
+  shipArraySize: 2
 --- !u!114 &114172579716767360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,31 +212,6 @@ MonoBehaviour:
   displayImage: {fileID: 0}
   scrollIndex: 0
   shipArraySize: 5
---- !u!114 &114175302828538060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975435287390594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrice: 0
-  shipPicture: {fileID: 21300000, guid: 20b96d68b09284e6aba9e9094e76f74a, type: 3}
-  shipName: No Ship
-  maxHealth: 0
-  health: 0
-  speed: 0
-  maxFuel: 0
-  fuelEfficiency: 0
-  fuel: 0
-  crewCapacity: 0
-  crewAmt: 0
-  maxSupplies: 0
-  supplies: 0
-  combatBonus: 4
 --- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 5000
+  credits: 490
   sceneID: 1
   encounterIndex: -1
   playerItems:
@@ -283,7 +284,21 @@ MonoBehaviour:
     medicalBonus: 2
     combatBonus: 2
     charismaBonus: 2
-  playerShip: {fileID: 114175302828538060}
+  playerShip:
+    shipPrice: 0
+    shipPicture: UFO
+    shipName: Rocket Ship
+    maxHealth: 20
+    health: 20
+    speed: 50000
+    maxFuel: 1200
+    fuelEfficiency: 100
+    fuel: 1200
+    crewCapacity: 10
+    crewAmt: 0
+    maxSupplies: 20
+    supplies: 0
+    combatBonus: 4
   CurrentLocationID: 1
   TargetLocationID: -1
   PathColor: -1
@@ -314,24 +329,6 @@ MonoBehaviour:
     group: {fileID: 21300000, guid: 733050ac936da4a5b912f35859575713, type: 3}
   - groupID: Donny
     group: {fileID: 21300000, guid: 34cbc143bef8543dd8e1fca1b9d6ce2a, type: 3}
---- !u!114 &114768233630018080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1921915300660872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a351e3f8e1743b8a656ee4f6a11ee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipList:
-  - groupID: shop_ships
-    group:
-    - {fileID: 114204484156179186, guid: 2a46ddd6ed41b444181b6770741a593b, type: 2}
-    - {fileID: 114204484156179186, guid: 72720b3ad61304486b8e8064543a2352, type: 2}
-    - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
-  shipArraySize: 3
 --- !u!114 &114867388827181838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,21 +362,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04afc800688fb42f9aa3364f2f57031e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &224253765200969692
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975435287390594}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4484114457516100}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 444, y: 270}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}

@@ -989,8 +989,6 @@ MonoBehaviour:
   canvasShipUI: {fileID: 1410305074003598}
   canvasShipYard: {fileID: 0}
   canvasHeader: {fileID: 0}
-  playerShipObj: {fileID: 1975435287390594, guid: 5d0440017891f405c8079fa46241daa3,
-    type: 2}
   playerObj: {fileID: 0}
   purchaseButton: {fileID: 0}
   fuelButton: {fileID: 0}
@@ -1372,9 +1370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
-  shipObj: {fileID: 1975435287390594, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
-  shipNameDisplayText: {fileID: 114335507169660314}
-  shipPicture: {fileID: 114047204973577600}
+  CurrentShipNameDisplayText: {fileID: 114335507169660314}
+  CurrentShipDisplayImage: {fileID: 114047204973577600}
   balanceDisplayText: {fileID: 0}
   costDisplayText: {fileID: 0}
   hpDisplayText: {fileID: 114989998592088770}
@@ -1383,6 +1380,7 @@ MonoBehaviour:
   crewDisplayText: {fileID: 114900868734199520}
   speedDisplayText: {fileID: 114437368739209546}
   combatModifierText: {fileID: 114447594603859298}
+  ImageTest: {fileID: 0}
   shipHPBar: {fileID: 0}
   fuelBar: {fileID: 0}
   supplyBar: {fileID: 0}

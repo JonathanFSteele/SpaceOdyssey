@@ -3266,16 +3266,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312b799a40a554d66a85e5527f88267a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObj: {fileID: 1015215081175962, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
-  shipObj: {fileID: 1975435287390594, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
-  shipNameDisplayText: {fileID: 114577515380918850}
-  shipPicture: {fileID: 114188444311585274}
+  playerObj: {fileID: 0}
+  CurrentShipNameDisplayText: {fileID: 114577515380918850}
+  CurrentShipDisplayImage: {fileID: 114188444311585274}
   balanceDisplayText: {fileID: 114511659654510108}
   costDisplayText: {fileID: 114297212106409156}
   hpDisplayText: {fileID: 114866721450485704}
   fuelDisplayText: {fileID: 114551077771315080}
   supplyDisplayText: {fileID: 114200878987003928}
   crewDisplayText: {fileID: 114243917155172348}
+  ImageTest: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
   speedDisplayText: {fileID: 114161979979710122}
   combatModifierText: {fileID: 114384726261541378}
   shipHPBar: {fileID: 0}
@@ -4289,8 +4289,6 @@ MonoBehaviour:
   canvasShipUI: {fileID: 0}
   canvasShipYard: {fileID: 1586793957337556}
   canvasHeader: {fileID: 0}
-  playerShipObj: {fileID: 1975435287390594, guid: 5d0440017891f405c8079fa46241daa3,
-    type: 2}
   playerObj: {fileID: 1015215081175962, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
   purchaseButton: {fileID: 114327123418191466}
   fuelButton: {fileID: 114714919507085750}

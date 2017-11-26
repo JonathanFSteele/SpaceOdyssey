@@ -74,7 +74,7 @@ public class Log : MonoBehaviour
         S3.text = SkillName3 + skillValue3.ToString();
         S4.text = SkillName4 + skillValue4.ToString();
 
-        spriteRenderer.sprite = CaptainImage;
+        //spriteRenderer.sprite = CaptainImage;
     }
 
 }

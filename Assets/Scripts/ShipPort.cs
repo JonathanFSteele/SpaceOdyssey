@@ -12,15 +12,16 @@ public GameObject library;
 public GameObject canvasShipUI; 
 public GameObject canvasShipYard; //aka: Canvas_TopRow w/ script
 public GameObject canvasHeader; //aka: Canvas_ShipYardUI_wScript
-public GameObject playerShipObj; 
+//public GameObject playerShipObj; 
 public GameObject playerObj; 
 
-private Player player;	// to get playerMoney
+private Player player;		// to get playerMoney
 private Ship playerShip;	// public GameObject storeShip;
 private AdjustBarAndStatLevels portStats; //attached to Canvas_ShipYardUI_wScript
 private AdjustBarAndStatLevels headerStats;
 private AdjustBarAndStatLevels shipUIStats;
 private Ship shopShip;
+private Sprite returnedPicture;
 
 public Button purchaseButton;
 public Button fuelButton;
@@ -35,9 +36,11 @@ public void Start () {}
 
 public void buyFuel() 
 { //called by purchase button
-	// library = GameObject.FindGameObjectWithTag ("Library");
+	Debug.Log ("Buying Fuel!!!");
+	library = GameObject.FindGameObjectWithTag ("Library");
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerShip = playerObj.GetComponent<Player>().playerShip;		
 
 
 	if(player.credits - fuelPrice >= 0)
@@ -63,9 +66,11 @@ public void buyFuel()
 
 public void buyRepair() 
 { //called by purchase button
-	// library = GameObject.FindGameObjectWithTag ("Library");
+	Debug.Log ("Buying Repair!!!");
+	library = GameObject.FindGameObjectWithTag ("Library");
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerShip = playerObj.GetComponent<Player>().playerShip;		
 
 
 	if(player.credits - repairPrice >= 0)
@@ -91,10 +96,12 @@ public void buyRepair()
 
 public void buyShip()
 { //called by purchase button
+	Debug.Log ("Buy Ship!!!");
 	library = GameObject.FindGameObjectWithTag ("Library");
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	shopShip = library.GetComponent<ShipLibraryPrefab> ().buyCurrentShip ("shop_ships");
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	shopShip = library.GetComponent<ShipObjLibrary> ().buyCurrentShip (0);
+	//playerShip = playerObj.GetComponent<Player>().playerShip;
 
 	if(player.credits - shopShip.shipPrice >= 0)
 	{
@@ -148,34 +155,38 @@ public void buyShip()
 
 public void loadShipYard() 
 {
+	Debug.Log ("Load Ship Yard!!!");
 	library = GameObject.FindGameObjectWithTag ("Library");
-	shopShip = library.GetComponent<ShipLibraryPrefab> ().getFirstShip ("shop_ships");
+	shopShip = library.GetComponent<ShipObjLibrary> ().getFirstShip (0);
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerShip = playerObj.GetComponent<Player>().playerShip;
+	returnedPicture = library.GetComponent<ShipLibrary>().GetClipFromName(shopShip.shipPicture);
 
 	// print("shopShip.shipName: " + shopShip.shipName);
 	// print("playerShip.shipName: " + playerShip.shipName);
 	while(playerShip.shipName == shopShip.shipName)
 	{
-		// print("NAME SAME");
-		shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
+		//print("NAME SAME");
+		shopShip = library.GetComponent<ShipObjLibrary>().getNextShip(0);
 	}
 
-	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-	portStats.shipPicture.sprite = shopShip.shipPicture;
-	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
-	portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString();
-	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
-	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
-	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
-	portStats.supplyDisplayText.text = "Supply Capacity: " + shopShip.maxSupplies.ToString();
-	portStats.combatModifierText.text = "Combat Modifier: " + shopShip.combatBonus.ToString();
+		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
+		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
+		portStats.CurrentShipDisplayImage.sprite = returnedPicture;
+		portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString();
+		portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString();
+		portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
+		portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
+		portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
+		portStats.supplyDisplayText.text = "Supply Capacity: " + shopShip.maxSupplies.ToString();
+		portStats.combatModifierText.text = "Combat Modifier: " + shopShip.combatBonus.ToString();
+
+	//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
+	//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
 
 
 
@@ -195,20 +206,25 @@ public void loadShipYard()
 	if(player.credits - shopShip.shipPrice >= 0)
 		purchaseButton.interactable = true;
 	else
-		purchaseButton.interactable = false;		
+		purchaseButton.interactable = false;	 
+	Debug.Log ("End ShipYard");
 }
 
 
 public void previousShopShip() 
 {
+	Debug.Log ("Previous Shop Ship!!!");
 	library = GameObject.FindGameObjectWithTag ("Library");
-	shopShip = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
+	shopShip = library.GetComponent<ShipObjLibrary> ().getPreviousShip (0);
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerShip = playerObj.GetComponent<Player>().playerShip;
+	returnedPicture = library.GetComponent<ShipLibrary>().GetClipFromName(shopShip.shipPicture);
 
 	if(playerShip.shipName == shopShip.shipName)
-		shopShip = library.GetComponent<ShipLibraryPrefab> ().getPreviousShip ("shop_ships");
+		shopShip = library.GetComponent<ShipObjLibrary> ().getPreviousShip (0);
 
 	if(player.credits - shopShip.shipPrice >= 0) //checks if player can afford ship. 
 		purchaseButton.interactable = true;
@@ -217,31 +233,35 @@ public void previousShopShip()
 
 	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-	portStats.shipPicture.sprite = shopShip.shipPicture;
-	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
+	portStats.CurrentShipDisplayImage.sprite = returnedPicture;
+	portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString();
 	portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString();
 	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
 	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
 	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
 	portStats.supplyDisplayText.text = "Supply Capacity: " + shopShip.maxSupplies.ToString();
 	portStats.combatModifierText.text = "Combat Modifier: " + shopShip.combatBonus.ToString();
+
+	//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
+	//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
 }
 
 
 public void nextShopShip() 
 {
+	Debug.Log ("Next Shop Ship!!!");
 	library = GameObject.FindGameObjectWithTag ("Library");
-	shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
+	shopShip = library.GetComponent<ShipObjLibrary> ().getNextShip (0);
 	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerShip = playerObj.GetComponent<Player>().playerShip;		
+	returnedPicture = library.GetComponent<ShipLibrary>().GetClipFromName(shopShip.shipPicture);
 
 	if(playerShip.shipName == shopShip.shipName)
-		shopShip = library.GetComponent<ShipLibraryPrefab> ().getNextShip ("shop_ships");
+		shopShip = library.GetComponent<ShipObjLibrary> ().getNextShip (0);
 
 	if(player.credits - shopShip.shipPrice >= 0) //checks if player can afford ship. 
 		purchaseButton.interactable = true;
@@ -250,34 +270,39 @@ public void nextShopShip()
 
 	portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
 	portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
-	portStats.shipPicture.sprite = shopShip.shipPicture;
-	portStats.shipNameDisplayText.text = shopShip.shipName.ToString();
+	portStats.CurrentShipDisplayImage.sprite = returnedPicture;
+	portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString();
 	portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString();
 	portStats.speedDisplayText.text = "Speed: " + shopShip.speed.ToString();
-//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
-//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
 	portStats.fuelDisplayText.text = "Fuel: " + shopShip.fuel.ToString();
-//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
-//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
 	portStats.crewDisplayText.text = "Crew Capacity: " + shopShip.crewCapacity.ToString();
 	portStats.supplyDisplayText.text = "Supply Capacity: " + shopShip.maxSupplies.ToString();
 	portStats.combatModifierText.text = "Combat Modifier: " + shopShip.combatBonus.ToString();
+
+	//	portStats.shieldsDisplayText.text = "Shields: " + shopShip.shields.ToString();
+	//	portStats.gunDamageDisplayText.text = "Gun Damage: " + shopShip.gunDamage.ToString();
+	//	portStats.armorDisplayText.text = "Armor: " + shopShip.armor.ToString();
+	//	portStats.gunCountDisplayText.text = "Gun Count: " + shopShip.gunCount.ToString();
 }
 
 
 
-public void loadShipUI_Display() 
-{
+public void loadShipUI_Display() 	{
+
+	Debug.Log ("Load Ship UI Display!!!");
+		
  	shipUIStats = canvasShipUI.GetComponent<AdjustBarAndStatLevels>();
-	playerShip = playerShipObj.GetComponent<Ship> ();		
+	playerObj = GameObject.FindGameObjectWithTag("Player");
+	playerShip = playerObj.GetComponent<Player>().playerShip;
+	//returnedPicture = library.GetComponent<ShipLibrary>().GetClipFromName(playerShip.shipPicture);
   
 
 //	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
 //	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " £  ";
-	shipUIStats.shipPicture.sprite = playerShip.shipPicture;
+//	shipUIStats.CurrentShipDisplayImage.sprite = returnedPicture;
 //	shipUIStats.shipNameDisplayText.text = playerShip.shipName.ToString();
 	shipUIStats.hpDisplayText.text = "Health: " + playerShip.maxHealth.ToString();
-	shipUIStats.speedDisplayText.text = "Speed: " + playerShip.speed.ToString();
+//	shipUIStats.speedDisplayText.text = "Speed: " + playerShip.speed.ToString();
 //	shipUIStats.shieldsDisplayText.text = "Shields: " + playerShip.shields.ToString();
 //	shipUIStats.gunDamageDisplayText.text = "Gun Damage: " + playerShip.gunDamage.ToString();
 	shipUIStats.fuelDisplayText.text = "Fuel: " + playerShip.fuel.ToString();
@@ -285,7 +310,7 @@ public void loadShipUI_Display()
 //	shipUIStats.gunCountDisplayText.text = "Gun Count: " + playerShip.gunCount.ToString();
 	shipUIStats.crewDisplayText.text = "Crew Capacity: " + playerShip.crewCapacity.ToString();
 	shipUIStats.supplyDisplayText.text = "Supply Capacity: " + playerShip.maxSupplies.ToString();
-	shipUIStats.combatModifierText.text = "Combat Modifier: " + playerShip.combatBonus.ToString();
+//	shipUIStats.combatModifierText.text = "Combat Modifier: " + playerShip.combatBonus.ToString();
 }
 
 
