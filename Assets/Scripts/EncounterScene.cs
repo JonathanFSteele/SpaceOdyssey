@@ -239,7 +239,7 @@ public class EncounterScene : MonoBehaviour {
 		if (a == 8) {
 			result.GetComponent<UnityEngine.UI.Text> ().text = "Ya Done Goofed";	
 			description.GetComponent<UnityEngine.UI.Text> ().text = "Your ship was not fast enough to get away and your ship got damaged.";
-			loses.GetComponent<UnityEngine.UI.Text> ().text = "A lot of health";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost as lot of health";
 			ship.health -= 5;
 			bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 			bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
