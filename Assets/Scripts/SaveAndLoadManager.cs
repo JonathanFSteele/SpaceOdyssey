@@ -173,7 +173,7 @@ public class PlayerData {
 	public int encounterIndex;
 	public Captain playerCaptain;
 	public Ship playerShip;
-	//public CrewMember[] playerCrew;
+	public Crew[] playerCrew;
 	//	public Item[] inventory;
 	public int CurrentLocationID;
 	public int TargetLocationID;
@@ -211,8 +211,7 @@ public class PlayerData {
 			playerShip.maxSupplies = 0;
 			playerShip.supplies = 0;
 			playerShip.combatBonus = 0;
-		//playerCrew = new Crew();
-			//playerCrew.stuff****
+		playerCrew = new Crew[0];
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = -1; //-1 means there is no target yet
@@ -233,7 +232,7 @@ public class PlayerData {
 		encounterIndex = player.encounterIndex;
 		playerCaptain = player.playerCaptain;
 		playerShip = player.playerShip;
-//		playerCrew = player.playerCrew;
+		playerCrew = player.playerCrew;
 //		inventory = player.inventory;
 		CurrentLocationID = player.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = player.TargetLocationID; //-1 means there is no target yet

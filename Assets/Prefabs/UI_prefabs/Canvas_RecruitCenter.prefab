@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 222238525662036160}
   - component: {fileID: 114837252217119400}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Txt_Recruit/Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,6 +332,23 @@ GameObject:
   - component: {fileID: 114989453719578618}
   m_Layer: 5
   m_Name: Atributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1538623078091516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224722796721069214}
+  - component: {fileID: 222845282904640750}
+  - component: {fileID: 114244163812827704}
+  m_Layer: 5
+  m_Name: Txt_Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,6 +589,8 @@ GameObject:
   - component: {fileID: 223614520519861570}
   - component: {fileID: 114373852194717164}
   - component: {fileID: 114928557663129768}
+  - component: {fileID: 114271184205174696}
+  - component: {fileID: 114876885792613152}
   m_Layer: 5
   m_Name: Canvas_RecruitCenter
   m_TagString: Untagged
@@ -775,6 +794,39 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &114244163812827704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538623078091516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Balance:'
 --- !u!114 &114263611022513568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -802,6 +854,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114271184205174696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982715667791070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf922b3b171485429ec9a69494e582f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  library: {fileID: 0}
+  canvasCrewUI: {fileID: 0}
+  canvasRecruitmentCenter: {fileID: 1982715667791070}
+  canvasHeader: {fileID: 0}
+  playerObj: {fileID: 0}
+  HireButton: {fileID: 114889124375254902}
 --- !u!114 &114353706328651422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1002,7 +1071,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114263611022513568}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114271184205174696}
+        m_MethodName: nextCrewMember
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114490146519546200
@@ -1076,7 +1156,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114604625845502688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114271184205174696}
+        m_MethodName: previousCrewMember
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114567331354908152
@@ -1454,7 +1545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Recruit
+  m_Text: 'Recruit for:'
 --- !u!114 &114865172674303170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1482,6 +1573,40 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114876885792613152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982715667791070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312b799a40a554d66a85e5527f88267a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObj: {fileID: 0}
+  CurrentShipNameDisplayText: {fileID: 0}
+  CurrentShipDisplayImage: {fileID: 0}
+  balanceDisplayText: {fileID: 0}
+  costDisplayText: {fileID: 0}
+  hpDisplayText: {fileID: 0}
+  fuelDisplayText: {fileID: 0}
+  supplyDisplayText: {fileID: 0}
+  crewDisplayText: {fileID: 0}
+  speedDisplayText: {fileID: 0}
+  combatModifierText: {fileID: 0}
+  BalanceDisplayText: {fileID: 114244163812827704}
+  CostDisplayText: {fileID: 114837252217119400}
+  CurrentCrewDisplayImage: {fileID: 114426228996994124}
+  CurrentCrewNameDisplayText: {fileID: 114481778606325544}
+  CurrentCrewCombat: {fileID: 114121476215650306}
+  CurrentCrewMedical: {fileID: 114584828634856282}
+  CurrentCrewCharisma: {fileID: 114699458678524204}
+  CurrentCrewDescription: {fileID: 114677204979828478}
+  shipHPBar: {fileID: 0}
+  fuelBar: {fileID: 0}
+  supplyBar: {fileID: 0}
+  crewBar: {fileID: 0}
 --- !u!114 &114889124375254902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1520,7 +1645,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114981311735954330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114271184205174696}
+        m_MethodName: HireCrew
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114897207104544666
@@ -1970,6 +2106,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1134891634892008}
+--- !u!222 &222845282904640750
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538623078091516}
 --- !u!222 &222876030567097086
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -2462,6 +2604,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224722796721069214
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538623078091516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224796983431454012}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.1, y: 0.82}
+  m_AnchorMax: {x: 0.31, y: 0.86}
+  m_AnchoredPosition: {x: 1.1499939, y: 1.3599854}
+  m_SizeDelta: {x: -2, y: -4.712036}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224723096692271424
 RectTransform:
   m_ObjectHideFlags: 1
@@ -2538,6 +2698,7 @@ RectTransform:
   - {fileID: 224723096692271424}
   - {fileID: 224043953288810758}
   - {fileID: 224940148531985028}
+  - {fileID: 224722796721069214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

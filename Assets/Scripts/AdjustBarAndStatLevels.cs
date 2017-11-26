@@ -18,6 +18,15 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 	public Text speedDisplayText;
 	public Text combatModifierText;
 
+	public Text BalanceDisplayText;
+	public Text CostDisplayText;
+	public Image CurrentCrewDisplayImage;
+	public Text CurrentCrewNameDisplayText;
+	public Text CurrentCrewCombat;
+	public Text CurrentCrewMedical;
+	public Text CurrentCrewCharisma;
+	public Text CurrentCrewDescription;
+
 	public Image shipHPBar;
 	public Image fuelBar;
 	public Image supplyBar;

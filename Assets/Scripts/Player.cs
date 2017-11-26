@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 	public PlayersItems playerItems;
 	public Captain playerCaptain;
 	public Ship playerShip; //ship is an object inside of player now
-//	public CrewMember[] playerCrew;
+	public Crew[] playerCrew;
 //	public Item[] inventory;
 	public int CurrentLocationID;  // 1 == earth, 2 == moon
 	public int TargetLocationID;  // 1 == earth, 2 == moon
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour {
 			encounterIndex = loadedStats.encounterIndex;
 			playerCaptain = loadedStats.playerCaptain;
 			playerShip = loadedStats.playerShip;
-			//		playerCrew = player.playerCrew;
+			playerCrew = loadedStats.playerCrew;
 			//		inventory = player.inventory;
 			CurrentLocationID = loadedStats.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
 			TargetLocationID = loadedStats.TargetLocationID; //-1 means there is no target yet
