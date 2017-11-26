@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 114401266651515082}
   - component: {fileID: 114750175185313118}
   - component: {fileID: 114172579716767360}
+  - component: {fileID: 114287179822131084}
   - component: {fileID: 114867388827181838}
   - component: {fileID: 114428131286564130}
   - component: {fileID: 114157775416317616}
@@ -158,6 +159,7 @@ MonoBehaviour:
       maxFuel: 1200
       fuelEfficiency: 100
       fuel: 1200
+      extraFuelLostBecauseDamage: 0
       crewCapacity: 10
       crewAmt: 1
       maxSupplies: 20
@@ -172,6 +174,7 @@ MonoBehaviour:
       maxFuel: 1400
       fuelEfficiency: 90
       fuel: 1400
+      extraFuelLostBecauseDamage: 0
       crewCapacity: 12
       crewAmt: 1
       maxSupplies: 25
@@ -212,6 +215,36 @@ MonoBehaviour:
   displayImage: {fileID: 0}
   scrollIndex: 0
   shipArraySize: 5
+--- !u!114 &114287179822131084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921915300660872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8329dc6246143a7afad5ed8d2af92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageGroups:
+  - groupID: Garfield
+    group:
+    - {fileID: 21300000, guid: 3f1052ac0ab8e43c4bba1015ac53b309, type: 3}
+  - groupID: Jeremy
+    group:
+    - {fileID: 21300000, guid: de21369ae29a242cca02f89b6f4ffa43, type: 3}
+  - groupID: Jose
+    group:
+    - {fileID: 21300000, guid: 88300208e25e54550b65609dde91d6b4, type: 3}
+  - groupID: Naked
+    group:
+    - {fileID: 21300000, guid: 9c4caa9009c304d5d94be49299ce604d, type: 3}
+  - groupID: Steele
+    group:
+    - {fileID: 21300000, guid: d4c52f52160da45388e75e141d0e60b8, type: 3}
+  displayImage: {fileID: 0}
+  scrollIndex: 0
+  CrewArraySize: 0
 --- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,11 +327,13 @@ MonoBehaviour:
     maxFuel: 1200
     fuelEfficiency: 100
     fuel: 1200
+    extraFuelLostBecauseDamage: 0
     crewCapacity: 10
     crewAmt: 0
     maxSupplies: 20
     supplies: 0
     combatBonus: 4
+  playerCrew: []
   CurrentLocationID: 1
   TargetLocationID: -1
   PathColor: -1
@@ -340,17 +375,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08578cd233b952c4fb51ac3723cd5fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageGroups:
-  - groupID: Garfield
-    group: {fileID: 21300000, guid: 3f1052ac0ab8e43c4bba1015ac53b309, type: 3}
-  - groupID: Jeremy
-    group: {fileID: 21300000, guid: de21369ae29a242cca02f89b6f4ffa43, type: 3}
-  - groupID: Jose
-    group: {fileID: 21300000, guid: 88300208e25e54550b65609dde91d6b4, type: 3}
-  - groupID: Steele
-    group: {fileID: 21300000, guid: d4c52f52160da45388e75e141d0e60b8, type: 3}
-  - groupID: Naked
-    group: {fileID: 21300000, guid: 9c4caa9009c304d5d94be49299ce604d, type: 3}
+  CrewList:
+  - groupID: 0
+    group:
+    - CrewPrice: 100
+      CrewImage: Garfield
+      CrewName: Alien Janitor
+      Description: An Exiled Alien from another world, Sadly the only thing he can
+        do is pick up trash. Probably if given a gun he could probably defend the
+        ship from invaders.
+      Combat: 1
+      Medicine: 0
+      Charisma: 0
+    - CrewPrice: 100
+      CrewImage: Jeremy
+      CrewName: Germaphobic Nurse
+      Description: A Nurse, that is disgusted by the sight of germs, not really an
+        appropriate field choice I guess...
+      Combat: 0
+      Medicine: 1
+      Charisma: 0
+    - CrewPrice: 150
+      CrewImage: Jose
+      CrewName: Handyman
+      Description: Good with tools and can fire weapons with ok accuracy
+      Combat: 2
+      Medicine: 0
+      Charisma: 0
+    - CrewPrice: 80
+      CrewImage: Naked
+      CrewName: A Naked Man
+      Description: Ruins your chances on making friends but they are expendable.
+      Combat: 1
+      Medicine: 0
+      Charisma: -1
+    - CrewPrice: 200
+      CrewImage: Steele
+      CrewName: Addicted Man
+      Description: A gentlemen thats just addicted to life, he is a little crazy looking,
+        but he is quite good at fighting.
+      Combat: 3
+      Medicine: 0
+      Charisma: 0
+  CrewArraySize: 2
 --- !u!114 &114963583908522172
 MonoBehaviour:
   m_ObjectHideFlags: 1
