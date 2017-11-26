@@ -10,6 +10,8 @@ public class ChoiceGenerator : MonoBehaviour {
 	public GameObject EarthChoices;
 	public GameObject library;
 	public GameObject BackGround;
+	public GameObject DialogText;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,7 @@ public class ChoiceGenerator : MonoBehaviour {
 			//Need to also change Background
 			MoonChoices.SetActive (false);
 			EarthChoices.SetActive (true);
+			DialogText.GetComponent<UnityEngine.UI.Text> ().text = "This is earth, but I think it should be called Coruscant";
 
 
 		} else if (CurrentPosition == 2) { //Moon
@@ -35,6 +38,7 @@ public class ChoiceGenerator : MonoBehaviour {
 			//Need to also change Background
 			EarthChoices.SetActive (false);
 			MoonChoices.SetActive (true);
+			DialogText.GetComponent<UnityEngine.UI.Text>().text = "This is the Moon, but there isn't even an amusement park here!!!!!!!";
 
 
 		}
