@@ -43,6 +43,10 @@ public class EncounterScene : MonoBehaviour {
 	float prevProgress;
 	float distance;
 
+	// You died popup
+	public GameObject uDead;
+	public GameObject cause;
+	public GameObject deathStats;
 
 	// Use this for initialization
 	void Start () {
@@ -67,6 +71,34 @@ public class EncounterScene : MonoBehaviour {
 			if (ship.speed > 0) {
 				MaxDistance = player.GetComponent<Player> ().DistanceToTarget;
 				ShipSpeed = ship.speed;
+
+				//Start death check
+				if (ship.health <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = "You blew up";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+
+				if (ship.fuel <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = " you ran out of fuel, then starved";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+
+				if (ship.supplies <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = "you starved to death";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+				//end death check
+
+
 			}
 			else
 				Debug.Log ("Player Speed Not Set!!!!");
@@ -88,10 +120,38 @@ public class EncounterScene : MonoBehaviour {
 
 	IEnumerator Travel()
 	{
+
 		GenEnc = encounter.GetComponent<Encounter> ();
 		while (TravelFinishedTF == false) {
 			yield return new WaitForSeconds(2);
 			if (EncounterTF == false) {
+				
+				//Start death check
+				if (ship.health <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = "You blew up";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+
+				if (ship.fuel <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = " you ran out of fuel, then starved";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+
+				if (ship.supplies <= 0) {
+					EncounterTF = true;
+					uDead.SetActive (true);
+					cause.GetComponent<UnityEngine.UI.Text> ().text = "you starved to death";
+					deathStats.GetComponent<UnityEngine.UI.Text> ().text = " Days Passed: " + player.GetComponent<Player>().TimePassedSinceStart +"\n Distance Traveled: " + player.GetComponent<Player>().TotalDistanceTraveled 
+						+ "\n credits: " + player.GetComponent<Player>().credits ;
+				}
+				//end death check
+
 				if (CurrentDistance < MaxDistance) {
 					CurrentDistance += ShipSpeed;
 					TimeTaken += 1;
@@ -169,7 +229,22 @@ public class EncounterScene : MonoBehaviour {
 			return;
 		}
 
+		if (a == 7) {
+			result.GetComponent<UnityEngine.UI.Text> ().text = " A win I guess?";	
+			description.GetComponent<UnityEngine.UI.Text> ().text = "You just kinda flew away";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "Nada";
+			return;
+		}
 
+		if (a == 8) {
+			result.GetComponent<UnityEngine.UI.Text> ().text = "Ya Done Goofed";	
+			description.GetComponent<UnityEngine.UI.Text> ().text = "Your ship was not fast enough to get away and your ship got damaged.";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "A lot of health";
+			ship.health -= 5;
+			bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
+			bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
+			return;
+		}
 
 		result.GetComponent<UnityEngine.UI.Text> ().text = " it broke";	
 		description.GetComponent<UnityEngine.UI.Text> ().text = "Ripp";
@@ -185,7 +260,7 @@ public class EncounterScene : MonoBehaviour {
 
 
 	public void GenerateReward( int a ){
-
+		Debug.Log ("YE we has" + a);
 		if (a == 4) {
 			int r = Random.Range (0, 3);
 			if (r == 0) {
@@ -269,64 +344,83 @@ public class EncounterScene : MonoBehaviour {
 	public void GenerateLoss( int a ) {
 
 		if (a == 1) {
-			int r = Random.Range (0, 3);
-			if (r == 0) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 1) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 2) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 3) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
+//			int r = Random.Range (5, 15);
+//
+//			if (r == 0) {
+			int c = Random.Range (5, 15);
+			int h = Random.Range (2, 10);
+			description.GetComponent<UnityEngine.UI.Text> ().text = "They were stronger than we were";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost " + h + " health and " + c + " credits";
+			player.GetComponent<Player> ().credits -= c;
+			ship.health -= h;
+//			}
+
+//			if (r == 1) {
+//				int c = Random.Range (5, 15);
+//				int h = Random.Range (2, 10);
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "They were stronger than we were";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost " + c + " credits";
+//				player.GetComponent<Player> ().credits -= c;
+//			}
+//			if (r == 2) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
+//			if (r == 3) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
 		}
 
 		if (a == 2) {
-			int r = Random.Range (0, 3);
-			if (r == 0) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 1) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 2) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 3) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
+//			int r = Random.Range (0, 3);
+//			if (r == 0) {
+			int h = Random.Range (2, 10);
+			description.GetComponent<UnityEngine.UI.Text> ().text = "They didn't like what we had to say, and shot at us";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost " + h + " health";
+			ship.health -= h;
+//			}
+//			if (r == 1) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
+//			if (r == 2) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
+//			if (r == 3) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
 		}
 
 		if (a == 3) {
-			int r = Random.Range (0, 3);
-			if (r == 0) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 1) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 2) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
-			if (r == 3) {
-				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			}
+//			int r = Random.Range (0, 3);
+//			if (r == 0) {
+			int h = Random.Range (2, 10);
+			description.GetComponent<UnityEngine.UI.Text> ().text = "We MAY have accidently killed one of them while trying to help them, and they MAY have shot us";
+			loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost " + h + " health";
+			ship.health -= h;
+//			}
+//			if (r == 1) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
+//			if (r == 2) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
+//			if (r == 3) {
+//				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+//				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+//			}
 		}
+
+	}
+
+
+	public void ReturnToMainMenu() {
+		SceneManager.LoadScene ("MainMenu");
 
 	}
 		

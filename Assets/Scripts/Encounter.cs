@@ -40,17 +40,19 @@ public class Encounter : MonoBehaviour {
 	public void AttemptPrimary() {
 		roll = Random.Range (0, 20);
 
-			if (roll + player.GetComponent<Player> ().playerCaptain.combatBonus > this.Combat) {
+		if (this.encFocus == "Combat") {
+			if (roll + player.GetComponent<Player> ().totalCombat > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (4);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-			encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
-			encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
+				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
 			}
+		}
 
 		if (this.encFocus == "Charisma") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.charismaBonus > this.Combat) {
+			if (roll + player.GetComponent<Player> ().totalCharisma > this.Charisma) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (5);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
@@ -61,7 +63,7 @@ public class Encounter : MonoBehaviour {
 
 		}
 		if (this.encFocus == "Medical") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.medicalBonus > this.Combat) {
+			if (roll + player.GetComponent<Player> ().totalMedical > this.Medical) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (6);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
@@ -78,8 +80,8 @@ public class Encounter : MonoBehaviour {
 	public void AttemptSecondary() {
 		roll = Random.Range (0, 20);
 		if (this.enc2ndFocus == "Combat") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.combatBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+			if (roll + player.GetComponent<Player> ().totalCombat > this.Combat) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (4);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
@@ -89,8 +91,8 @@ public class Encounter : MonoBehaviour {
 		}
 		
 		if (this.enc2ndFocus == "Charisma") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.charismaBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+			if (roll + player.GetComponent<Player> ().totalCharisma > this.Charisma) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (5);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
@@ -101,8 +103,8 @@ public class Encounter : MonoBehaviour {
 
 		
 		if (this.enc2ndFocus == "Medical") {
-			if (roll + player.GetComponent<Player> ().playerCaptain.medicalBonus > this.Combat) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+			if (roll + player.GetComponent<Player> ().totalMedical > this.Medical) {
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (6);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
@@ -127,16 +129,16 @@ public class Encounter : MonoBehaviour {
 	public void Ignore(){
 		if (this.encFocus == "Combat") {
 			if (playerShip.GetComponent<Ship> ().speed > this.speed) {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (7);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;
 			} else {
-				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (1);
+				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (8);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (0);
 				return;
 			}
 		}
-		encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (0);
+		encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (7);
 		encounterScripts.GetComponent<EncounterGenerator> ().SetUI (2);
 
 
