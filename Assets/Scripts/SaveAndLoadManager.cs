@@ -186,6 +186,7 @@ public class PlayerData {
 	public bool newGameTF;
 
 	public PlayerData() {
+		Debug.Log ("-------------Creating New PlayerData!-------------");
 		credits = 5000;
 		sceneID = 1;
 		encounterIndex = -1;
@@ -195,8 +196,23 @@ public class PlayerData {
 			playerCaptain.combatBonus = 2;
 			playerCaptain.charismaBonus = 2;
 			playerCaptain.medicalBonus = 2;
-		playerShip = null;
+		playerShip = new Ship();
+			playerShip.shipPrice = 0;
+			playerShip.shipName = "No Ship Selected";
+			playerShip.shipPicture = "Nada";
+			playerShip.speed = 0;
+			playerShip.crewCapacity = 0;
+			playerShip.crewAmt = 0; 
+			playerShip.maxFuel = 0;
+			playerShip.fuel = 0;
+			playerShip.fuelEfficiency = 0;
+			playerShip.maxHealth = 0;
+			playerShip.health = 0;
+			playerShip.maxSupplies = 0;
+			playerShip.supplies = 0;
+			playerShip.combatBonus = 0;
 		//playerCrew = new Crew();
+			//playerCrew.stuff****
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = -1; //-1 means there is no target yet

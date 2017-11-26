@@ -158,7 +158,7 @@ public void loadShipYard()
 	Debug.Log ("Load Ship Yard!!!");
 	library = GameObject.FindGameObjectWithTag ("Library");
 	shopShip = library.GetComponent<ShipObjLibrary> ().getFirstShip (0);
-	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>();
+	portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels>(); 
 	playerObj = GameObject.FindGameObjectWithTag("Player");
 	player = playerObj.GetComponent<Player>();
 	playerShip = playerObj.GetComponent<Player>().playerShip;
