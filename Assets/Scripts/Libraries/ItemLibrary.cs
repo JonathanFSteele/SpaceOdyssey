@@ -20,7 +20,7 @@ public class ItemLibrary : MonoBehaviour {
 			Item[] items = groupDictionary ["market_supplies"];
 
 			itemArraySize = items.Length;
-			print ("itemArraySize: " + itemArraySize);
+			//print ("itemArraySize: " + itemArraySize);
 		}
 	}
 
@@ -34,11 +34,11 @@ public class ItemLibrary : MonoBehaviour {
 			if (scrollIndex >= itemArraySize)
 			scrollIndex = 0;
 
-			print ("scrollIndex: " + scrollIndex);
+			//print ("scrollIndex: " + scrollIndex);
 
 			return items[scrollIndex];
 		}
-		print ("getNextItem() fail");
+		//print ("getNextItem() fail");
 		return null;
 	}	
 

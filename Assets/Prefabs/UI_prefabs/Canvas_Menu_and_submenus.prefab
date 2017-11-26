@@ -384,8 +384,6 @@ GameObject:
   - component: {fileID: 4883383570824072}
   - component: {fileID: 114900737745324314}
   - component: {fileID: 114389774117373124}
-  - component: {fileID: 114921045912251472}
-  - component: {fileID: 114687330161777066}
   m_Layer: 5
   m_Name: Menu UIScripts
   m_TagString: Untagged
@@ -3481,26 +3479,6 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114687330161777066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264393389941742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 794b642ed75894a7a85762e9d6a532cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  library: {fileID: 0}
-  canvasShipUI: {fileID: 0}
-  canvasShipYard: {fileID: 0}
-  canvasHeader: {fileID: 0}
-  playerShipObj: {fileID: 0}
-  playerObj: {fileID: 0}
-  purchaseButton: {fileID: 0}
-  fuelButton: {fileID: 0}
-  repairButton: {fileID: 0}
 --- !u!114 &114751354195669268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4042,20 +4020,6 @@ MonoBehaviour:
   LoadGameUI: {fileID: 224074589289896514}
   MenuUI: {fileID: 224063234896384188}
   OptionsUI: {fileID: 0}
---- !u!114 &114921045912251472
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264393389941742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a351e3f8e1743b8a656ee4f6a11ee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipList: []
-  scrollIndex: 0
-  shipArraySize: 0
 --- !u!114 &114924838500288596
 MonoBehaviour:
   m_ObjectHideFlags: 1
