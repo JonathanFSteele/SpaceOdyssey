@@ -51,6 +51,7 @@ public class Player : MonoBehaviour {
 			totalCombat += playerCrew [i].Combat;
 			totalCharisma += playerCrew [i].Charisma;
 			totalMedical += playerCrew [i].Medicine;
+			i++;
 		}
 	}
 
