@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 	public int encounterIndex;
 	public PlayersItems playerItems;
 	public Captain playerCaptain;
-//	public Ship playerShip; //ship is an object inside of player now
+	public Ship playerShip; //ship is an object inside of player now
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
 	public int CurrentLocationID;  // 1 == earth, 2 == moon
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
 			sceneID = loadedStats.sceneID;
 			encounterIndex = loadedStats.encounterIndex;
 			playerCaptain = loadedStats.playerCaptain;
-			//		playerShip = player.playerShip;
+			playerShip = loadedStats.playerShip;
 			//		playerCrew = player.playerCrew;
 			//		inventory = player.inventory;
 			CurrentLocationID = loadedStats.CurrentLocationID; //1 means earth/ 2 means moon/ etc...

@@ -16,11 +16,7 @@ public class Ship : MonoBehaviour {
 	public String shipName;
 	public int maxHealth;
 	public int health;
-	public int shields;
-	public int armor;
 	public int speed;
-	public int gunCount;
-	public int gunDamage;
 	public int maxFuel;
 	public int fuelEfficiency;
 	public int fuel;
@@ -28,8 +24,14 @@ public class Ship : MonoBehaviour {
 	public int crewAmt; //present amount of crew members
 	public int maxSupplies;
 	public int supplies;
-	public int medicalBonus;
 	public int combatBonus;
-	public int charsmaBonus;
+
+	//Out of Scope --JFS
+	//public int charsmaBonus;
+	//public int medicalBonus;
+	//public int shields;
+	//public int armor;
+	//public int gunCount;
+	//public int gunDamage;
 
 }

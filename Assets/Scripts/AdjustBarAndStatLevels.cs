@@ -27,10 +27,11 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
    /* just stats tab */ //not header stats
    public Text speedDisplayText;
-   public Text shieldsDisplayText;
-   public Text gunDamageDisplayText;
-   public Text armorDisplayText;
-   public Text gunCountDisplayText;
+   public Text combatModifierText;
+//   public Text shieldsDisplayText;
+//   public Text gunDamageDisplayText;
+//   public Text armorDisplayText;
+//   public Text gunCountDisplayText;
 
    public Image shipHPBar;
    public Image fuelBar;
@@ -58,19 +59,19 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if(speedDisplayText != null)
          speedDisplayText.text = ship.speed.ToString ();
-      if(shieldsDisplayText != null)
-         shieldsDisplayText.text = ship.shields.ToString ();
-      if(gunDamageDisplayText != null)
-         gunDamageDisplayText.text = ship.gunDamage.ToString ();
+//      if(shieldsDisplayText != null)
+//         shieldsDisplayText.text = ship.shields.ToString ();
+//      if(gunDamageDisplayText != null)
+//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
       if(fuelDisplayText != null)
       {
          fuelDisplayText.text = ship.fuel.ToString ();
          depleteFuel(0);         
       }
-      if(armorDisplayText != null)
-         armorDisplayText.text = ship.armor.ToString ();
-      if(gunCountDisplayText != null)
-         gunCountDisplayText.text = ship.gunCount.ToString ();
+//      if(armorDisplayText != null)
+//         armorDisplayText.text = ship.armor.ToString ();
+//      if(gunCountDisplayText != null)
+//         gunCountDisplayText.text = ship.gunCount.ToString ();
       if(crewDisplayText != null)
       {
          crewDisplayText.text = ship.crewAmt.ToString ();
@@ -143,19 +144,19 @@ public class AdjustBarAndStatLevels : MonoBehaviour
 
       if(speedDisplayText != null)
          speedDisplayText.text = ship.speed.ToString ();
-      if(shieldsDisplayText != null)
-         shieldsDisplayText.text = ship.shields.ToString ();
-      if(gunDamageDisplayText != null)
-         gunDamageDisplayText.text = ship.gunDamage.ToString ();
+//      if(shieldsDisplayText != null)
+//         shieldsDisplayText.text = ship.shields.ToString ();
+//      if(gunDamageDisplayText != null)
+//         gunDamageDisplayText.text = ship.gunDamage.ToString ();
       // if(fuelDisplayText != null)
       // {
       //    fuelDisplayText.text = ship.fuel.ToString ();
       //    depleteFuel(0);         
       // }
-      if(armorDisplayText != null)
-         armorDisplayText.text = ship.armor.ToString ();
-      if(gunCountDisplayText != null)
-         gunCountDisplayText.text = ship.gunCount.ToString ();
+//      if(armorDisplayText != null)
+//         armorDisplayText.text = ship.armor.ToString ();
+//      if(gunCountDisplayText != null)
+//         gunCountDisplayText.text = ship.gunCount.ToString ();
       // if(crewDisplayText != null)
       // {
       //    crewDisplayText.text = ship.crewAmt.ToString ();

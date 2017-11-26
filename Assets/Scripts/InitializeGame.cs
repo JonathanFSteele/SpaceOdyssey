@@ -21,11 +21,11 @@ public class InitializeGame : MonoBehaviour {
     playerShip.maxHealth = noShip.maxHealth;
     // if(playerShip.health > noShip.maxHealth)
       playerShip.health = noShip.maxHealth;
-    playerShip.shields = noShip.shields;
-    playerShip.armor = noShip.armor;
+//    playerShip.shields = noShip.shields;
+//    playerShip.armor = noShip.armor;
     playerShip.speed = noShip.speed;
-    playerShip.gunCount = noShip.gunCount;
-    playerShip.gunDamage = noShip.gunDamage;
+//    playerShip.gunCount = noShip.gunCount;
+//    playerShip.gunDamage = noShip.gunDamage;
     playerShip.maxFuel = noShip.maxFuel;
     playerShip.fuelEfficiency = noShip.fuelEfficiency;
     // if(playerShip.fuel > noShip.maxFuel)

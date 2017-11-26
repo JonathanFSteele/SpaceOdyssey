@@ -172,7 +172,7 @@ public class PlayerData {
 	public int sceneID;
 	public int encounterIndex;
 	public Captain playerCaptain;
-	//	public Ship playerShip;
+	public Ship playerShip;
 	//public CrewMember[] playerCrew;
 	//	public Item[] inventory;
 	public int CurrentLocationID;
@@ -195,7 +195,7 @@ public class PlayerData {
 			playerCaptain.combatBonus = 2;
 			playerCaptain.charismaBonus = 2;
 			playerCaptain.medicalBonus = 2;
-		//playerShip = null;
+		playerShip = null;
 		//playerCrew = new Crew();
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
@@ -216,7 +216,7 @@ public class PlayerData {
 		sceneID = player.sceneID;
 		encounterIndex = player.encounterIndex;
 		playerCaptain = player.playerCaptain;
-//		playerShip = player.playerShip;
+		playerShip = player.playerShip;
 //		playerCrew = player.playerCrew;
 //		inventory = player.inventory;
 		CurrentLocationID = player.CurrentLocationID; //1 means earth/ 2 means moon/ etc...

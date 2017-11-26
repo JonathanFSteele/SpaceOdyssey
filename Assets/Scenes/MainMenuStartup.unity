@@ -339,6 +339,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 201999707}
+--- !u!114 &314015709 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114175302828538060, guid: 5d0440017891f405c8079fa46241daa3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1345497831}
+  m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
 --- !u!224 &373951467 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224758289375715318, guid: 4b1cb6acf0ce540eca8d2c329801f094,
@@ -1805,6 +1811,11 @@ Prefab:
       propertyPath: totalCombat
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114647382330650332, guid: 5d0440017891f405c8079fa46241daa3,
+        type: 2}
+      propertyPath: playerShip
+      value: 
+      objectReference: {fileID: 314015709}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d0440017891f405c8079fa46241daa3, type: 2}
   m_IsPrefabParent: 0
