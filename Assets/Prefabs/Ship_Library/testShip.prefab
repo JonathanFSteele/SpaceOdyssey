@@ -38,26 +38,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrice: 3
+  shipPrice: 1000
   shipPicture: {fileID: 21300000, guid: e8fbea5d06a3d42f28e901f259009c35, type: 3}
   shipName: testShip
   maxHealth: 8
   health: 4
-  shields: 4
-  armor: 64
   speed: 84000
-  gunCount: 6
-  gunDamage: 4
   maxFuel: 6584
   fuelEfficiency: 64
   fuel: 654
   crewCapacity: 4
   crewAmt: 3
-  maxSupplies: 43
+  maxSupplies: 10
   supplies: 514
-  medicalBonus: 0
-  combatBonus: 0
-  charsmaBonus: 0
+  combatBonus: 2
 --- !u!224 &224406245795448836
 RectTransform:
   m_ObjectHideFlags: 1

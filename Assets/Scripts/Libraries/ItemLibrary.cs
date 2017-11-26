@@ -2,28 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ItemLibrary : MonoBehaviour {
 
-	public ImageGroup[] imageGroups;
+	public Item_List[] itemList;
+	public int itemArraySize;
+	private int scrollIndex = -1;
 
-	Dictionary<string, Sprite> groupDictionary = new Dictionary<string, Sprite>();
+	Dictionary<string, Item[]> groupDictionary = new Dictionary<string, Item[]>();
+
+
 
 	void Awake() {
-		foreach (ImageGroup imageGroup in imageGroups) {
-			groupDictionary.Add (imageGroup.groupID, imageGroup.group);
+		foreach (Item_List foo in itemList) {
+			groupDictionary.Add (foo.groupID, foo.group);
+
+			Item[] items = groupDictionary ["market_supplies"];
+
+			itemArraySize = items.Length;
+			print ("itemArraySize: " + itemArraySize);
 		}
 	}
 
-	public Sprite GetClipFromName(string name) {
+
+	public Item getNextItem(string name) {
 		if (groupDictionary.ContainsKey(name)) {
-			return groupDictionary[name];;
+
+			Item[] items = groupDictionary[name]; 
+
+			scrollIndex++;
+			if (scrollIndex >= itemArraySize)
+			scrollIndex = 0;
+
+			print ("scrollIndex: " + scrollIndex);
+
+			return items[scrollIndex];
 		}
+		print ("getNextItem() fail");
 		return null;
-	}
+	}	
+
 
 	[System.Serializable]
-	public class ImageGroup {
+	public class Item_List {
 		public string groupID;
-		public Sprite group;
+		public Item[] group;
 	}
 }

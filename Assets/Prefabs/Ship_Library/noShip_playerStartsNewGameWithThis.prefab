@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224406245795448836}
   - component: {fileID: 114204484156179186}
   m_Layer: 5
-  m_Name: UFO
+  m_Name: noShip_playerStartsNewGameWithThis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,20 +38,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec6ca647ec9f734f88b4ab4339e8438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipPrice: 1500
-  shipPicture: {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
-  shipName: UFO
-  maxHealth: 100
-  health: 100
-  speed: 44000
-  maxFuel: 500
-  fuelEfficiency: 10
-  fuel: 500
-  crewCapacity: 12
-  crewAmt: 1
-  maxSupplies: 20
-  supplies: 10
-  combatBonus: 4
+  shipPrice: 0
+  shipPicture: {fileID: 21300000, guid: 20b96d68b09284e6aba9e9094e76f74a, type: 3}
+  shipName: No Ship
+  maxHealth: 0
+  health: 0
+  shields: 0
+  armor: 0
+  speed: 0
+  gunCount: 0
+  gunDamage: 0
+  maxFuel: 0
+  fuelEfficiency: 0
+  fuel: 0
+  crewCapacity: 0
+  crewAmt: 0
+  maxSupplies: 0
+  supplies: 0
+  medicalBonus: 0
+  combatBonus: 0
+  charsmaBonus: 0
 --- !u!224 &224406245795448836
 RectTransform:
   m_ObjectHideFlags: 1

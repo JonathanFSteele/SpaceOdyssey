@@ -185,7 +185,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 450dba4b0066343f3af67830df8ed19d, type: 3}
   displayImage: {fileID: 0}
   scrollIndex: 0
-  shipArraySize: 2
+  shipArraySize: 5
 --- !u!114 &114175302828538060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,25 +198,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrice: 0
-  shipPicture: {fileID: 21300000, guid: 472e48bcb566e4270b057eba5a9ff391, type: 3}
-  shipName: Rocket Ship
-  maxHealth: 120
-  health: 120
-  shields: 1
-  armor: 1
-  speed: 50000
-  gunCount: 1
-  gunDamage: 6
-  maxFuel: 1000
+  shipPicture: {fileID: 21300000, guid: 20b96d68b09284e6aba9e9094e76f74a, type: 3}
+  shipName: No Ship
+  maxHealth: 0
+  health: 0
+  speed: 0
+  maxFuel: 0
   fuelEfficiency: 0
-  fuel: 1000
-  crewCapacity: 6
-  crewAmt: 4
-  maxSupplies: 8
+  fuel: 0
+  crewCapacity: 0
+  crewAmt: 0
+  maxSupplies: 0
   supplies: 0
-  medicalBonus: 0
-  combatBonus: 0
-  charsmaBonus: 0
+  combatBonus: 4
 --- !u!114 &114325715866008540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81dd3c5e9f701648b8df460e4a805bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 114647382330650332}
 --- !u!114 &114401266651515082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,11 +253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e1a42ee88aa704dada68e7e14f198f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageGroups:
-  - groupID: ApAmmo
-    group: {fileID: 21300000, guid: e458bb5cbc8ed43a18968722be213fa0, type: 3}
-  - groupID: Kevlar
-    group: {fileID: 21300000, guid: 02f72e3fa785c4c6d86d8ffd44c17731, type: 3}
+  itemList:
+  - groupID: market_supplies
+    group:
+    - {fileID: 114904798777285080, guid: bb4a796b5c16f498196da8cc8903f40c, type: 2}
+    - {fileID: 114904798777285080, guid: d6b13704b979249268024f59accddb51, type: 2}
+    - {fileID: 114904798777285080, guid: bd6318dd95fb54177a4f738181e1aa28, type: 2}
+  itemArraySize: 3
 --- !u!114 &114647382330650332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,27 +271,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b8ff7e8a44b07a5c5ebd411f667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 31222
+  credits: 5000
   sceneID: 1
   encounterIndex: -1
+  playerItems:
+    itemArraySize: 0
   playerCaptain:
     captainName: Captain Testing
     captainPicture: Cpt
     medBonus: 0
-    medicalBonus: 1
-    combatBonus: 1
-    charismaBonus: 1
+    medicalBonus: 2
+    combatBonus: 2
+    charismaBonus: 2
+  playerShip: {fileID: 114175302828538060}
   CurrentLocationID: 1
-  TargetLocationID: 2
-  PathColor: 1
-  DistanceToTarget: 300000
+  TargetLocationID: -1
+  PathColor: -1
+  DistanceToTarget: -1
   DistanceTraveled: 0
   TimeToTarget: 0
   TimePassedSinceStart: 0
   TotalDistanceTraveled: 0
-  totalCombat: 1
-  totalCharisma: 1
-  totalMedical: 1
+  newGameTF: 0
+  totalCombat: 0
+  totalCharisma: 0
+  totalMedical: 0
 --- !u!114 &114750175185313118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,9 +329,8 @@ MonoBehaviour:
   - groupID: shop_ships
     group:
     - {fileID: 114204484156179186, guid: 2a46ddd6ed41b444181b6770741a593b, type: 2}
-    - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
     - {fileID: 114204484156179186, guid: 72720b3ad61304486b8e8064543a2352, type: 2}
-  scrollIndex: 0
+    - {fileID: 114204484156179186, guid: f086aea5283aa418d86705b864af3f2f, type: 2}
   shipArraySize: 3
 --- !u!114 &114867388827181838
 MonoBehaviour:

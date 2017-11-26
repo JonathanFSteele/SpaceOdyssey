@@ -8,11 +8,13 @@ using System.IO;
 [Serializable]
 public class Player : MonoBehaviour {
 
+
 	public int credits;
 	public int sceneID;
 	public int encounterIndex;
+	public PlayersItems playerItems;
 	public Captain playerCaptain;
-//	public Ship playerShip; //ship is an object inside of player now
+	public Ship playerShip; //ship is an object inside of player now
 //	public CrewMember[] playerCrew;
 //	public Item[] inventory;
 	public int CurrentLocationID;  // 1 == earth, 2 == moon
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour {
 	public float TimeToTarget;
 	public float TimePassedSinceStart;
 	public float TotalDistanceTraveled;
+	public bool newGameTF;
 
 	public int totalCombat;
 	public int totalCharisma;
@@ -56,6 +59,19 @@ public class Player : MonoBehaviour {
 			sceneID = loadedStats.sceneID;
 			encounterIndex = loadedStats.encounterIndex;
 			playerCaptain = loadedStats.playerCaptain;
+			playerShip = loadedStats.playerShip;
+			//		playerCrew = player.playerCrew;
+			//		inventory = player.inventory;
+			CurrentLocationID = loadedStats.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
+			TargetLocationID = loadedStats.TargetLocationID; //-1 means there is no target yet
+			PathColor = loadedStats.PathColor; //-1 means there is no path chosen 1 == green, 2 == yellow, 3 == Red
+			DistanceToTarget = loadedStats.DistanceToTarget;
+			DistanceTraveled = loadedStats.DistanceTraveled;
+			TimeToTarget = loadedStats.TimeToTarget;
+			TimePassedSinceStart = loadedStats.TimePassedSinceStart;
+			TotalDistanceTraveled = loadedStats.TotalDistanceTraveled;
+			newGameTF = loadedStats.newGameTF;
+
 			Debug.Log("CurrentPlayerData--( credits: " + credits + " | sceneID: " + sceneID + "" +
 				" | encounterIndex: " + encounterIndex + " | playerCaptain: " + playerCaptain + ")");
 		}

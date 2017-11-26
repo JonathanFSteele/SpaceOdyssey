@@ -6,7 +6,7 @@ public class ShipLibraryPrefab : MonoBehaviour {
 
 	public Ship_List[] shipList;
 
-	public int scrollIndex = 0;
+	private int scrollIndex = 0;
 	public int shipArraySize;
 
 	Dictionary<string, Ship[]> groupDictionary = new Dictionary<string, Ship[]>();
@@ -20,7 +20,7 @@ public class ShipLibraryPrefab : MonoBehaviour {
 		Ship[] ships = groupDictionary ["shop_ships"];
 
 		shipArraySize = ships.Length;
-		print ("shipArraySize: " + shipArraySize);
+		// print ("shipArraySize: " + shipArraySize);
 	}
 
 
@@ -28,11 +28,11 @@ public class ShipLibraryPrefab : MonoBehaviour {
 		if (groupDictionary.ContainsKey(name)) {
 
 			Ship[] ships = groupDictionary[name]; 
-			print ("buy: " + scrollIndex);
+			// print ("buy: " + scrollIndex);
 
 			return ships[scrollIndex];
 		}
-		print ("buyCurrentShip() fail");
+		// print ("buyCurrentShip() fail");
 		return null;
 	}
 
@@ -43,7 +43,7 @@ public class ShipLibraryPrefab : MonoBehaviour {
 			Ship[] ships = groupDictionary[name]; 
 			return ships[0];
 		}
-		print ("getFirstShip() fail");
+		// print ("getFirstShip() fail");
 		return null;
 	}
 
@@ -57,11 +57,11 @@ public class ShipLibraryPrefab : MonoBehaviour {
 			if (scrollIndex < 0)
 			scrollIndex = shipArraySize-1;
 
-			print ("scrollIndex: " + scrollIndex);
+			// print ("scrollIndex: " + scrollIndex);
 
 			return ships[scrollIndex];
 		}
-		print ("getPreviousShip() fail");
+		// print ("getPreviousShip() fail");
 		return null;
 	}
 
@@ -75,11 +75,11 @@ public class ShipLibraryPrefab : MonoBehaviour {
 			if (scrollIndex >= shipArraySize)
 			scrollIndex = 0;
 
-			print ("scrollIndex: " + scrollIndex);
+			// print ("scrollIndex: " + scrollIndex);
 
 			return ships[scrollIndex];
 		}
-		print ("getNextShip() fail");
+		// print ("getNextShip() fail");
 		return null;
 	}
 
