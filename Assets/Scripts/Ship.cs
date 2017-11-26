@@ -20,6 +20,7 @@ public class Ship {
 	public int maxFuel;
 	public int fuelEfficiency;
 	public int fuel;
+	public int extraFuelLostBecauseDamage;
 	public int crewCapacity;
 	public int crewAmt; //present amount of crew members
 	public int maxSupplies;

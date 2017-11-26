@@ -16,12 +16,10 @@ public class PopUp : MonoBehaviour {
 
 	// Use this for initialization
 	public void Start () {
-		ship = shipObj.GetComponent<Ship> ();		
 
 		player = GameObject.FindGameObjectWithTag ("Player");
-	    library = GameObject.FindGameObjectWithTag ("Library");
-		player = GameObject.Find ("Player");
-		library = GameObject.Find ("Library");
+		library = GameObject.FindGameObjectWithTag ("Library");
+		ship = player.GetComponent<Player> ().playerShip;
 	}
 	
 	// Update is called once per frame

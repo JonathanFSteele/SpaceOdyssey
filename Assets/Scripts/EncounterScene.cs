@@ -30,9 +30,9 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject bars2;
 
 	//Win/Lose popUP stuff
-	public GameObject rewards;
+	public GameObject result;
 	public GameObject loses;
-	public GameObject toptext;
+	public GameObject description;
 
 	//progress bar variables
 	Vector2 playerStart;
@@ -47,10 +47,10 @@ public class EncounterScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		ship = shipObj.GetComponent<Ship> ();		
 		encounter = GameObject.FindGameObjectWithTag ("Encounter");
 		//player value retrieving
 		player = GameObject.FindGameObjectWithTag ("Player");
+		ship = player.GetComponent<Player> ().playerShip;
 		if (player != null) {
 			if (player.GetComponent<Player> ().DistanceToTarget == -1)
 				SceneManager.LoadScene ("Safezone");
@@ -105,7 +105,7 @@ public class EncounterScene : MonoBehaviour {
 						//Debug.Log (percent);
 						playerPos = new Vector2 (playerPos.x + (progress - prevProgress), playerPos.y);
 						prevProgress = progress;
-						ship.fuel -= ship.fuelEfficiency;
+						ship.fuel -= (ship.fuelEfficiency + ship.extraFuelLostBecauseDamage);
 						ship.supplies -= 3;//when crew implemented, this needs to change
 						bars1.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
 						bars2.GetComponent<AdjustBarAndStatLevels> ().UpdateText ();
@@ -152,35 +152,28 @@ public class EncounterScene : MonoBehaviour {
 	}
 
 	public void EncounterComplete(int a) {
-		
-		if (a == 1) {
-			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
-			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			//EncounterTF = false;
-			return;
-		}
+		//LOses
+		if (a >= 1 && a <= 3) {
+			result.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
+			GenerateLoss (a);
 
-		if (a == 2) {
-			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
-			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			//EncounterTF = false;
-			return;
-		}
-
-		if (a == 3) {
-			toptext.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
-			rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-			loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
-			//EncounterTF = false;
 			return;
 		}
 
 
-		toptext.GetComponent<UnityEngine.UI.Text> ().text = "Success!";	
-		rewards.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
-		loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: None";
+		//Wins
+		if (a >= 4 && a <= 6) {
+			result.GetComponent<UnityEngine.UI.Text> ().text = "Success!";	
+			GenerateReward (a);
+	
+			return;
+		}
+
+
+
+		result.GetComponent<UnityEngine.UI.Text> ().text = " it broke";	
+		description.GetComponent<UnityEngine.UI.Text> ().text = "Ripp";
+		loses.GetComponent<UnityEngine.UI.Text> ().text = "Tell Zach about this";
 		//EncounterTF = false;
 		
 		//StartCoroutine(Travel());
@@ -188,6 +181,153 @@ public class EncounterScene : MonoBehaviour {
 
 	public void ContinueTravel(){
 		EncounterTF = false;
+	}
+
+
+	public void GenerateReward( int a ){
+
+		if (a == 4) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				int s = Random.Range (1, 6);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "You out gunned your opponent and found some supplies in their wreckage.";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Gain " + s + " supplies";
+				ship.supplies += s;
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "You shot their fuel tank and completely destroyed their ship!";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You found nothing";
+			}
+			if (r == 2) {
+				int c = Random.Range (5, 15);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They quickly realized they were going to lose, surrendered, and gave you some credits";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You Gained " + c + " credits";
+				player.GetComponent<Player> ().credits += c;
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They just kind of blew up...";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You found nothing";
+			}
+
+			return;
+		}
+
+		if (a == 5) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				int c = Random.Range (5, 15);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They decided to fund you!";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You Gained " + c + " credits";
+				player.GetComponent<Player> ().credits += c;
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "You made some new friends! maybe they'll add you on Facebook!";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You now have a friend, YAY!";
+			}
+			if (r == 2) {
+				int f = Random.Range (0 , 5);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They Gave you some fuel! How nice of them!";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "you gained" + f + " hundred fuel";
+				ship.fuel += (f * 100);
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "You had a nice chat and they flew off into the sunset";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You had a good time";
+			}
+
+			return;
+		}
+
+		if (a == 6) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				int c = Random.Range (5, 15);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They were very thankful and gave you some credits";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You Gained " + c + " credits";
+				player.GetComponent<Player> ().credits += c;
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They just said 'Thaaaanks brah' and left";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "You gained nothing";
+			}
+			if (r == 2) {
+				int s = Random.Range (1, 6);
+				description.GetComponent<UnityEngine.UI.Text> ().text = "They didn't seem too excited about you helping them, but they did give you some food";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Gain " + s + " supplies";
+				ship.supplies += s;
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "It was just a flesh wound, but they felt obligated to give you something";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "you gained a hundred fuel";
+				ship.fuel += 100;
+			}
+			return;
+		}
+
+	}
+
+	public void GenerateLoss( int a ) {
+
+		if (a == 1) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 2) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+		}
+
+		if (a == 2) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 2) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+		}
+
+		if (a == 3) {
+			int r = Random.Range (0, 3);
+			if (r == 0) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 1) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 2) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+			if (r == 3) {
+				description.GetComponent<UnityEngine.UI.Text> ().text = "Rewards: None";
+				loses.GetComponent<UnityEngine.UI.Text> ().text = "Loses: 10 credits";
+			}
+		}
+
 	}
 		
 
