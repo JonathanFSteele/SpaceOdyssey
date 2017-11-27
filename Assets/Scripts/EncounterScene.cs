@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EncounterScene : MonoBehaviour {
@@ -28,6 +29,7 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject playerText;
 	public GameObject bars1;
 	public GameObject bars2;
+	private GameObject Library;
 
 	//Win/Lose popUP stuff
 	public GameObject result;
@@ -50,11 +52,14 @@ public class EncounterScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Library = GameObject.FindGameObjectWithTag("Library");
 		encounter = GameObject.FindGameObjectWithTag ("Encounter");
-		//player value retrieving
 		player = GameObject.FindGameObjectWithTag ("Player");
 		ship = player.GetComponent<Player> ().playerShip;
+
+		Sprite returnedPicture = Library.GetComponent<ShipLibrary>().GetClipFromName(ship.shipPicture);
+		PlayerImage.GetComponent<Image>().sprite = returnedPicture;
+
 		if (player != null) {
 			if (player.GetComponent<Player> ().DistanceToTarget == -1)
 				SceneManager.LoadScene ("Safezone");
