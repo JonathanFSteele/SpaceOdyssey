@@ -61,7 +61,6 @@ public void Start()
 	print ("item is null");
 }
 
-
 public void rowClick()
 {
 	Item item = itemScript.GetComponent<Item> ();

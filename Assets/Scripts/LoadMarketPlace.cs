@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class LoadMarketPlace : MonoBehaviour {
 
 	public GameObject library;
-
+	public Player player;
 	public Item itemScript;
 
 //LEFT SIDE Objects
@@ -46,4 +46,12 @@ public class LoadMarketPlace : MonoBehaviour {
 			rowPtr.itemTotal.text = item.price.ToString () + " £";
 		}
 	}
+
+	public void LoadMarketplace()
+	{
+		Player player = FindObjectOfType<Player>().GetComponent<Player>();
+		GameObject balanceParentScript = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
+		balanceParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";
+	}
+
 } //end of script
