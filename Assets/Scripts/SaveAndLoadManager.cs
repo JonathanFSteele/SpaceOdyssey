@@ -196,12 +196,13 @@ public class PlayerData {
 			playerCaptain.combatBonus = 2;
 			playerCaptain.charismaBonus = 2;
 			playerCaptain.medicalBonus = 2;
+		playerCrew = new Crew[0];
 		playerShip = new Ship();
 			playerShip.shipPrice = 0;
 			playerShip.shipName = "No Ship Selected";
 			playerShip.shipPicture = "Nada";
 			playerShip.speed = 0;
-			playerShip.crewCapacity = 0;
+			playerShip.crewCapacity = playerCrew.Length;
 			playerShip.crewAmt = 0; 
 			playerShip.maxFuel = 0;
 			playerShip.fuel = 0;
@@ -211,7 +212,6 @@ public class PlayerData {
 			playerShip.maxSupplies = 0;
 			playerShip.supplies = 0;
 			playerShip.combatBonus = 0;
-		playerCrew = new Crew[0];
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = -1; //-1 means there is no target yet
