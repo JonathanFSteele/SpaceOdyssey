@@ -42,10 +42,10 @@ public class Recruit : MonoBehaviour
 		int originalLength = player.playerCrew.Length;
 
 		if (player.credits - RecruitMember.CrewPrice >= 0) {
+
 			player.credits -= RecruitMember.CrewPrice;
 
 			Crew tempCrew = new Crew();
-
 			tempCrew.CrewName = RecruitMember.CrewName;
 			tempCrew.CrewImage = RecruitMember.CrewImage;
 			tempCrew.Description = RecruitMember.Description;
@@ -59,6 +59,7 @@ public class Recruit : MonoBehaviour
 			}
 			finalArray[finalArray.Length - 1] = tempCrew;
 			player.playerCrew = finalArray;
+			player.playerShip.crewAmt = finalArray.Length;
 
 			//UPDATE header and shipUIcanvas
 			HeaderStats = canvasHeader.GetComponent<AdjustBarAndStatLevels> ();
@@ -66,11 +67,12 @@ public class Recruit : MonoBehaviour
 
 //			CrewUIStats = canvasCrewUI.GetComponent<AdjustBarAndStatLevels>();
 //			CrewUIStats.UpdateText();
-
 			//loadCrewUI_Display (); //TODO: still fix this
 
+			LoadRecruitmentCenter ();
+
 			CenterStats = canvasRecruitmentCenter.GetComponent<AdjustBarAndStatLevels> ();
-			CenterStats.UpdateBalance ();			
+			CenterStats.UpdateBalance();			
 
 
 		}
@@ -100,7 +102,14 @@ public class Recruit : MonoBehaviour
 		if (player.credits - RecruitMember.CrewPrice >= 0)
 			HireButton.interactable = true;
 		else
-			HireButton.interactable = false;	 
+			HireButton.interactable = false;	
+
+		if (player.playerShip.crewAmt == player.playerShip.crewCapacity) {
+			HireButton.interactable = false;
+		} else {
+			HireButton.interactable = true;
+		}
+			
 	}
 
 
