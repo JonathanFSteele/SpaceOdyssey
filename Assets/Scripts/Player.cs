@@ -43,9 +43,9 @@ public class Player : MonoBehaviour {
 
 	public void UpdatePlayerStats() {
 
-		totalCombat = playerCaptain.combatBonus;
-		totalCharisma = playerCaptain.charismaBonus;
-		totalMedical = playerCaptain.medicalBonus;
+		totalCombat += playerCaptain.combatBonus + playerShip.combatBonus;
+		totalCharisma += playerCaptain.charismaBonus;
+		totalMedical += playerCaptain.medicalBonus;
 		int i = 0;
 		while (playerCrew [i] != null) {
 			totalCombat += playerCrew [i].Combat;

@@ -74,6 +74,7 @@ public class Recruit : MonoBehaviour
 			CenterStats = canvasRecruitmentCenter.GetComponent<AdjustBarAndStatLevels> ();
 			CenterStats.UpdateBalance();			
 
+			player.UpdatePlayerStats();
 
 		}
 

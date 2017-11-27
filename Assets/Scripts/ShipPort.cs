@@ -149,7 +149,9 @@ public class ShipPort : MonoBehaviour
 			loadShipUI_Display ();
 
 			portStats = canvasShipYard.GetComponent<AdjustBarAndStatLevels> ();
-			portStats.UpdateBalance ();			
+			portStats.UpdateBalance ();		
+
+			player.UpdatePlayerStats();
 
  
 		}
