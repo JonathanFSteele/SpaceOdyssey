@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class Mission {
 
 	public string MissionName;
@@ -15,6 +16,7 @@ public class Mission {
 	public bool EndLocationReached;
 	public string Description;
 	public int RewardCredits;
-	public int RewardSupplies;
+
+
 
 }

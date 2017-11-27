@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	public Captain playerCaptain;
 	public Ship playerShip; //ship is an object inside of player now
 	public Crew[] playerCrew;
+	public Mission playerMission;
 //	public Item[] inventory;
 	public int CurrentLocationID;  // 1 == earth, 2 == moon
 	public int TargetLocationID;  // 1 == earth, 2 == moon
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour {
 		totalCharisma += playerCaptain.charismaBonus;
 		totalMedical += playerCaptain.medicalBonus;
 		int i = 0;
+		if (playerCrew != null)
 		while (playerCrew [i] != null) {
 			totalCombat += playerCrew [i].Combat;
 			totalCharisma += playerCrew [i].Charisma;
