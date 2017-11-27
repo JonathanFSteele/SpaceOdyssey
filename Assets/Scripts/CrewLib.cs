@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class CrewLib : MonoBehaviour {
 
+	public Transform CrewMemberParent;
 	public Transform CrewMemberRow;
 
 	private GameObject library;
@@ -23,18 +24,40 @@ public class CrewLib : MonoBehaviour {
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player>();
 
+		for (int i=0; i < player.playerCrew.Length; i++) {
+			Debug.Log("Destroy: " + i);
+			Destroy(GameObject.Find("Row(Clone)"+i));
+		}
 
 		CrewList = player.playerCrew;
-		Image currentImage = null;
+		//Image currentImage = null;
 		String currentName = "";
 		String currentStats = " |Comb:  |Char:  |Medi:";
 		for (int i = 0; i < CrewList.Length; i++) {
 			returnedPicture = library.GetComponent<CrewPictureLibrary>().GetClipFromName(CrewList[i].CrewImage);
-			currentImage.sprite = returnedPicture;
 			currentName = CrewList [i].CrewName;
 			currentStats = " |Comb: " + CrewList [i].Combat + " |Char: " + CrewList [i].Charisma + " |Medi: " + CrewList [i].Medicine;
 
-			Instantiate(CrewMemberRow, CrewMemberRow.transform.position, CrewMemberRow.transform.rotation);
+			Transform NewRow = Instantiate (CrewMemberRow, CrewMemberRow.transform.position , Quaternion.identity);
+			NewRow.GetChild (0).GetChild(0).GetComponent<Text>().text = currentStats;
+			NewRow.GetChild (0).GetChild (1).GetComponent<Image> ().sprite = returnedPicture;
+			NewRow.transform.parent = CrewMemberParent;
+			NewRow.gameObject.SetActive(true);
+			NewRow.transform.localScale = CrewMemberRow.transform.localScale;
+			NewRow.transform.name = "Row(Clone)" + i;
 		}
 	}
+
+//	public void clickCrewMember()
+//	{
+//		
+//
+//
+//		selectCrewMember(value);
+//	}
+//
+//	public void selectCrewMember(int i)
+//	{
+//
+//	}
 }
