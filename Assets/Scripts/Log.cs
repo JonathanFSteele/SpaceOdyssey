@@ -21,6 +21,10 @@ public class Log : MonoBehaviour {
 	public GameObject LogMissionReward;
 	public GameObject LogStartEnd;
 
+	public GameObject CapCom;
+	public GameObject CapChar;
+	public GameObject CapMed;
+
 	private GameObject playerObj;
 	private Player player;
 	private Mission ActivePlayerMission;
@@ -31,6 +35,10 @@ public class Log : MonoBehaviour {
 		playerObj = GameObject.FindGameObjectWithTag ("Player");
 		player = playerObj.GetComponent<Player> ();
 		ActivePlayerMission = player.playerMission;
+
+		CapCom.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.combatBonus;
+		CapChar.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.charismaBonus;
+		CapMed.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.medicalBonus;
 
 		if (ActivePlayerMission != null){
 			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.MissionName;
