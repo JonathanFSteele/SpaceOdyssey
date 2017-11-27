@@ -95,7 +95,7 @@ public class MissionControl : MonoBehaviour {
 			} else if (mission2.StartLocationID == 2) {
 				M2Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: Moon";
 			} else {
-				M2Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: The Void";
+				M2Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: ";
 			}
 
 			if (mission2.EndLocationID == 1) {
@@ -103,7 +103,7 @@ public class MissionControl : MonoBehaviour {
 			} else if (mission2.EndLocationID == 2) {
 				M2End.GetComponent<UnityEngine.UI.Text> ().text = "End: Moon";
 			} else {
-				M2End.GetComponent<UnityEngine.UI.Text> ().text = "End: The Void";
+				M2End.GetComponent<UnityEngine.UI.Text> ().text = "End: ";
 			}
 
 			M2Description.GetComponent<UnityEngine.UI.Text> ().text = mission2.Description;
