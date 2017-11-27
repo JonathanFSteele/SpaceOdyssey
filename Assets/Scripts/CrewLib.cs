@@ -30,20 +30,34 @@ public class CrewLib : MonoBehaviour {
 		}
 
 		CrewList = player.playerCrew;
-		Image currentImage = null;
+		//Image currentImage = null;
 		String currentName = "";
 		String currentStats = " |Comb:  |Char:  |Medi:";
 		for (int i = 0; i < CrewList.Length; i++) {
-			//returnedPicture = library.GetComponent<CrewPictureLibrary>().GetClipFromName(CrewList[i].CrewImage);
-			//currentImage.sprite = returnedPicture;
-			//currentName = CrewList [i].CrewName;
+			returnedPicture = library.GetComponent<CrewPictureLibrary>().GetClipFromName(CrewList[i].CrewImage);
+			currentName = CrewList [i].CrewName;
 			currentStats = " |Comb: " + CrewList [i].Combat + " |Char: " + CrewList [i].Charisma + " |Medi: " + CrewList [i].Medicine;
+
 			Transform NewRow = Instantiate (CrewMemberRow, CrewMemberRow.transform.position , Quaternion.identity);
-//			NewRow.GetChild (0).;
+			NewRow.GetChild (0).GetChild(0).GetComponent<Text>().text = currentStats;
+			NewRow.GetChild (0).GetChild (1).GetComponent<Image> ().sprite = returnedPicture;
 			NewRow.transform.parent = CrewMemberParent;
 			NewRow.gameObject.SetActive(true);
 			NewRow.transform.localScale = CrewMemberRow.transform.localScale;
 			NewRow.transform.name = "Row(Clone)" + i;
 		}
 	}
+
+//	public void clickCrewMember()
+//	{
+//		
+//
+//
+//		selectCrewMember(value);
+//	}
+//
+//	public void selectCrewMember(int i)
+//	{
+//
+//	}
 }
