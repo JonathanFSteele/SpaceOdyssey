@@ -32,11 +32,11 @@ public class MissionComplete : MonoBehaviour {
 			playerMission = player.playerMission;
 			if (player.CurrentLocationID == playerMission.StartLocationID) {
 				playerMission.StartLocationReached = true;
-				Debug.Log ("Ding!!!!!!!!");
+				//Debug.Log ("Ding!!!!!!!!");
 			}
 			if (playerMission.StartLocationReached && (player.CurrentLocationID == playerMission.EndLocationID)) {
 				MissionIsComplete ();
-				Debug.Log ("Ding!!!!!!!! Ding!!!!!!!!!!!!!!!!!!!!");
+				//Debug.Log ("Ding!!!!!!!! Ding!!!!!!!!!!!!!!!!!!!!");
 			}
 		}
 

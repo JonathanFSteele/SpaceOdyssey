@@ -36,9 +36,9 @@ public class Log : MonoBehaviour {
 		player = playerObj.GetComponent<Player> ();
 		ActivePlayerMission = player.playerMission;
 
-		CapCom.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.combatBonus;
-		CapChar.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.charismaBonus;
-		CapMed.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.medicalBonus;
+		CapCom.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.combatBonus.ToString();
+		CapChar.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.charismaBonus.ToString();
+		CapMed.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.medicalBonus.ToString();
 
 		if (ActivePlayerMission != null){
 			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.MissionName;
