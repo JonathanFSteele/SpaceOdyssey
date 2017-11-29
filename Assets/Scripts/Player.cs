@@ -77,6 +77,7 @@ public class Player : MonoBehaviour {
 			playerCaptain = loadedStats.playerCaptain;
 			playerShip = loadedStats.playerShip;
 			playerCrew = loadedStats.playerCrew;
+			playerMission = loadedStats.playerMission;
 			//		inventory = player.inventory;
 			CurrentLocationID = loadedStats.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
 			TargetLocationID = loadedStats.TargetLocationID; //-1 means there is no target yet

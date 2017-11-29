@@ -50,6 +50,11 @@ public class EncounterScene : MonoBehaviour {
 	public GameObject cause;
 	public GameObject deathStats;
 
+	public AudioSource VictorySound;
+	public AudioSource DefeatSound;
+	public AudioSource DeathSound;
+	public AudioSource Theme;
+
 	// Use this for initialization
 	void Start () {
 		Library = GameObject.FindGameObjectWithTag("Library");
@@ -79,6 +84,8 @@ public class EncounterScene : MonoBehaviour {
 
 				//Start death check
 				if (ship.health <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = "You blew up";
@@ -87,6 +94,8 @@ public class EncounterScene : MonoBehaviour {
 				}
 
 				if (ship.fuel <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = " you ran out of fuel, then starved";
@@ -95,6 +104,8 @@ public class EncounterScene : MonoBehaviour {
 				}
 
 				if (ship.supplies <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = "you starved to death";
@@ -133,6 +144,8 @@ public class EncounterScene : MonoBehaviour {
 				
 				//Start death check
 				if (ship.health <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = "You blew up";
@@ -141,6 +154,8 @@ public class EncounterScene : MonoBehaviour {
 				}
 
 				if (ship.fuel <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = " you ran out of fuel, then starved";
@@ -149,6 +164,8 @@ public class EncounterScene : MonoBehaviour {
 				}
 
 				if (ship.supplies <= 0) {
+					Theme.Stop();
+					DeathSound.Play();
 					EncounterTF = true;
 					uDead.SetActive (true);
 					cause.GetComponent<UnityEngine.UI.Text> ().text = "you starved to death";
@@ -219,6 +236,7 @@ public class EncounterScene : MonoBehaviour {
 	public void EncounterComplete(int a) {
 		//LOses
 		if (a >= 1 && a <= 3) {
+			DefeatSound.Play();
 			result.GetComponent<UnityEngine.UI.Text> ().text = "Failure.";
 			GenerateLoss (a);
 
@@ -228,6 +246,7 @@ public class EncounterScene : MonoBehaviour {
 
 		//Wins
 		if (a >= 4 && a <= 6) {
+			VictorySound.Play();
 			result.GetComponent<UnityEngine.UI.Text> ().text = "Success!";	
 			GenerateReward (a);
 	
@@ -235,6 +254,7 @@ public class EncounterScene : MonoBehaviour {
 		}
 
 		if (a == 7) {
+			VictorySound.Play();
 			result.GetComponent<UnityEngine.UI.Text> ().text = " A win I guess?";	
 			description.GetComponent<UnityEngine.UI.Text> ().text = "You just kinda flew away";
 			loses.GetComponent<UnityEngine.UI.Text> ().text = "Nada";
@@ -242,6 +262,7 @@ public class EncounterScene : MonoBehaviour {
 		}
 
 		if (a == 8) {
+			DefeatSound.Play();
 			result.GetComponent<UnityEngine.UI.Text> ().text = "Ya Done Goofed";	
 			description.GetComponent<UnityEngine.UI.Text> ().text = "Your ship was not fast enough to get away and your ship got damaged.";
 			loses.GetComponent<UnityEngine.UI.Text> ().text = "You lost as lot of health";

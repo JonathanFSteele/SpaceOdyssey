@@ -174,6 +174,7 @@ public class PlayerData {
 	public Captain playerCaptain;
 	public Ship playerShip;
 	public Crew[] playerCrew;
+	public Mission playerMission;
 	//	public Item[] inventory;
 	public int CurrentLocationID;
 	public int TargetLocationID;
@@ -212,6 +213,14 @@ public class PlayerData {
 			playerShip.maxSupplies = 0;
 			playerShip.supplies = 0;
 			playerShip.combatBonus = 0;
+		playerMission = new Mission ();
+			playerMission.MissionName = "None";
+			playerMission.Description = "None";
+			playerMission.RewardCredits = 0;
+			playerMission.StartLocationID = -1;
+			playerMission.StartLocationReached = false;
+			playerMission.EndLocationID = -1;
+			playerMission.EndLocationReached = false;
 		//inventory = null;
 		CurrentLocationID = 1; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = -1; //-1 means there is no target yet
@@ -233,6 +242,7 @@ public class PlayerData {
 		playerCaptain = player.playerCaptain;
 		playerShip = player.playerShip;
 		playerCrew = player.playerCrew;
+		playerMission = player.playerMission;
 //		inventory = player.inventory;
 		CurrentLocationID = player.CurrentLocationID; //1 means earth/ 2 means moon/ etc...
 		TargetLocationID = player.TargetLocationID; //-1 means there is no target yet

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 	public GameObject player;
-	public GameObject playerShip;
+	public Ship playerShip;
 	public GameObject encounterScripts;
 
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
-		playerShip = GameObject.FindGameObjectWithTag ("PlayerShip");
+		playerShip = player.GetComponent<Player>().playerShip;
 		if (player != null) {
 			//player = player.GetComponent<Player> ();
 		}
@@ -38,7 +38,7 @@ public class Encounter : MonoBehaviour {
 
 
 	public void AttemptPrimary() {
-		roll = Random.Range (0, 20);
+		roll = Random.Range (1, 20);
 
 		if (this.encFocus == "Combat") {
 			if (roll + player.GetComponent<Player> ().totalCombat > this.Combat) {
@@ -128,7 +128,9 @@ public class Encounter : MonoBehaviour {
 
 	public void Ignore(){
 		if (this.encFocus == "Combat") {
-			if (playerShip.GetComponent<Ship> ().speed > this.speed) {
+			Debug.Log ("This.speed: " + this.speed);
+			Debug.Log ("This.speed: " + playerShip.speed);
+			if (playerShip.speed > this.speed) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (7);
 				encounterScripts.GetComponent<EncounterGenerator> ().SetUI (1);
 				return;

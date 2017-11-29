@@ -16,9 +16,9 @@ public class CrewPictureLibrary : MonoBehaviour {
 		foreach (ImageGroup imageGroup in imageGroups) {
 			groupDictionary.Add (imageGroup.groupID, imageGroup.group);
 		}
-
+		Debug.Log ("BEFORE pictures Declaration!!!!");
 		Sprite[] pictures = groupDictionary ["crew"];
-
+		Debug.Log ("AFTER pictures Declaration!!!!");
 		CrewArraySize = pictures.Length;
 		// print ("shipArraySize: " + shipArraySize);
 	}

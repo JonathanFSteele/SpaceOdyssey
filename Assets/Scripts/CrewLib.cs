@@ -14,9 +14,9 @@ public class CrewLib : MonoBehaviour {
 	private GameObject library;
 	private GameObject playerObj;
 	private Player player;
-	public Crew[] CrewList;
-    public Sprite CrewImage;
-	public Sprite returnedPicture;
+	private Crew[] CrewList;
+    private Sprite CrewImage;
+	private Sprite returnedPicture;
 
 	public void loadCurrentCrewList()
 	{
@@ -36,7 +36,7 @@ public class CrewLib : MonoBehaviour {
 		for (int i = 0; i < CrewList.Length; i++) {
 			returnedPicture = library.GetComponent<CrewPictureLibrary>().GetClipFromName(CrewList[i].CrewImage);
 			currentName = CrewList [i].CrewName;
-			currentStats = " |Comb: " + CrewList [i].Combat + " |Char: " + CrewList [i].Charisma + " |Medi: " + CrewList [i].Medicine;
+			currentStats = currentName + " |Comb: " + CrewList [i].Combat + " |Char: " + CrewList [i].Charisma + " |Medi: " + CrewList [i].Medicine;
 
 			Transform NewRow = Instantiate (CrewMemberRow, CrewMemberRow.transform.position , Quaternion.identity);
 			NewRow.GetChild (0).GetChild(0).GetComponent<Text>().text = currentStats;
