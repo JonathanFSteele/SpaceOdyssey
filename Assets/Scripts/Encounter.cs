@@ -39,7 +39,8 @@ public class Encounter : MonoBehaviour {
 
 	public void AttemptPrimary() {
 		roll = Random.Range (1, 20);
-
+		Debug.Log ("Our Stats " + (roll + player.GetComponent<Player> ().totalCombat) + " | " + (roll + player.GetComponent<Player> ().totalCharisma) + " | "
+			+ (roll + player.GetComponent<Player> ().totalMedical) + " | There Stats: " + this.Combat + " | " + this.Charisma + " | " + this.Medical);
 		if (this.encFocus == "Combat") {
 			if (roll + player.GetComponent<Player> ().totalCombat > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (4);
@@ -78,7 +79,10 @@ public class Encounter : MonoBehaviour {
 
 
 	public void AttemptSecondary() {
-		roll = Random.Range (0, 20);
+		roll = Random.Range (1, 20);
+		Debug.Log ("We Roll: " + roll);
+		Debug.Log ("Our Stats " + (roll + player.GetComponent<Player> ().totalCombat) + " | " + (roll + player.GetComponent<Player> ().totalCharisma) + " | " 
+			+ (roll + player.GetComponent<Player> ().totalMedical) + " | There Stats: " + this.Combat + " | " + this.Charisma + " | " + this.Medical);
 		if (this.enc2ndFocus == "Combat") {
 			if (roll + player.GetComponent<Player> ().totalCombat > this.Combat) {
 				encounterScripts.GetComponent<EncounterScene> ().EncounterComplete (4);

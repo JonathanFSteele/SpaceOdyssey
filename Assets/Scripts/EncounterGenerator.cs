@@ -73,9 +73,9 @@ public class EncounterGenerator : MonoBehaviour {
 
 	public Encounter CombatRoll(Encounter NewEnc){
 		NewEnc.encFocus = "Combat";
-		NewEnc.Combat = Random.Range(5,10);
+		NewEnc.Combat = Random.Range(8,20);
 		NewEnc.enc2ndFocus = "Charisma";
-		NewEnc.Charisma = Random.Range(3,10);
+		NewEnc.Charisma = Random.Range(8,20);
 		NewEnc.prompt = "Enemy ship wants to fight us, What are we going to do?" ;
 		NewEnc.speed = (int) Random.Range (20000, 80000);
 		SetUI (NewEnc);
@@ -84,9 +84,9 @@ public class EncounterGenerator : MonoBehaviour {
 
 	public Encounter CharismaRoll(Encounter NewEnc){
 		NewEnc.encFocus = "Charisma";
-		NewEnc.Charisma = Random.Range(5,10);
+		NewEnc.Charisma = Random.Range(8,20);
 		NewEnc.enc2ndFocus = "Combat";
-		NewEnc.Combat = Random.Range(3,10);
+		NewEnc.Combat = Random.Range(8,20);
 		NewEnc.prompt = "Enemy ship wants to Talk to us, What are we going to do?";
 		SetUI (NewEnc);
 		return NewEnc;
@@ -94,9 +94,9 @@ public class EncounterGenerator : MonoBehaviour {
 
 	public Encounter MedicalRoll(Encounter NewEnc){
 		NewEnc.encFocus = "Medical";
-		NewEnc.Medical = Random.Range(5,10);
+		NewEnc.Medical = Random.Range(8,20);
 		NewEnc.enc2ndFocus = "Charisma";
-		NewEnc.Combat = Random.Range(3,10);
+		NewEnc.Combat = Random.Range(8,20);
 		NewEnc.prompt = "Enemy ship wants us to give them aid, What are we going to do?";
 		SetUI (NewEnc);
 		return NewEnc;

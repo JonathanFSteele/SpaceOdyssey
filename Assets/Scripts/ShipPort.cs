@@ -31,8 +31,8 @@ public class ShipPort : MonoBehaviour
 	public Button fuelButton;
 	public Button repairButton;
 
-	private int fuelPrice = 200;
-	private int repairPrice = 300;
+	private int fuelPrice = 1; //* (player.playerShip.maxFuel - player.playerShip.fuel);
+	private int repairPrice = 100; // * (player.playerShip.maxHealth - player.playerShip.health);
 
 
 	public void Start ()
@@ -49,8 +49,8 @@ public class ShipPort : MonoBehaviour
 		playerShip = playerObj.GetComponent<Player> ().playerShip;		
 
 
-		if (player.credits - fuelPrice >= 0) {
-			player.credits -= fuelPrice;
+		if (player.credits >= (fuelPrice * (player.playerShip.maxFuel - player.playerShip.fuel))) {
+			player.credits -= (fuelPrice * (player.playerShip.maxFuel - player.playerShip.fuel));
 
 			playerShip.fuel = playerShip.maxFuel;
 
@@ -78,8 +78,8 @@ public class ShipPort : MonoBehaviour
 		playerShip = playerObj.GetComponent<Player> ().playerShip;		
 
 
-		if (player.credits - repairPrice >= 0) {
-			player.credits -= repairPrice;
+		if (player.credits >= (repairPrice * (player.playerShip.maxHealth - player.playerShip.health))) {
+			player.credits -= (repairPrice * (player.playerShip.maxHealth - player.playerShip.health));
 
 			playerShip.health = playerShip.maxHealth;
 
@@ -169,6 +169,9 @@ public class ShipPort : MonoBehaviour
 		playerShip = playerObj.GetComponent<Player> ().playerShip;
 		returnedPicture = library.GetComponent<ShipLibrary> ().GetClipFromName (shopShip.shipPicture);
 
+		fuelButton.GetComponentInChildren<Text>().text = "Refuel: " + (fuelPrice * (player.playerShip.maxFuel - player.playerShip.fuel)).ToString() + " €";
+		repairButton.GetComponentInChildren<Text>().text = "Repair: " + (repairPrice * (player.playerShip.maxHealth - player.playerShip.health)).ToString() + " €";
+			
 		// print("shopShip.shipName: " + shopShip.shipName);
 		// print("playerShip.shipName: " + playerShip.shipName);
 		while (playerShip.shipName == shopShip.shipName) {
@@ -195,13 +198,13 @@ public class ShipPort : MonoBehaviour
 
 
 		//checks if player can afford 'upgrades'. and needs them
-		if (player.credits - repairPrice >= 0 && playerShip.health < playerShip.maxHealth)
+		if (player.credits - repairPrice >= (repairPrice * (player.playerShip.maxHealth - player.playerShip.health)) && playerShip.health < playerShip.maxHealth)
 			repairButton.interactable = true;
 		else
 			repairButton.interactable = false;		
 
 
-		if (player.credits - fuelPrice >= 0 && playerShip.fuel < playerShip.maxFuel)
+		if (player.credits - fuelPrice >= (fuelPrice * (player.playerShip.maxFuel - player.playerShip.fuel)) && playerShip.fuel < playerShip.maxFuel)
 			fuelButton.interactable = true;
 		else
 			fuelButton.interactable = false;		

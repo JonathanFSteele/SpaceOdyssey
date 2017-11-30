@@ -43,7 +43,7 @@ public class MissionControl : MonoBehaviour {
 		mission10.EndLocationID = 2;
 		mission10.StartLocationReached = false;
 		mission10.EndLocationReached = false;
-		mission10.RewardCredits = 1000;
+		mission10.RewardCredits = 800;
 
 		mission1 = mission10;
 

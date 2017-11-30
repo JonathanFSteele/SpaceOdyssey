@@ -188,7 +188,7 @@ public class PlayerData {
 
 	public PlayerData() {
 		Debug.Log ("-------------Creating New PlayerData!-------------");
-		credits = 5000;
+		credits = 2000;
 		sceneID = 1;
 		encounterIndex = -1;
 		playerCaptain = new Captain();
