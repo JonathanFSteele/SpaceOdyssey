@@ -40,27 +40,6 @@ public void destroyYouSureWindow()
 	Destroy(gameObject);
 }
 
-
-public void Start()
-{
-	GameObject balanceParentScript = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
-	balanceParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";		
-	
-	if (itemScript.GetComponent<Item> () != null) {
-		Item item = itemScript.GetComponent<Item> ();
-
-		if (player.credits - item.price < 0) {
-			incButton.interactable = false;
-			decButton.interactable = false;
-			buyButton.interactable = false;
-
-			itemTotal.text = "Not Enough";					
-		}
-	}
-	else
-	print ("item is null");
-}
-
 public void rowClick()
 {
 	Item item = itemScript.GetComponent<Item> ();
@@ -75,6 +54,8 @@ public void rowClick()
 
 public void incAmount()
 {
+	playerObj = GameObject.FindGameObjectWithTag ("Player");
+	player = playerObj.GetComponent<Player>();
 	Item item = itemScript.GetComponent<Item> ();
 	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
 	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
@@ -84,11 +65,22 @@ public void incAmount()
 	itemDescription.text = item.description.ToString () + item.supplyBonus.ToString ();
 
 
-	intAmount++;
+	if (intAmount + player.playerShip.supplies == player.playerShip.maxSupplies) {
+		incButton.interactable = false;
+	}
+	else if (intAmount + player.playerShip.supplies > player.playerShip.maxSupplies) {
+		incButton.interactable = false;
+		buyButton.interactable = false;
+	}
+	else {
+		intAmount++;
+		buyButton.interactable = true;
+		incButton.interactable = true;
+	}
 	if(player.credits - item.price*intAmount >= 0)
 	{
 		intTotal = item.price*intAmount;
-		itemTotal.text = intTotal.ToString () + " £";		
+		itemTotal.text = intTotal.ToString () + " €";		
 		itemAmount.text = intAmount.ToString ();
 
 	}
@@ -110,6 +102,8 @@ public void incAmount()
 
 public void decAmount()
 {
+	playerObj = GameObject.FindGameObjectWithTag ("Player");
+	player = playerObj.GetComponent<Player>();
 	Item item = itemScript.GetComponent<Item> ();
 	GameObject picUI = GameObject.FindGameObjectWithTag("itemPicture_Image");
 	GameObject textUI = GameObject.FindGameObjectWithTag("itemDescription_Text");
@@ -123,14 +117,25 @@ public void decAmount()
 	if(intAmount > 1)
 	{
 		intAmount--;
+		if (intAmount + player.playerShip.supplies == player.playerShip.maxSupplies) {
+			incButton.interactable = false;
+		}
+		else if (intAmount + player.playerShip.supplies > player.playerShip.maxSupplies) {
+			incButton.interactable = false;
+			buyButton.interactable = false;
+		}
+		else {
+			buyButton.interactable = true;
+			incButton.interactable = true;
+		}
 		itemAmount.text = intAmount.ToString ();
 		intTotal = item.price*intAmount;
-		itemTotal.text = intTotal.ToString () + " £";		
+		itemTotal.text = intTotal.ToString () + " €";		
 		incFlag = 0;
 	}
 
 	if(player.credits - item.price*intAmount >= 0)
-	itemTotal.text = intTotal.ToString () + " £";		
+		itemTotal.text = intTotal.ToString () + " €";		
 	else  
 	itemTotal.text = "Not Enough";			
 
@@ -156,15 +161,16 @@ public void buyItemPart1()
 		GameObject foo = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
 		GameObject field = Instantiate(areYouSureItemPrefab);
 		field.transform.SetParent(foo.transform, false); //for loading items dynamically as particular child
-
+		field.SetActive(true);
 
 		field.GetComponent<ItemScroll>().itemScript = item;
 		field.GetComponent<ItemScroll>().itemScript.amountPurchasing = intAmount;
 		field.GetComponent<ItemScroll>().buyButton = buyButton;
 
+		//intAmount = 1;
 	}
 	else  
-	itemTotal.text = "Not Enough!";			
+	itemTotal.text = "Not Enough!";	
 
 }
 
@@ -193,7 +199,7 @@ public void buyItemPart2()
 		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
 
 		GameObject getParentScript = GameObject.FindGameObjectWithTag("ScrollRectwVerticalGroups");
-		getParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " £";		
+		getParentScript.GetComponent<AdjustBarAndStatLevels>().balanceDisplayText.text = "Balance: " + player.credits.ToString () + " €";		
 
 
 		getParentScript.GetComponent<AdjustBarAndStatLevels>().supplyDisplayText.text = player.playerShip.supplies.ToString () + '/' + player.playerShip.maxSupplies.ToString();
@@ -201,10 +207,10 @@ public void buyItemPart2()
 
 		// supplyTextDisplay.GetComponent<Text>().text = playerShip.supplies.ToString () + '/' + playerShip.maxSupplies.ToString();
 		// supplyBARDisplay.GetComponent<Image>().fillAmount = (float)playerShip.supplies / playerShip.maxSupplies;
-
+		//intAmount = 1;
 	}
 	else  
-	itemTotal.text = "Not Enough!!!";			
+	itemTotal.text = "Not Enough!!!";
 }
 
 

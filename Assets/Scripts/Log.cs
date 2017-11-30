@@ -24,6 +24,11 @@ public class Log : MonoBehaviour {
 	public GameObject CapCom;
 	public GameObject CapChar;
 	public GameObject CapMed;
+	public GameObject CapName;
+	public GameObject CapCredits;
+	public GameObject TotCombat;
+	public GameObject TotMedical;
+	public GameObject TotCharisma;
 
 	private GameObject playerObj;
 	private Player player;
@@ -36,54 +41,72 @@ public class Log : MonoBehaviour {
 		player = playerObj.GetComponent<Player> ();
 		ActivePlayerMission = player.playerMission;
 
-		CapCom.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.combatBonus.ToString();
-		CapChar.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.charismaBonus.ToString();
-		CapMed.GetComponent<UnityEngine.UI.Text> ().text = player.playerCaptain.medicalBonus.ToString();
+		CapName.GetComponent<UnityEngine.UI.Text> ().text = "Name: " + player.playerCaptain.captainName;
+		CapCredits.GetComponent<UnityEngine.UI.Text> ().text = "€: " + player.credits;
+		TotCombat.GetComponent<UnityEngine.UI.Text> ().text = "Total-Combat: " + player.totalCombat;
+		TotMedical.GetComponent<UnityEngine.UI.Text> ().text = "Total-Medical: " + player.totalMedical;
+		TotCharisma.GetComponent<UnityEngine.UI.Text> ().text = "Total-Charisma: " + player.totalCharisma;
+		CapCom.GetComponent<UnityEngine.UI.Text> ().text = "Combat: " + player.playerCaptain.combatBonus.ToString();
+		CapChar.GetComponent<UnityEngine.UI.Text> ().text = "Charisma: " + player.playerCaptain.charismaBonus.ToString();
+		CapMed.GetComponent<UnityEngine.UI.Text> ().text = "Medical: " + player.playerCaptain.medicalBonus.ToString();
 
 		if (ActivePlayerMission != null){
-			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.MissionName;
-			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.RewardCredits + " credits";
+			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "Mission: " + ActivePlayerMission.MissionName;
+			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "Reward: " + ActivePlayerMission.RewardCredits + " €redits";
 			string help = "";
 			if (ActivePlayerMission.StartLocationID == 1)
-				help += "Earth \n";
+				help += "Start: Earth \n";
 			if (ActivePlayerMission.StartLocationID == 2)
-				help += "Moon \n";
+				help += "End: Moon \n";
 
 			if (ActivePlayerMission.EndLocationID == 1)
-				help += "Earth";
+				help += "Start: Earth";
 			if (ActivePlayerMission.EndLocationID == 2)
-				help += "Moon";
+				help += "End: Moon";
 			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = help; 
 		}
 		else {
-			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "no Mission Active";
-			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "";
-			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = ""; 
+			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "Mission: no Mission Active";
+			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "Reward: None";
+			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = "End: None"; 
 		}
 	}
 
 
 	public void UpdateUI() {
-		
+		playerObj = GameObject.FindGameObjectWithTag ("Player");
+		player = playerObj.GetComponent<Player> ();
+		ActivePlayerMission = player.playerMission;
+
+		player.UpdatePlayerStats();
+
+		CapName.GetComponent<UnityEngine.UI.Text> ().text = "Name: " + player.playerCaptain.captainName;
+		CapCredits.GetComponent<UnityEngine.UI.Text> ().text = "€: " + player.credits;
+		TotCombat.GetComponent<UnityEngine.UI.Text> ().text = "Total-Combat: " + player.totalCombat;
+		TotMedical.GetComponent<UnityEngine.UI.Text> ().text = "Total-Medical: " + player.totalMedical;
+		TotCharisma.GetComponent<UnityEngine.UI.Text> ().text = "Total-Charisma: " + player.totalCharisma;
+		CapCom.GetComponent<UnityEngine.UI.Text> ().text = "Combat: " + player.playerCaptain.combatBonus.ToString();
+		CapChar.GetComponent<UnityEngine.UI.Text> ().text = "Charisma: " + player.playerCaptain.charismaBonus.ToString();
+		CapMed.GetComponent<UnityEngine.UI.Text> ().text = "Medical" + player.playerCaptain.medicalBonus.ToString();
 
 		if (ActivePlayerMission != null){
-			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.MissionName;
-			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = ActivePlayerMission.RewardCredits + " credits";
+			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "Mission: " + ActivePlayerMission.MissionName;
+			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "Reward: " + ActivePlayerMission.RewardCredits + " €";
 			string help = "";
 			if (ActivePlayerMission.StartLocationID == 1)
-				help += "Earth \n";
+				help += "Start: Earth \n";
 			if (ActivePlayerMission.StartLocationID == 2)
-				help += "Moon \n";
+				help += "End: Moon \n";
 
 			if (ActivePlayerMission.EndLocationID == 1)
-				help += "Earth";
+				help += "Start: Earth";
 			if (ActivePlayerMission.EndLocationID == 2)
-				help += "Moon";
+				help += "End: Moon";
 			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = help; 
 		}else {
-			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "no Mission Active";
-			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "";
-			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = ""; 
+			LogMissionName.GetComponent<UnityEngine.UI.Text> ().text = "Mission: no Mission Active";
+			LogMissionReward.GetComponent<UnityEngine.UI.Text> ().text = "Reward: None";
+			LogStartEnd.GetComponent<UnityEngine.UI.Text> ().text = "End: None"; 
 		}
 	}
 

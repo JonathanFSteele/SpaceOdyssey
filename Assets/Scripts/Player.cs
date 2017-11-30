@@ -43,18 +43,21 @@ public class Player : MonoBehaviour {
 	}
 
 	public void UpdatePlayerStats() {
-
-		totalCombat += playerCaptain.combatBonus + playerShip.combatBonus;
-		totalCharisma += playerCaptain.charismaBonus;
-		totalMedical += playerCaptain.medicalBonus;
+		Debug.Log ("Update Player Stats Called");
+		totalCombat = playerCaptain.combatBonus + playerShip.combatBonus;
+		totalCharisma = playerCaptain.charismaBonus;
+		totalMedical = playerCaptain.medicalBonus;
 		int i = 0;
 		if (playerCrew != null)
-		while (playerCrew [i] != null) {
+		while (i < playerCrew.Length) {
 			totalCombat += playerCrew [i].Combat;
 			totalCharisma += playerCrew [i].Charisma;
 			totalMedical += playerCrew [i].Medicine;
 			i++;
 		}
+		Debug.Log ("Total Combat: " + totalCombat);
+		Debug.Log ("Total Charisma: " + totalCharisma);
+		Debug.Log ("Total Medical: " + totalMedical);
 	}
 
 

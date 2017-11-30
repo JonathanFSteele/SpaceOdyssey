@@ -176,8 +176,8 @@ public class ShipPort : MonoBehaviour
 			shopShip = library.GetComponent<ShipObjLibrary> ().getNextShip (0);
 		}
 
-		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
+		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " €  ";
 		portStats.CurrentShipDisplayImage.sprite = returnedPicture;
 		portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString ();
 		portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString ();
@@ -235,8 +235,8 @@ public class ShipPort : MonoBehaviour
 		else
 			purchaseButton.interactable = false;		
 
-		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
+		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " €  ";
 		portStats.CurrentShipDisplayImage.sprite = returnedPicture;
 		portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString ();
 		portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString ();
@@ -272,8 +272,8 @@ public class ShipPort : MonoBehaviour
 		else
 			purchaseButton.interactable = false;		
 
-		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " £  ";
+		portStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		portStats.costDisplayText.text = shopShip.shipPrice.ToString () + " €  ";
 		portStats.CurrentShipDisplayImage.sprite = returnedPicture;
 		portStats.CurrentShipNameDisplayText.text = shopShip.shipName.ToString ();
 		portStats.hpDisplayText.text = "Health: " + shopShip.maxHealth.ToString ();

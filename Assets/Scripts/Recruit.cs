@@ -91,8 +91,8 @@ public class Recruit : MonoBehaviour
 		CenterStats = canvasRecruitmentCenter.GetComponent<AdjustBarAndStatLevels> ();
 		returnedPicture = library.GetComponent<CrewPictureLibrary> ().GetClipFromName (RecruitMember.CrewImage);
 
-		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " £  ";
+		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " €  ";
 		CenterStats.CurrentCrewDisplayImage.sprite = returnedPicture;
 		CenterStats.CurrentCrewNameDisplayText.text = RecruitMember.CrewName.ToString();
 		CenterStats.CurrentCrewCombat.text = " Combat: " + RecruitMember.Combat.ToString();
@@ -129,8 +129,8 @@ public class Recruit : MonoBehaviour
 		else
 			HireButton.interactable = false;	
 
-		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " £  ";
+		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " €  ";
 		CenterStats.CurrentCrewDisplayImage.sprite = returnedPicture;
 		CenterStats.CurrentCrewNameDisplayText.text = RecruitMember.CrewName.ToString();
 		CenterStats.CurrentCrewCombat.text = " Combat: " + RecruitMember.Combat.ToString();
@@ -155,8 +155,8 @@ public class Recruit : MonoBehaviour
 		else
 			HireButton.interactable = false;	
 
-		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " £  ";
+		CenterStats.BalanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+		CenterStats.CostDisplayText.text = "Recruit for: " + RecruitMember.CrewPrice.ToString () + " €  ";
 		CenterStats.CurrentCrewDisplayImage.sprite = returnedPicture;
 		CenterStats.CurrentCrewNameDisplayText.text = RecruitMember.CrewName.ToString();
 		CenterStats.CurrentCrewCombat.text = " Combat: " + RecruitMember.Combat.ToString();
@@ -185,8 +185,8 @@ public class Recruit : MonoBehaviour
 //		shipUIStats.supplyDisplayText.text = "Supply Capacity: " + playerShip.maxSupplies.ToString ();
 //		shipUIStats.combatModifierText.text = "Combat Modifier: " + playerShip.combatBonus.ToString();
 //
-//		//	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " £";
-//		//	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " £  ";
+	//		//	shipUIStats.balanceDisplayText.text = "  Balance: " + player.credits.ToString () + " €";
+	//		//	shipUIStats.costDisplayText.text = playerShip.shipPrice.ToString () + " €  ";
 //		//	shipUIStats.shieldsDisplayText.text = "Shields: " + playerShip.shields.ToString();
 //		//	shipUIStats.gunDamageDisplayText.text = "Gun Damage: " + playerShip.gunDamage.ToString();
 //		//	shipUIStats.armorDisplayText.text = "Armor: " + playerShip.armor.ToString();

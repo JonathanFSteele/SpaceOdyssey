@@ -43,7 +43,7 @@ public class MissionControl : MonoBehaviour {
 		mission10.EndLocationID = 2;
 		mission10.StartLocationReached = false;
 		mission10.EndLocationReached = false;
-		mission10.RewardCredits = 10000;
+		mission10.RewardCredits = 1000;
 
 		mission1 = mission10;
 
@@ -59,7 +59,7 @@ public class MissionControl : MonoBehaviour {
 		// mission 1 stuff
 		if (mission1 != null) {
 			M1Name.GetComponent<UnityEngine.UI.Text> ().text = "Name: " + mission1.MissionName;
-			M1Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission1.RewardCredits + " credits";
+			M1Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission1.RewardCredits + " €redits";
 
 			if (mission1.StartLocationID == 1) {
 				M1Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: Earth";
@@ -88,7 +88,7 @@ public class MissionControl : MonoBehaviour {
 		//mission 2 stuff
 		if (mission2 != null) {
 			M2Name.GetComponent<UnityEngine.UI.Text> ().text = "Name: " + mission2.MissionName;
-			M2Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission2.RewardCredits + " credits";
+			M2Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission2.RewardCredits + " €redits";
 
 			if (mission2.StartLocationID == 1) {
 				M2Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: Earth";
@@ -118,7 +118,7 @@ public class MissionControl : MonoBehaviour {
 		//mission 3 stuff
 		if (mission3 != null) {
 			M3Name.GetComponent<UnityEngine.UI.Text> ().text = "Name: " + mission3.MissionName;
-			M3Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission3.RewardCredits + " credits";
+			M3Reward.GetComponent<UnityEngine.UI.Text> ().text = "Reward : " + mission3.RewardCredits + " €redits";
 
 			if (mission3.StartLocationID == 1) {
 				M3Start.GetComponent<UnityEngine.UI.Text> ().text = "Start: Earth";
